@@ -15,5 +15,8 @@ function nameGen() {
     
     var randomName = firstName[rFirst] + " " + lastName[rLast];
     
+    console.log(randomName);
+    
     return randomName;
 }
+
