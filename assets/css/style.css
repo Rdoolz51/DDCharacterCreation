@@ -143,10 +143,10 @@ footer {
 #equipCard:active,
 #spellCard:active {
     box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 1);
-    border: 5px solid green;
+    border: 5px solid red;
     cursor: pointer;
     user-select: none;
-    opacity: .1;
+    opacity: .7;
 
 }
 
