@@ -30,6 +30,9 @@ function hamburgerMenu() {
 function charCreate() {
 }
 function statCreate() {
+    $('#statCard').css("background-image", "url(/assets/images/statsDone.png)")
+    $('#statCard').css("background-size", "cover")
+    $('#statCard').css("color", "green")
 
 }
 function equipCreate() {
@@ -40,31 +43,10 @@ function spellCreate() {
 }
 
 function charSheet() {
-    if ($('.main-card').css("display") == "flex") {
-        if ($('.main-card').css("background-image", "url(/assets/images/instructions.png)")) {
-            $('.main-card').css("background-image", "url(/assets/images/charsheet.png)");
-        }
-        else{
-        }
-        $('.main-card').css("display", "none")
-    }
-    else {
-        $('.main-card').css("display", "flex")
-        $('.main-card').css("background-image", "url(/assets/images/charsheet.png)");
-    }
+    $('.main-card').css("background-image", "url(/assets/images/charsheet.png)")
 }
 
 function instructions() {
-    if ($('.main-card').css("display") == "flex") {
-        if ($('.main-card').css("background-image", "url(/assets/images/charsheet.png)")) {
-            $('.main-card').css("background-image", "url(/assets/images/instructions.png)");
-        }
-        else{
-        }
-        $('.main-card').css("display", "none")
-    }
-    else {
-        $('.main-card').css("display", "flex")
-        $('.main-card').css("background-image", "url(/assets/images/instructions.png)");
-    }
+
+    $('.main-card').css("background-image", "url(/assets/images/instructions.png)")
 }
