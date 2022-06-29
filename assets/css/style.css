@@ -65,7 +65,7 @@ nav {
     transition: transform 0.2s ease-in;
 }
 
-#vcs:hover {
+#vcs:hover, #ins:hover {
     transform: scale(1.05);
 }
 
@@ -143,10 +143,10 @@ footer {
 #equipCard:active,
 #spellCard:active {
     box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 1);
-    border: 5px solid red;
+    border: 5px solid green;
     cursor: pointer;
     user-select: none;
-    opacity: .7;
+    opacity: .1;
 
 }
 
@@ -193,7 +193,7 @@ footer {
 }
 
 @media screen and (max-width: 800px) {
-    #vcs {
+    #vcs,#ins {
         width: 10rem;
         font-size: smaller;
     }
@@ -201,7 +201,7 @@ footer {
 }
 
 @media screen and (max-width: 580px) {
-    #vcs {
+    #vcs, #ins {
         width: 8rem;
         font-size: xx-small;
     }
