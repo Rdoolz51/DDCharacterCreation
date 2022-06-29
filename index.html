@@ -1,18 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D&D Character Sheet Creator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>D&D Template</title>
 </head>
-<body>
-<!-- Just added this div for testing name and stat generator -->
- <div id="check">
 
- </div>   
- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
- <!-- <script src="./assets/js/statGenerator.js"></script> -->
- <script src="./assets/js/nameGenerator.js"></script>
+<body class="grey darken-3">
+    <header id="header">
+        <nav>
+            <div class="nav-wrapper red darken-4">
+                <a href="#!" class="brand-logo center" id="D&D">D&D Character Sheet Helper</a>
+                <ul class="left">
+                    <li><a class="waves-effect waves-light btn grey darken-4" id="vcs" href="#">View Character Sheet</a>
+                    </li>
+                </ul>
+                <ul class="right">
+                    <li><img src="./assets/images/menu.png" id="burger" class="responsive-image"></li>
+                    <!-- <li><a class="waves-effect waves-light btn ccBtn grey darken-4">Character Creation</a></li>
+                <li><a class="waves-effect waves-light btn grey statsBtn darken-4">Stats</a></li>
+                <li><a class="waves-effect waves-light btn grey equipBtn darken-4">Equipment</a></li>
+                <li><a class="waves-effect waves-light btn grey spellBtn darken-4">Spells</a></li> -->
+                </ul>
+            </div>
+        </nav> 
+    </header>
+    <main class="row">
+
+        <div class="col xl9 m7 s12 grey darken-3 main">
+            <!-- main navigation panel -->
+            <div class="row">
+                <div class="col s12">
+                    <div class="main-card card-panel transparent darken-4">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col xl3 m5 s12 grey darken-3 side"> 
+            <!-- side page content  -->
+            <div class="section">
+                <div class="col m12 s8 offset-m2 offset-s2">
+                    <div href="#" class="col s12">
+                        <div class="card-panel red darken-4 c-pan flow-text zero" id="ccCard">
+                            <p class="card-Title">CHARACTER Creator</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col m12 s8 offset-m2 offset-s2">
+                <div href="#" class="col s12">
+                    <div class="card-panel red darken-4 c-pan flow-text zero" id="statCard">
+                        <p class="card-Title">STATS</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col m12 s8 offset-m2 offset-s2">
+                <div href="#" class="col s12">
+                    <div class="card-panel red darken-4 c-pan flow-text zero" id="equipCard">
+                        <p class="card-Title">EQUIPMENT</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col m12 s8 offset-m2 offset-s2">
+                <div href="#" class="col s12">
+                    <div class="card-panel red darken-4 c-pan flow-text zero" id="spellCard">
+                        <p class="card-Title">SPELLS</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+    <footer class="page-footer red darken-4">
+        <div class="footer-copyright red darken-4">
+            <div class="container red darken-4 center">
+                <span class="">© 2022 Copyright by The Dashing Ducks</span>
+            </div>
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
+
 </html>
