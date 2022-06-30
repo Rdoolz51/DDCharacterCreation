@@ -4,7 +4,10 @@ body {
 
 main {
     height: 100vh;
-
+    background-image: url('/assets/images/equip2done.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .card-panel {
@@ -194,7 +197,7 @@ footer {
 
 @media screen and (max-width: 800px) {
     #vcs,#ins {
-        width: 10rem;
+        width: 9rem;
         font-size: smaller;
     }
 

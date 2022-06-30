@@ -223,10 +223,14 @@ footer {
 
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 600px) {
     #vcs, #ins {
-        width: 8rem;
+        width: 5rem;
         font-size: xx-small;
+    }
+
+    .btn {
+        padding: 0 .1rem 0 .1rem;
     }
 
 }
