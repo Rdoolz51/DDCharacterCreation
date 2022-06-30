@@ -4,11 +4,11 @@ var constitution;
 var intelligence;
 var wisdom;
 var charisma;
-
+//creates a button and appends it to whatever div you fill in.
 buttonEl = $('<button>')
 buttonEl.text("GENERATE STATS")
-$(".stats").append(buttonEl)
-buttonEl.on('click', doStuff)
+$("{REPLACE THIS WITH THE ELEMENT YOU WANT TO APPEND THE BUTTON TO}").append(buttonEl)
+buttonEl.on('click', randomizeStats)
 
 strEl = $('<p>')
 dexEl = $('<p>')
@@ -17,7 +17,7 @@ intEl = $('<p>')
 wisEl = $('<p>')
 chaEl = $('<p>')
 
-
+//dice roller. takes in how many sides on the side, then how many dice youd like to roll.
 function d(num,numDice = 1) {
     var roll = 0;
     for(i=0; i<numDice; i++) {
@@ -26,43 +26,32 @@ function d(num,numDice = 1) {
     }
     return roll;
 }
-// function statRoller() {
-//     //roll 4 d6 and drop the lowest for stats.
-//     var roll1 = d(6);
-//     var roll2 = d(6);
-//     var roll3 = d(6);
-//     var roll4 = d(6);
-    
-//     //takes the lowest roll out of the 4 rolls.
-//     var droppedDie = Math.min(roll1,roll2,roll3,roll4);
-    
-//     //drops the lowest roll.
-//     var stat = (roll1 + roll2 + roll3 + roll4) - droppedDie;
-    
-    
-//     return stat;
-// }
 
-
-function doStuff() {
+function randomizeStats() {
+    //clears each stat every time the button is clicked
     $('.str').empty();
     $('.dex').empty();
     $('.con').empty();
     $('.int').empty();
     $('.wis').empty();
     $('.cha').empty();
+
+    //rolls the dice to give each stat a value. (6,3 means its rolling a 6 sided die 3 times)
     strength = d(6,3);
     dexterity = d(6,3)
     constitution = d(6,3)
     intelligence = d(6,3)
     wisdom = d(6,3)
     charisma = d(6,3)
+
+    //gives the html elements the stat value
     strEl.text("STR : " + strength)
     dexEl.text("DEX : " + strength)
     conEl.text("CONST : " + strength)
     intEl.text("INT : " + strength)
     wisEl.text("WIS : " + strength)
     chaEl.text("CHA : " + strength)
+    //appends each stat to its own div on a page (Must create the divs first)
     $('.str').append("strength = " + strength);
     $('.dex').append("dexterity =  " + dexterity);
     $('.con').append("constitution =  " + constitution);

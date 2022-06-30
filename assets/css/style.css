@@ -1,5 +1,4 @@
 * {
-    overflow-x: hidden;
 }
 
 body {
@@ -58,13 +57,18 @@ ul img {
 nav {
     box-shadow: none;
 }
+#burger {
+    margin: 1rem 0 0 1rem;
+}
 
 #burger:hover {
     cursor: pointer;
     transform: scale(1.2);
     transition: transform 0.2s ease-in;
 }
-
+#vcs, #ins {
+    margin: 0 2rem 0 0;
+}
 #vcs:hover, #ins:hover {
     transform: scale(1.05);
 }
@@ -80,41 +84,39 @@ nav {
 }
 
 #ccCard {
-    background-image: url(/assets/images/player.png);
+    background-image: url(/assets/images/player2.jpeg);
     background-size: cover;
-    background-position: center -10px;
-    background-repeat: repeat;
+    background-position: center;
     color: red;
     min-width: 15rem;
     height: 19vh;
     overflow: hidden;
-    margin-right: 10rem;
     
 }
 
 #statCard {
-    background-image: url(/assets/images/stats.png);
-    background-position: left;
-    color: red;
-    min-width: 15rem;
-    height: 19vh;
-    overflow: hidden;
-    margin-right: 10rem;
-    
-}
-
-#equipCard {
-    background-image: url(/assets/images/equip.png);
+    background-image: url(/assets/images/stats2.jpeg);
+    background-position: center;
     background-size: cover;
     color: red;
     min-width: 15rem;
     height: 19vh;
     overflow: hidden;
-    margin-right: 10rem;
+    
+}
+
+#equipCard {
+    background-image: url(/assets/images/equip2.jpeg);
+    background-size: cover;
+    background-position: 0 -30px;
+    color: red;
+    min-width: 15rem;
+    height: 19vh;
+    overflow: hidden;
 }
 
 #spellCard {
-    background-image: url(/assets/images/spells.png);
+    background-image: url(/assets/images/spells2.jpeg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -122,7 +124,6 @@ nav {
     min-width: 15rem;
     height: 19vh;
     overflow: hidden;
-    margin-right: 10rem;
 }
 
 footer {
@@ -148,6 +149,23 @@ footer {
     user-select: none;
     opacity: .7;
 
+}
+
+.modal-footer a {
+    font-size: x-large;
+    font-weight: bold;
+
+}
+.modal-content {
+    font-size: 2rem;
+    height:50vh;
+    text-align: center;
+    margin: 0 1rem;
+}
+.modal-content h4 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 3rem;
 }
 
 
@@ -190,6 +208,10 @@ footer {
     #ccCard {
         margin-top: 5rem;
     }
+}
+
+.nav-wrapper a {
+    user-select: none;
 }
 
 @media screen and (max-width: 800px) {
