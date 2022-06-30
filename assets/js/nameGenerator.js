@@ -1,3 +1,23 @@
+var CharacterAttributes = {
+    name: "",
+    class: "",
+    race: "",
+    alignment: "",
+    sex: "",
+    age: "",
+    height: "",
+    weight: "",
+    proficiencies: "",
+    strength: "",
+    dexterity: "",
+    constitution: "",
+    intelligence: "",
+    wisdom: "",
+    charisma: "",
+    equipment: [],
+    spells: []
+}
+
 buttonEl = $('<button>')
 buttonEl.text("GENERATE NAME")
 $("{REPLACE WITH WHAT YOU WANT TO APPEND TO}").append(buttonEl)
@@ -22,7 +42,7 @@ function nameGen() {
     textEl.text(randomName)
     $('{REPLACE WITH WHEREVER YOU WANT TO APPEND THIS TO}').append(labelEl)
     $(labelEl).append(textEl)
-    
+
     return randomName;
 }
 

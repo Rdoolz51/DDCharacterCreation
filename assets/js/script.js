@@ -1,3 +1,23 @@
+var CharacterAttributes = {
+    name: "",
+    class: "",
+    race: "",
+    alignment: "",
+    sex: "",
+    age: "",
+    height: "",
+    weight: "",
+    proficiencies: "",
+    strength: "",
+    dexterity: "",
+    constitution: "",
+    intelligence: "",
+    wisdom: "",
+    charisma: "",
+    equipment: [],
+    spells: []
+  }
+
 var ccCardEl = $("#ccCard")
 var statCardEl = $("#statCard")
 var equipCardEl = $("#equipCard")
