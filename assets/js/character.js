@@ -7,6 +7,7 @@ $(document).ready(function(){
 // var alignments = ["chaotic-neutral", "chaotic-evil", "chaotic-good", "lawful-neutral", "lawful-evil", "lawful-good", "neutral", "neutral-evil", "neutral-good"];
 var sexes = ["male", "female"];
 
+var baseApiUrl = "https://www.dnd5eapi.co/api/";
 
 var charClass;
 var charRace;
@@ -16,6 +17,7 @@ var charAge;
 var charHeight;
 var charWeight;
 var charProf;
+var charName;
 
 $(document).ready(function(){
   // items we want to fetch
@@ -31,7 +33,7 @@ $(document).ready(function(){
   // For each category to fetch
   $.each(fetchItems, function(i, item) {
     // Get the data
-    $.get("https://www.dnd5eapi.co/api" + item.endpoint, function(data) {
+    $.get(baseApiUrl + item.endpoint, function(data) {
       // For each row in the data
       $.each(data.results, function(j, row) {
         // Create a new option in the corresponding <select>

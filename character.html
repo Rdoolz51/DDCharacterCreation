@@ -14,42 +14,146 @@
 
 <body class="grey darken-3">
     <header id="header">
-        <nav>
-            <div class="nav-wrapper red darken-4">
-                <a href="#!" class="brand-logo center" id="D&D">D&D Character Sheet Generator</a>
-                <ul class="right">
-                    <li><a class="waves-effect waves-light btn modal-trigger grey darken-4" data-target="modal1" id="ins" href="#">Instructions</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+      <nav>
+        <div class="nav-wrapper red darken-4">
+          <a href="#!" class="brand-logo center" id="D&D">D&D Character Sheet Helper</a>
+          <ul class="left">
+            <li><a class="waves-effect waves-light btn grey darken-4 modal-trigger" data-target="modal1" id="ins"
+                href="#">Instructions</a>
+            </li>
+          </ul>
+          <ul class="right">
+            <li><a class="waves-effect waves-light btn grey darken-4" id="vcs" href="./index.html">Return Home</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </header>
     <main class="row">
-        <!-- Modal Structure -->
-        <div id="modal1" class="modal">
-            <div class="modal-content">
-                <h4>Instructions</h4>
-                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere vitae nisi possimus quis magnam sit voluptatum corrupti voluptate, corporis rerum consequuntur quaerat expedita maxime commodi praesentium error repellat, ducimus quidem.</p>
-                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere vitae nisi possimus quis magnam sit voluptatum corrupti voluptate, corporis rerum consequuntur quaerat expedita maxime commodi praesentium error repellat, ducimus quidem.</p>
-                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere vitae nisi possimus quis magnam sit voluptatum corrupti voluptate, corporis rerum consequuntur quaerat expedita maxime commodi praesentium error repellat, ducimus quidem.</p>
-            </div>
-            <div class="modal-footer">
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat">OK</a>
-            </div>
+      <nav>
+        <div class="nav-wrapper grey darken-4">
+          <div class="col s12">
+            <a href="#!" class="breadcrumb">Character Creation</a>
+            <a href="#!" class="breadcrumb">Stat Generator</a>
+            <a href="#!" class="breadcrumb">Equipment</a>
+            <a href="#!" class="breadcrumb">Spells</a>
+            <a href="#!" class="breadcrumb">Final Character</a>
+  
+          </div>
         </div>
-
-             <form>
-                <h4>Character</h4>
-                <p>
-                    <label for="class">Class:</label>
-                    <select name="class" class="drop-down" id="class"></select>
-                    <label for="race">Race:</label>
-                    <select name="race" class="drop-down" id="race"></select>
-                    <label for="alignment">Alignment:</label>
-                    <select name="alignment" class="drop-down" id="alignment"></select>
-                </p>
-            </form>
-
+      </nav>
+      <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> -->
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h4>How to use this section</h4>
+          <p>In this section, you'll build your base character! You can choose to randomize your attributes or enter your own input.</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+      </div>
+      <div class="container">
+        <div class="section">
+          <h3>Character Creation</h5>
+            <p>Make your choices wisely! Your selections here will guide your character on their journey.</p>
+        </div>
+        <div class="col s3">
+            <h5>Choice or Random?</h5>
+          <div class="switch">
+            <p>Name</p>
+            <label>
+              My Choice
+              <input type="checkbox">
+              <span class="lever red darken-4"></span>
+              Randomized
+            </label>
+          </div>
+          <div class="switch">
+            <p>Class</p>
+            <label>
+              My Choice
+              <input type="checkbox" id="demo">
+              <span class="lever red darken-4"></span>
+              Randomized
+            </label>
+          </div>
+          <div class="switch">
+            <p>Race</p>
+            <label>
+              My Choice
+              <input type="checkbox">
+              <span class="lever red darken-4"></span>
+              Randomized
+            </label>
+          </div>
+          <div class="switch">
+            <p>Alignment</p>
+            <label>
+              My Choice
+              <input type="checkbox">
+              <span class="lever red darken-4"></span>
+              Randomized
+            </label>
+          </div>
+          <br>
+          <div class="divider grey" ></div>
+          <br>
+          <button class="btn waves-effect waves-light red darken-4" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+  
+  
+        <!-- You will have to change the col size accordingly if you mix and match items -->
+        <div class="section col s5">
+          <h5>Choose Your Own</h5>
+          <p>If you know what you'd like, enter your choices here:</p>
+          <div class="input-field col s6">
+            <input placeholder="Type name" id="attribute" type="text" class="validate">
+            <label for="attribute">Name</label>
+          </div>
+          <div class="input-field col s6">
+            <input placeholder="Type class" id="attribute" type="text" class="validate">
+            <label for="attribute">Class</label>
+          </div>
+          <div class="input-field col s6">
+            <input placeholder="Type race" id="attribute" type="text" class="validate">
+            <label for="attribute">Race</label>
+          </div>
+          <div class="input-field col s6">
+            <input placeholder="Type alignment" id="attribute" type="text" class="validate">
+            <label for="attribute">Alignment</label>
+          </div>
+        </div>
+        <div class="section col s3">
+          <h5>Gender</h5>
+          <p>Please select one:</p>
+          <p>
+            <label>
+              <input type="checkbox" class="red darken-4s" />
+              <span>Female</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input type="checkbox" class="red darken-4s" />
+              <span>Male</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input type="checkbox" class="red darken-4s" />
+              <span>Either</span>
+            </label>
+          </p>
+        
+        </div>
+      </div>
+  
+  
+  
+  
+  
     </main>
     <footer class="page-footer red darken-4">
         <div class="footer-copyright red darken-4">
