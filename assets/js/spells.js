@@ -17,6 +17,9 @@ var CharacterAttributes = {
   equipment: [],
   spells: [],
 };
+// var cantripsKnown = "";
+var submitSpells = $("#submit-spells");
+var selectedSpells = ["15", "12", "25"];
 var baseApiUrl = "https://www.dnd5eapi.co/api/";
 
 // GOING TO HAVE TO CHANGE ONCE WE GET CLASSES SET UP FROM OTHER PAGES
@@ -26,6 +29,9 @@ var classUrl = `classes/druid/levels/1/spells`;
 $(document).ready(function () {
   $(".modal").modal();
 });
+// $(document).ready(function () {
+//   $(".tooltipped").tooltip();
+// });
 
 $("#submit-choice").on("click", function () {
   console.log("clicked");
@@ -33,6 +39,7 @@ $("#submit-choice").on("click", function () {
   $("#submit-choice").remove();
   $("#switch").remove();
   $("#submit-spells").show();
+  setUpSubmit();
   if ($("#demo").prop("checked")) {
     console.log("on");
   } else {
@@ -51,7 +58,7 @@ var classSpells = function (event) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
+      //   console.log(data);
       data.results.forEach((result, index) => {
         renderClasses(result.name, index);
         spellsDes(result.index, index);
@@ -75,7 +82,7 @@ var spellsDes = function (data, index) {
       return response1.json();
     })
     .then(function (result1) {
-      console.log(result1.desc);
+      //   console.log(result1.desc);
       renderSpellDescription(result1.desc, index);
     })
     .catch(function (err) {
@@ -87,8 +94,18 @@ var renderSpellDescription = function (data, index) {
   var spellsDescription = `<blockquote>${data}</blockquote>`;
   $("#spellCar" + index).append(spellsDescription);
 };
+var setUpSubmit = function () {
+  submitSpells.addClass("tooltipped");
+  submitSpells.attr("data-position", "right");
+  submitSpells.attr(
+    "data-tooltip",
+    `You need to have ${cantripsKnown} spells selected.`
+  );
+  submitSpells.tooltip();
 
-var randomizer = function () {
+  // return;
+};
+var cantripRestriction = function () {
   var cantripUrl = "classes/druid/levels";
   cantripApiUrl = baseApiUrl + cantripUrl;
   fetch(cantripApiUrl)
@@ -98,10 +115,11 @@ var randomizer = function () {
     .then(function (result2) {
       console.log(result2[1].spellcasting.cantrips_known);
       cantripsKnown = result2[1].spellcasting.cantrips_known;
+      //   cantripsKnown = cantripsKnow;
     })
     .catch(function (err) {
       console.log(err);
     });
 };
 
-randomizer();
+cantripRestriction();
