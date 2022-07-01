@@ -8,6 +8,30 @@ $(document).ready(function(){
 
 var baseApiUrl = "https://www.dnd5eapi.co/api/";
 
+var charClasses = ["barbarian", "bard", "cleric", "druid", "fighter", "monk", "paladin", "ranger", "rogue", "sorcerer", "warlock", "wizard"];
+var charRaces = ["dragonborn", "dwarf", "elf", "gnome", "half-elf", "half-orc", "halfling", "human", "tiefling"];
+var charAligns = ["chaotic-neutral", "chaotic-evil", "chaotic-good", "lawful-neutral", "lawful-evil", "lawful-good", "neutral", "neutral-evil", "neutral-good"];
+
+var CharacterAttributes = {
+  name: "",
+  class: "",
+  race: "",
+  alignment: "",
+  sex: "",
+  age: "",
+  height: "",
+  weight: "",
+  proficiencies: "",
+  strength: "",
+  dexterity: "",
+  constitution: "",
+  intelligence: "",
+  wisdom: "",
+  charisma: "",
+  equipment: [],
+  spells: []
+}
+
 var charClass;
 var charRace;
 var charAlign;
@@ -98,3 +122,23 @@ var alignList = function (event) {
       console.log(err);
     });
 };
+
+$('#saveChar').on("click", saveChars());
+
+var saveChars = $(function() {
+  $('#classMenu').change(function() {
+    localStorage.setItem(CharacterAttributes.class, this.value);
+  });
+  $('#raceMenu').change(function() {
+    localStorage.setItem(CharacterAttributes.race, this.value);
+  });
+  $('#alignMenu').change(function() {
+    localStorage.setItem(CharacterAttributes.alignment, this.value);
+  });
+  $('#nameUsed').change(function() {
+    localStorage.setItem(CharacterAttributes.name, json.stringify('.nameChoice'.value));
+  });
+  $('#ageUsed').change(function() {
+    localStorage.setItem(CharacterAttributes.age, json.stringify('.ageChoice'.value));
+  });
+});

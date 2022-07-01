@@ -47,7 +47,7 @@
         <div class="modal-content">
           <h4>How to use this section</h4>
           <p>In this section, you'll build your base character!</p>
-          <p>Begin by selecting "My Choice" or "Randomized" for each trait. For any trait you'd like to choose yourself, enter that in the Choose Your Own section. Finally, select your gender, and hit SUBMIT to save your choices and move on.</p>
+          <p>Begin by selecting "My Choice" or "Random" for each trait. If you choose "Random", a trait will be picked for you and displayed in the Choose Your Own section. Feel free to change these if you'd like! Once you have the set of traits you desire, select your gender, and hit SUBMIT to save your choices and move on.</p>
           <P>Choose wisely, for these selections may determine the fate of your campaign...</P>
         </div>
         <div class="modal-footer">
@@ -67,7 +67,7 @@
               My Choice
               <input type="checkbox" id="name-choice">
               <span class="lever red darken-4"></span>
-              Randomized
+              Random
             </label>
           </div>
           <div class="switch">
@@ -76,7 +76,7 @@
               My Choice
               <input type="checkbox" id="class-choice">
               <span class="lever red darken-4"></span>
-              Randomized
+              Random
             </label>
           </div>
           <div class="switch">
@@ -85,7 +85,7 @@
               My Choice
               <input type="checkbox" id="race-choice">
               <span class="lever red darken-4"></span>
-              Randomized
+              Random
             </label>
           </div>
           <div class="switch">
@@ -94,22 +94,13 @@
               My Choice
               <input type="checkbox" id="align-choice">
               <span class="lever red darken-4"></span>
-              Randomized
-            </label>
-          </div>
-          <div class="switch">
-            <p>Age</p>
-            <label>
-              My Choice
-              <input type="checkbox" id="age-choice">
-              <span class="lever red darken-4"></span>
-              Randomized
+              Random
             </label>
           </div>
           <br>
           <div class="divider grey" ></div>
           <br>
-          <button class="btn waves-effect waves-light red darken-4" type="submit" name="action">Submit</button>
+          <button class="btn waves-effect waves-light red darken-4" type="submit" name="action" id="saveChar">Submit</button>
         </div>
   
   
@@ -118,12 +109,12 @@
           <h5>Choose Your Own</h5>
           <p>If you know what you'd like, enter your choices here:</p>
           <div class="input-field col s6">
-            <input placeholder="Type name" id="attribute" type="text" class="validate">
-            <label for="attribute">Name</label>
+            <input placeholder="Type name" id="nameUsed" type="text" class="validate">
+            <label for="nameUsed">Name</label>
           </div>
           <div class="input-field col s6">
-            <input placeholder="Select age" id="attribute" type="number" class="validate">
-            <label for="attribute">Age</label>
+            <input placeholder="Select age" id="ageUsed" type="number" class="validate">
+            <label for="ageUsed">Age</label>
           </div>
           <div class="input-field col s6">
             <select id="classMenu" name="class">
