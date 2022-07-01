@@ -30,10 +30,16 @@ $(document).ready(function () {
 $("#submit-choice").on("click", function () {
   console.log("clicked");
   classSpells();
+  $("#submit-choice").remove();
+  $("#switch").remove();
+  $("#submit-spells").show();
   if ($("#demo").prop("checked")) {
     console.log("on");
   } else {
     console.log("off");
+
+    var spellRestriction = `<h5 class="choiceNum">You can choose ${cantripsKnown} spells.</h5>`;
+    $("#spellsContainer").append(spellRestriction);
   }
 });
 // })
@@ -81,3 +87,21 @@ var renderSpellDescription = function (data, index) {
   var spellsDescription = `<blockquote>${data}</blockquote>`;
   $("#spellCar" + index).append(spellsDescription);
 };
+
+var randomizer = function () {
+  var cantripUrl = "classes/druid/levels";
+  cantripApiUrl = baseApiUrl + cantripUrl;
+  fetch(cantripApiUrl)
+    .then(function (response2) {
+      return response2.json();
+    })
+    .then(function (result2) {
+      console.log(result2[1].spellcasting.cantrips_known);
+      cantripsKnown = result2[1].spellcasting.cantrips_known;
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
+};
+
+randomizer();
