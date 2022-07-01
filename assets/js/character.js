@@ -32,13 +32,6 @@ var CharacterAttributes = {
   spells: []
 }
 
-var charClass;
-var charRace;
-var charAlign;
-var charSex;
-var charAge;
-var charName;
-
 // $(document).ready(function(){
 //   // items we want to fetch
 //   const fetchItems = [{
@@ -123,7 +116,45 @@ var alignList = function (event) {
     });
 };
 
-$('#saveChar').on("click", saveChars());
+var checkName = function(event) {
+  if ($('#name-choice') === true) {
+    nameGen();
+    $('#nameUsed').value(randomName).change();
+    return randomName;
+  }
+  else {
+  }
+};
+
+var checkClass = function(event) {
+  if ($('#class-choice') === true) {
+    var randomClass = Math.floor(Math.random() * charClasses.length);
+    $('#class-choice').val(randomClass).change();
+    return randomClass;
+  }
+  else {
+  }
+};
+
+var checkRace = function(event) {
+  if ($('#race-choice') === true) {
+    var randomRace = Math.floor(Math.random() * charRaces.length);
+    $('#race-choice').val(randomRace).change();
+    return randomRace;
+  }
+  else {
+  }
+};
+
+var checkAlign = function(event) {
+  if ($('#align-choice') === true) {
+    var randomAlign = Math.floor(Math.random() * charAligns.length);
+    $('#align-choice').val(randomAlign).change();
+    return randomAlign;
+  }
+  else {
+  }
+};
 
 var saveChars = $(function() {
   $('#classMenu').change(function() {
@@ -136,9 +167,12 @@ var saveChars = $(function() {
     localStorage.setItem(CharacterAttributes.alignment, this.value);
   });
   $('#nameUsed').change(function() {
-    localStorage.setItem(CharacterAttributes.name, json.stringify('.nameChoice'.value));
+    localStorage.setItem(CharacterAttributes.name, json.stringify($('#nameUsed').value));
   });
   $('#ageUsed').change(function() {
-    localStorage.setItem(CharacterAttributes.age, json.stringify('.ageChoice'.value));
+    localStorage.setItem(CharacterAttributes.age, json.stringify($('#ageUsed').value));
   });
+  //console.log(localStorage);
 });
+
+$('#saveChar').on("click", saveChars);
