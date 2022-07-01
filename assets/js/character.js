@@ -2,10 +2,9 @@ $(document).ready(function(){
     $('.modal').modal();
   });
 
-// var classes = ["barbarian", "bard", "cleric", "druid", "fighter", "monk", "paladin", "ranger", "rogue", "sorcerer", "warlock", "wizard"];
-// var races = ["dragonborn", "dwarf", "elf", "gnome", "half-elf", "half-orc", "halfling", "human", "tiefling"];
-// var alignments = ["chaotic-neutral", "chaotic-evil", "chaotic-good", "lawful-neutral", "lawful-evil", "lawful-good", "neutral", "neutral-evil", "neutral-good"];
-var sexes = ["male", "female"];
+  $(document).ready(function(){
+    $('select').formSelect();
+  });
 
 var baseApiUrl = "https://www.dnd5eapi.co/api/";
 

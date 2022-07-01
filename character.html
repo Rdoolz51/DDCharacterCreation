@@ -47,6 +47,7 @@
         <div class="modal-content">
           <h4>How to use this section</h4>
           <p>In this section, you'll build your base character! You can choose to randomize your attributes or enter your own input.</p>
+          <P>Choose wisely, for these selections may determine the fate of your campaign...</P>
         </div>
         <div class="modal-footer">
           <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
@@ -98,9 +99,7 @@
           <br>
           <div class="divider grey" ></div>
           <br>
-          <button class="btn waves-effect waves-light red darken-4" type="submit" name="action">Submit
-            <i class="material-icons right">send</i>
-          </button>
+          <button class="btn waves-effect waves-light red darken-4" type="submit" name="action">Submit</button>
         </div>
   
   
@@ -113,16 +112,49 @@
             <label for="attribute">Name</label>
           </div>
           <div class="input-field col s6">
-            <input placeholder="Type class" id="attribute" type="text" class="validate">
-            <label for="attribute">Class</label>
+            <select id="class" name="class">
+                <option value="barbarian">Barbarian</option>
+                <option value="bard">Bard</option>
+                <option value="cleric">Cleric</option>
+                <option value="druid">Druid</option>
+                <option value="fighter">Fighter</option>
+                <option value="monk">Monk</option>
+                <option value="paladin">Paladin</option>
+                <option value="ranger">Ranger</option>
+                <option value="rogue">Rogue</option>
+                <option value="sorcerer">Sorcerer</option>
+                <option value="warlock">Warlock</option>
+                <option value="wizard">Wizard</option>
+            </select>
+            <label for="class">Class</label>
           </div>
           <div class="input-field col s6">
-            <input placeholder="Type race" id="attribute" type="text" class="validate">
-            <label for="attribute">Race</label>
+            <select id="race" name="race">
+                <option value="dragonborn">Dragonborn</option>
+                <option value="dwarf">Dwarf</option>
+                <option value="elf">Elf</option>
+                <option value="gnome">Gnome</option>
+                <option value="half-elf">Half-elf</option>
+                <option value="half-orc">Half-orc</option>
+                <option value="halfling">Halfling</option>
+                <option value="human">Human</option>
+                <option value="tiefling">Tiefling</option>
+            </select>
+            <label for="race">Race</label>
           </div>
           <div class="input-field col s6">
-            <input placeholder="Type alignment" id="attribute" type="text" class="validate">
-            <label for="attribute">Alignment</label>
+            <select id="alignment" name="alignment">
+                <option value="chaotic-neutral">chaotic-neutral</option>
+                <option value="chaotic-evil">chaotic-evil</option>
+                <option value="chaotic-good">chaotic-good</option>
+                <option value="lawful-neutral">lawful-neutral</option>
+                <option value="lawful-evil">lawful-evil</option>
+                <option value="lawful-good">lawful-good</option>
+                <option value="neutral">neutral</option>
+                <option value="neutral-evil">neutral-evil</option>
+                <option value="neutral-good">neutral-good</option>
+            </select>
+            <label for="alignment">Alignment</label>
           </div>
         </div>
         <div class="section col s3">
@@ -130,19 +162,19 @@
           <p>Please select one:</p>
           <p>
             <label>
-              <input type="checkbox" class="red darken-4s" />
+              <input type="checkbox" class="red darken-4s" id="female" />
               <span>Female</span>
             </label>
           </p>
           <p>
             <label>
-              <input type="checkbox" class="red darken-4s" />
+              <input type="checkbox" class="red darken-4s" id="male" />
               <span>Male</span>
             </label>
           </p>
           <p>
             <label>
-              <input type="checkbox" class="red darken-4s" />
+              <input type="checkbox" class="red darken-4s" id="either" />
               <span>Either</span>
             </label>
           </p>
