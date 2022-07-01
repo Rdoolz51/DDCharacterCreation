@@ -65,7 +65,7 @@
             <p>Name</p>
             <label>
               My Choice
-              <input type="checkbox">
+              <input type="checkbox" id="name-choice">
               <span class="lever red darken-4"></span>
               Randomized
             </label>
@@ -74,7 +74,7 @@
             <p>Class</p>
             <label>
               My Choice
-              <input type="checkbox" id="demo">
+              <input type="checkbox" id="class-choice">
               <span class="lever red darken-4"></span>
               Randomized
             </label>
@@ -83,7 +83,7 @@
             <p>Race</p>
             <label>
               My Choice
-              <input type="checkbox">
+              <input type="checkbox" id="race-choice">
               <span class="lever red darken-4"></span>
               Randomized
             </label>
@@ -92,7 +92,16 @@
             <p>Alignment</p>
             <label>
               My Choice
-              <input type="checkbox">
+              <input type="checkbox" id="align-choice">
+              <span class="lever red darken-4"></span>
+              Randomized
+            </label>
+          </div>
+          <div class="switch">
+            <p>Age</p>
+            <label>
+              My Choice
+              <input type="checkbox" id="age-choice">
               <span class="lever red darken-4"></span>
               Randomized
             </label>
@@ -111,6 +120,10 @@
           <div class="input-field col s6">
             <input placeholder="Type name" id="attribute" type="text" class="validate">
             <label for="attribute">Name</label>
+          </div>
+          <div class="input-field col s6">
+            <input placeholder="Select age" id="attribute" type="number" class="validate">
+            <label for="attribute">Age</label>
           </div>
           <div class="input-field col s6">
             <select id="class" name="class">

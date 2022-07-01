@@ -13,8 +13,7 @@ var charRace;
 var charAlign;
 var charSex;
 var charAge;
-var charHeight;
-var charWeight;
+var charSize;
 var charProf;
 var charName;
 
