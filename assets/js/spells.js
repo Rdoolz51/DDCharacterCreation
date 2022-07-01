@@ -19,10 +19,10 @@ var CharacterAttributes = {
 };
 var baseApiUrl = "https://www.dnd5eapi.co/api/";
 
-// GOING TO HAVE TO CHANGE ONCE WE GET CLASSES SET UP
+// GOING TO HAVE TO CHANGE ONCE WE GET CLASSES SET UP FROM OTHER PAGES
 
 var classUrl = `classes/druid/levels/1/spells`;
-// var spellUrl = "/spells/result[i].name"
+
 $(document).ready(function () {
   $(".modal").modal();
 });
@@ -46,8 +46,9 @@ var classSpells = function (event) {
     })
     .then(function (data) {
       console.log(data);
-      data.results.forEach((result) => {
-        renderClasses(result.name);
+      data.results.forEach((result, index) => {
+        renderClasses(result.name, index);
+        spellsDes(result.index, index);
       });
     })
     .catch(function (err) {
@@ -55,8 +56,28 @@ var classSpells = function (event) {
     });
 };
 
-var renderClasses = function (data) {
-  // console.log(data)
-  var spellsCard = `<div>Spell name is: ${data}</div>`;
-  $("#spellsContainer").append(spellsCard);
+var renderClasses = function (data, index) {
+  var spellsCrd = `<div class="row"><h5 class="col 12" id="spellCar${index}">${data}</h5><label><input type="checkbox" class="red darken-4s" id="box${index}" /><span>Check to use this spell</span></label></div>`;
+  $("#spellsContainer").append(spellsCrd);
+};
+
+var spellsDes = function (data, index) {
+  var spellUrl = `/spells/${data}`;
+  spellApiUrl = baseApiUrl + spellUrl;
+  fetch(spellApiUrl)
+    .then(function (response1) {
+      return response1.json();
+    })
+    .then(function (result1) {
+      console.log(result1.desc);
+      renderSpellDescription(result1.desc, index);
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
+};
+
+var renderSpellDescription = function (data, index) {
+  var spellsDescription = `<blockquote>${data}</blockquote>`;
+  $("#spellCar" + index).append(spellsDescription);
 };
