@@ -13,8 +13,6 @@ var charRace;
 var charAlign;
 var charSex;
 var charAge;
-var charSize;
-var charProf;
 var charName;
 
 // $(document).ready(function(){
@@ -63,6 +61,11 @@ var classesList = function (event) {
       console.log(err);
     });
 };
+
+var renderClasses = function (data, index) {
+  var classOption = '<option value=${index}>${result.name}</option>'
+  $("#classMenu").append(classOption);
+}
 
 var racesList = function (event) {
   var requestUrl = baseApiUrl + raceUrl;
