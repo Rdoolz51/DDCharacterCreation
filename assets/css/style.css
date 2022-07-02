@@ -10,7 +10,7 @@ main {
 }
 
 .nav-wrapper {
-    box-shadow: 1px 1px 1px 1px black;
+    box-shadow: 2px 2px 2px 2px black;
     background-color: rgb(37, 34, 34);
 }
 
@@ -19,7 +19,13 @@ main {
     width: auto;
 }
 .gradient {
-    background-image: linear-gradient(to top left, rgb(73, 65, 65), rgb(173, 85, 85), rgb(60, 49, 49));
+    background-image: linear-gradient(
+        to top left,
+        rgb(73, 65, 65),
+        rgb(173, 85, 85),
+        rgb(173, 85, 85),
+        rgb(60, 49, 49)
+    );
     position: absolute;
     width: 100vw;
     height: 100vh;
@@ -104,6 +110,7 @@ nav {
     min-width: 15rem;
     height: 19vh;
     overflow: hidden;
+    margin-top: 1rem;
 }
 
 #statCard {
@@ -119,7 +126,7 @@ nav {
 #equipCard {
     background-image: url(/assets/images/equip2.jpeg);
     background-size: cover;
-    background-position: 0 -30px;
+    background-position: 0 -45px;
     color: red;
     min-width: 15rem;
     height: 19vh;
