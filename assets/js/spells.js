@@ -18,7 +18,7 @@ var CharacterAttributes = {
   spells: [],
 };
 var submitSpells = $("#submit-spells");
-var selectedSpells = ["15", "12", "25"];
+var selectedSpells = [];
 var baseApiUrl = "https://www.dnd5eapi.co/api/";
 
 // GOING TO HAVE TO CHANGE ONCE WE GET CLASSES SET UP FROM OTHER PAGES!!!!!!!!!!!!!
@@ -28,9 +28,7 @@ var classUrl = `classes/druid/levels/1/spells`;
 $(document).ready(function () {
   $(".modal").modal();
 });
-// $(document).ready(function () {
-//   $(".tooltipped").tooltip();
-// });
+
 // Event listener on the first submit button shown.
 // Hides said submit button and switch.
 // creates new submit button at bottom of page
@@ -41,7 +39,6 @@ $("#submit-choice").on("click", function () {
   $("#submit-choice").remove();
   $("#switch").remove();
   $("#submit-spells").show();
-  setUpSubmit();
   if ($("#demo").prop("checked")) {
     console.log("on");
   } else {
@@ -74,7 +71,7 @@ var classSpells = function (event) {
 
 // displays spells using data from classSpells
 var renderClasses = function (data, index) {
-  var spellsCrd = `<div class="row"><h5 class="col 12" id="spellCar${index}">${data}</h5><label><input type="checkbox" class=" spell-box red darken-4s"  data-spell="${data}" id="box${index}" /><span>Check to use this spell</span></label></div>`;
+  var spellsCrd = `<div class="row"><h5 class="col 12" id="spellCar${index}">${data}</h5><label><input type="checkbox" class=" spell-box red darken-4s"  data-spell="${data}" name="box${index}" id="box${index}" /><span>Check to use this spell</span></label></div>`;
   $("#spellsContainer").append(spellsCrd);
 };
 
@@ -118,17 +115,31 @@ var cantripRestriction = function () {
     });
 };
 
-// Makes submit button display a tooltip telling user that they have too many spells selected
-var setUpSubmit = function () {
-  submitSpells.addClass("tooltipped");
-  submitSpells.attr("data-position", "right");
-  submitSpells.attr(
-    "data-tooltip",
-    `Your class lets you have no more than ${cantripsKnown} spells selected.`
-  );
-  submitSpells.tooltip();
+$(":checkbox").change(function () {
+  if (this.prop("checked")) {
+    return;
+  } else {
+    var checkedSpell = $(this).data("spell");
+    console.log(checkedSpell);
+    selectedSpells.push(checkedSpell);
+  }
+});
 
-  // return;
-};
-
+$("#submit-spells").on("click", function () {
+  $("#submit-warning").text("");
+  $(":checkbox:checked").each(function () {
+    var checkedSpell = $(this).data("spell");
+    console.log(checkedSpell);
+    selectedSpells.push(checkedSpell);
+  });
+  if (selectedSpells.length <= cantripsKnown) {
+    console.log("lower than cantrips");
+  } else {
+    console.log("higher than cantrips");
+    $("#submit-warning").text(
+      "You have submitted more cantrips than your class can have!"
+    );
+    selectedSpells = [];
+  }
+});
 cantripRestriction();
