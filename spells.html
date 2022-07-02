@@ -85,8 +85,31 @@
           >
         </div>
       </div>
-
-      <div class="container">
+      <div class="container hidden-on-start" id="post-choices">
+        <div class="row spells-chosen" id="spells-chosen"></div>
+        <a
+          class="btn red darken-4 hidden-on-start"
+          type="submit"
+          name="action"
+          id="submit-to-char"
+          data-position="right"
+        >
+          Submit to Character
+          <i class="material-icons right">spa</i>
+        </a>
+        <br />
+        <a
+          class="btn red darken-4 hidden-on-start"
+          type="submit"
+          name="action"
+          id="restart"
+          data-position="right"
+        >
+          Restart
+          <i class="material-icons right">spa</i>
+        </a>
+      </div>
+      <div class="container" id="pre-choices">
         <div class="section">
           <h3>Spells</h3>
           <p>
@@ -118,7 +141,7 @@
           <br />
           <br />
           <a
-            class="btn tooltipped red darken-4"
+            class="btn red darken-4"
             type="submit"
             name="action"
             id="submit-spells"

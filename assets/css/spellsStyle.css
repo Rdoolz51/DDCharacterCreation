@@ -1,6 +1,9 @@
 main {
     height:100%;
 }
-#submit-spells {
+.hidden-on-start {
     display: none;
+}
+#submit-spells {
+    display:none;
 }

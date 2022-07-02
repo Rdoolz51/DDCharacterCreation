@@ -115,16 +115,6 @@ var cantripRestriction = function () {
     });
 };
 
-$(":checkbox").change(function () {
-  if (this.prop("checked")) {
-    return;
-  } else {
-    var checkedSpell = $(this).data("spell");
-    console.log(checkedSpell);
-    selectedSpells.push(checkedSpell);
-  }
-});
-
 $("#submit-spells").on("click", function () {
   $("#submit-warning").text("");
   $(":checkbox:checked").each(function () {
@@ -134,12 +124,28 @@ $("#submit-spells").on("click", function () {
   });
   if (selectedSpells.length <= cantripsKnown) {
     console.log("lower than cantrips");
+    $("#submit-spells").hide();
+    $("#pre-choices").hide();
+    var finalChoiceHead = `<h3>You have selected these spells: </h3>`;
+    $("#spells-chosen").append(finalChoiceHead);
+    for (let i = 0; i < selectedSpells.length; i++) {
+      var selSpellDisp = `<p class="col s12 offset-s1 final-choice">${[
+        selectedSpells[i],
+      ]}</p>`;
+      $("#spells-chosen").append(selSpellDisp);
+    }
+    $(".hidden-on-start").show();
   } else {
     console.log("higher than cantrips");
     $("#submit-warning").text(
-      "You have submitted more cantrips than your class can have!"
+      "You have submitted more cantrips than your class can have! Please change your selection."
     );
     selectedSpells = [];
   }
+});
+
+$("#restart").on("click", function () {
+  selectedSpells = [];
+  location.reload();
 });
 cantripRestriction();
