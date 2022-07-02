@@ -112,7 +112,6 @@ var cantripRestriction = function () {
       return response2.json();
     })
     .then(function (result2) {
-      //   console.log(result2[1].spellcasting.cantrips_known);
       cantripsKnown = result2[1].spellcasting.cantrips_known;
     })
     .catch(function (err) {
@@ -120,6 +119,7 @@ var cantripRestriction = function () {
     });
 };
 
+// if user chooses to select their own spells, this button finds out if they have chosen too many or sends them to the final decision screen
 $("#submit-spells").on("click", function () {
   $("#submit-warning").text("");
   $(":checkbox:checked").each(function () {
@@ -134,9 +134,9 @@ $("#submit-spells").on("click", function () {
     var finalChoiceHead = `<h3>You have selected these spells: </h3>`;
     $("#spells-chosen").append(finalChoiceHead);
     for (let i = 0; i < selectedSpells.length; i++) {
-      var selSpellDisp = `<p class="col s12 offset-s1 final-choice">${[
+      var selSpellDisp = `<h5 class="col s12 offset-s1 final-choice">${[
         selectedSpells[i],
-      ]}</p>`;
+      ]}</h5>`;
       $("#spells-chosen").append(selSpellDisp);
     }
     $(".hidden-on-start").show();
@@ -148,6 +148,8 @@ $("#submit-spells").on("click", function () {
     selectedSpells = [];
   }
 });
+
+// restart button if user doesn't like spell choices
 
 $("#restart").on("click", function () {
   selectedSpells = [];
@@ -198,16 +200,17 @@ var shuffle = function (array) {
 
   return array;
 };
-
+// displays randomly chosen spells
 var RandomSpellsDisplay = function () {
   var randomHead = `<h3>The randomly chosen spells are: </h3>`;
   $("#randomSpellsContainer").append(randomHead);
   for (let i = 0; i < selectedSpells.length; i++) {
-    var randomizedSpell = '<p class="endSpells">' + selectedSpells[i] + "</p>";
+    var randomizedSpell =
+      '<h5 class="col s12 offset-s1 endSpells">' + selectedSpells[i] + "</h5>";
     $("#randomSpellsContainer").append(randomizedSpell);
   }
 };
-
+// Button to submit spell choices to character sheet(local storage)
 $("#submitChar").on("click", function () {
   $(".endContainer").show();
   console.log("clicked");
@@ -219,7 +222,7 @@ $("#submitChar").on("click", function () {
 
   localStorage.setItem("spells", JSON.stringify(selectedSpells));
 });
-
+// return to index button
 $("#returnHome").on("click", function () {
   location.href = "./index.html";
 });
