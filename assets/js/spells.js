@@ -17,6 +17,8 @@ var CharacterAttributes = {
   equipment: [],
   spells: [],
 };
+var playerClass = JSON.parse(localStorage.getItem("playerClass"));
+var possibleSpells = [];
 var submitSpells = $("#submit-spells");
 var selectedSpells = [];
 var baseApiUrl = "https://www.dnd5eapi.co/api/";
@@ -35,20 +37,23 @@ $(document).ready(function () {
 
 $("#submit-choice").on("click", function () {
   console.log("clicked");
-  classSpells();
   $("#submit-choice").remove();
-  $("#switch").remove();
   $("#submit-spells").show();
+  $(".hidden-on-start1").show();
   if ($("#demo").prop("checked")) {
     console.log("on");
+    randomSpell();
+    $("#switch").remove();
   } else {
     console.log("off");
-
+    $("#instruct").text(
+      "Check boxes under each spell description to include choice"
+    );
+    $("#switch").remove();
     var spellRestriction = `<h5 class="choiceNum">You can choose ${cantripsKnown} spells.</h5>`;
     $("#spellsContainer").append(spellRestriction);
   }
 });
-// })
 
 // fetches spells that the user selected/randomized has available
 var classSpells = function (event) {
@@ -149,3 +154,72 @@ $("#restart").on("click", function () {
   location.reload();
 });
 cantripRestriction();
+classSpells();
+
+// selects random cantrips according to their allowance
+
+var randomSpell = function () {
+  $(".spell-box").each(function () {
+    var potSpell = $(this).data("spell");
+    // console.log(potSpell);
+    possibleSpells.push(potSpell);
+  });
+
+  for (let i = 0; i < cantripsKnown; i++) {
+    shuffle(possibleSpells);
+    var selRanSpells =
+      possibleSpells[Math.floor(Math.random() * possibleSpells.length)];
+    selectedSpells.push(selRanSpells);
+  }
+  $(".hidden-on-start1").hide();
+  $(".startup").hide();
+  $(".hidden-on-start2").show();
+  RandomSpellsDisplay();
+};
+
+// Shuffles the array to get random spell names
+
+var shuffle = function (array) {
+  let currentIndex = array.length,
+    randomIndex;
+
+  // While there remain elements to shuffle.
+  while (currentIndex != 0) {
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
+
+  return array;
+};
+
+var RandomSpellsDisplay = function () {
+  var randomHead = `<h3>The randomly chosen spells are: </h3>`;
+  $("#randomSpellsContainer").append(randomHead);
+  for (let i = 0; i < selectedSpells.length; i++) {
+    var randomizedSpell = '<p class="endSpells">' + selectedSpells[i] + "</p>";
+    $("#randomSpellsContainer").append(randomizedSpell);
+  }
+};
+
+$("#submitChar").on("click", function () {
+  $(".endContainer").show();
+  console.log("clicked");
+  var endMessage = `<h3>Your chosen spells have been submitted to your character sheet!</h3>`;
+  $("#closingMessage").prepend(endMessage);
+  $(".hidden-on-start").hide();
+  $(".hidden-on-start1").hide();
+  $(".hidden-on-start2").hide();
+
+  localStorage.setItem("spells", JSON.stringify(selectedSpells));
+});
+
+$("#returnHome").on("click", function () {
+  location.href = "./index.html";
+});

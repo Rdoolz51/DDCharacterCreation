@@ -91,12 +91,13 @@
           class="btn red darken-4 hidden-on-start"
           type="submit"
           name="action"
-          id="submit-to-char"
+          id="submitChar"
           data-position="right"
         >
           Submit to Character
           <i class="material-icons right">spa</i>
         </a>
+        <br />
         <br />
         <a
           class="btn red darken-4 hidden-on-start"
@@ -109,10 +110,24 @@
           <i class="material-icons right">spa</i>
         </a>
       </div>
+      <div id="endContainer " class="container endContainer">
+        <div id="closingMessage">
+          <a
+            class="btn red darken-4 endContainer"
+            type="submit"
+            name="action"
+            id="returnHome"
+            data-position="right"
+          >
+            Return home
+            <i class="material-icons right">spa</i>
+          </a>
+        </div>
+      </div>
       <div class="container" id="pre-choices">
         <div class="section">
-          <h3>Spells</h3>
-          <p>
+          <h3 class="startup">Spells</h3>
+          <p class="instruct startup" id="instruct">
             Pick whether you would like to have your cantrips randomly picked or
             if you would like to pick them yourself.
           </p>
@@ -137,7 +152,9 @@
             Submit
             <i class="material-icons right">spa</i>
           </button>
-          <div id="spellsContainer"></div>
+          <div id="spellsContainer" class="hidden-on-start1"></div>
+          <div id="randomSpellsContainer" class="hidden-on-start2"></div>
+
           <br />
           <br />
           <a
