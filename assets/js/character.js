@@ -18,7 +18,7 @@ var CharacterAttributes = {
     spells: []
 }
 
-
+//save playerClass to localstorage as "playerClass"
 
 $(document).ready(function () {
     $('.modal').modal();
