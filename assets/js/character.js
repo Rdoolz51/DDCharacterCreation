@@ -126,20 +126,27 @@ var checkName = function(event) {
   }
 };
 
+
+
 var checkClass = function(event) {
-  if ($('#class-choice') === true) {
-    var randomClass = Math.floor(Math.random() * charClasses.length);
-    $('#class-choice').val(randomClass).change();
-    return randomClass;
+  if ($('#class-choice').is(":checked")) {
+    
+    console.log( $('#classMenu option[value="druid"]'));
+    // var randomClass = Math.floor(Math.random() * charClasses.length);
+    $('#classMenu option[value=randomClass]');
+    // $('#classMenu').val(randomClass).change();
+    // return randomClass;
   }
   else {
   }
 };
 
+$('#class-choice').on("click", checkClass);
+
 var checkRace = function(event) {
   if ($('#race-choice') === true) {
     var randomRace = Math.floor(Math.random() * charRaces.length);
-    $('#race-choice').val(randomRace).change();
+    $('#raceMenu').val(randomRace).change();
     return randomRace;
   }
   else {
@@ -149,7 +156,7 @@ var checkRace = function(event) {
 var checkAlign = function(event) {
   if ($('#align-choice') === true) {
     var randomAlign = Math.floor(Math.random() * charAligns.length);
-    $('#align-choice').val(randomAlign).change();
+    $('#alignMenu').val(randomAlign).change();
     return randomAlign;
   }
   else {
@@ -167,10 +174,10 @@ var saveChars = $(function() {
     localStorage.setItem(CharacterAttributes.alignment, this.value);
   });
   $('#nameUsed').change(function() {
-    localStorage.setItem(CharacterAttributes.name, json.stringify($('#nameUsed').value));
+    localStorage.setItem(CharacterAttributes.name, JSON.stringify($('#nameUsed').value));
   });
   $('#ageUsed').change(function() {
-    localStorage.setItem(CharacterAttributes.age, json.stringify($('#ageUsed').value));
+    localStorage.setItem(CharacterAttributes.age, JSON.stringify($('#ageUsed').value));
   });
   //console.log(localStorage);
 });
