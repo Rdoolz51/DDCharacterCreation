@@ -349,6 +349,7 @@ var gender = 'Either';
 
 // check if user wants to randomize their name
 var checkName = function(event) {
+  // if they do want to randomize name
   if ($('#name-choice').is(":checked")) {
     // check user's gender selection
     if ($('#female').is(":checked")) {
@@ -361,7 +362,11 @@ var checkName = function(event) {
       var gender = "Either";
     };
     console.log(gender);
-  };
+
+    // hide text input allowing them to add a name
+    $('#nameUsed').addClass("hide");
+    $('#nameRand').removeClass("hide");
+
     // randomize their name based on gender
     var nameGen = function (gender) {
       var randomName = '';
@@ -383,33 +388,74 @@ var checkName = function(event) {
     // assign to list of character attributes
     CharacterAttributes.name = nameGen(gender);
     console.log(CharacterAttributes.name);
+
+    // display randomized name
+    $('#nameRand').text(CharacterAttributes.name);
+  }
+  // if user does not want to randomize name
+  else {
+    // show text input to type their own name
+    $('#nameUsed').removeClass("hide");
+    $('#nameRand').addClass("hide");
+    // ADD FUNCTION TO SAVE THEIR INPUT AS CHARACTERATTRIBUTES.NAME
+  };
 };
 $('#name-choice').on("click", checkName);
 
 // check if user wants to randomize their class
 var checkClass = function(event) {
+  // if they do want to randomize class
   if ($('#class-choice').is(":checked")) {
+    // hide menu allowing them to select class
+    $('#classMenu').addClass("hide");
+    $('#classRand').removeClass("hide");
     // randomize their class
     var randomClassNum = Math.floor(Math.random() * charClasses.length);
     var randomClass = charClasses[randomClassNum];
     // assign to list of character attributes
     CharacterAttributes.class = randomClass;
     console.log(CharacterAttributes.class);
+
+    // display randomized class
+    $('#classRand').text(CharacterAttributes.class);
+
     return CharacterAttributes.class;
+  }
+  // if user does not want to randomize class
+  else {
+    // show menu to select class
+    $('#classMenu').removeClass("hide");
+    $('#classRand').addClass("hide");
+    // ADD FUNCTION TO SAVE THEIR INPUT AS CHARACTERATTRIBUTES.CLASS
   };
 };
 $('#class-choice').on("click", checkClass);
 
 // check if user wants to randomize their race
 var checkRace = function(event) {
+  // if they do want to randomize race
   if ($('#race-choice').is(":checked")) {
+    // hide menu allowing them to select race
+    $('#raceMenu').addClass("hide");
+    $('#raceRand').removeClass("hide");
     // randomize their race
     var randomRaceNum = Math.floor(Math.random() * charRaces.length);
     var randomRace = charRaces[randomRaceNum];
     // assign to list of character attributes
     CharacterAttributes.race = randomRace;
     console.log(CharacterAttributes.race);
+
+    // display randomized race
+    $('#raceRand').text(CharacterAttributes.race);
+
     return CharacterAttributes.race;
+  }
+  // if user does not want to randomize race
+  else {
+    // show menu to select race
+    $('#raceMenu').removeClass("hide");
+    $('#raceRand').addClass("hide");
+    // ADD FUNCTION TO SAVE THEIR INPUT AS CHARACTERATTRIBUTES.RACE
   };
 };
 $('#race-choice').on("click", checkRace);
@@ -417,13 +463,27 @@ $('#race-choice').on("click", checkRace);
 // check if user wants to randomize their alignment
 var checkAlign = function(event) {
   if ($('#align-choice').is(":checked")) {
+    // hide menu allowing them to select alignment
+    $('#alignMenu').addClass("hide");
+    $('#alignRand').removeClass("hide");
     // randomize their alignment
     var randomAlignNum = Math.floor(Math.random() * charAligns.length);
     var randomAlign = charAligns[randomAlignNum];
     // assign to list of character attributes
     CharacterAttributes.alignment = randomAlign;
     console.log(CharacterAttributes.alignment);
+
+    // display randomized alignment
+    $('#alignRand').text(CharacterAttributes.alignment);
+
     return CharacterAttributes.alignment;
+  }
+  // if user does not want to randomize alignment
+  else {
+    // show menu to select alignment
+    $('#alignMenu').removeClass("hide");
+    $('#alignRand').addClass("hide");
+    // ADD FUNCTION TO SAVE THEIR INPUT AS CHARACTERATTRIBUTES.ALIGNMENT
   };
 };
 $('#align-choice').on("click", checkAlign);
