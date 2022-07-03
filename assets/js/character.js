@@ -117,9 +117,9 @@ var alignList = function (event) {
 };
 
 var checkName = function(event) {
-  if ($('#name-choice') === true) {
+  if ($('#name-choice').is(":checked")) {
     nameGen();
-    $('#nameUsed').value(randomName).change();
+    // $('#nameUsed').value(randomName).change();
     return randomName;
   }
   else {
@@ -130,12 +130,12 @@ var checkName = function(event) {
 
 var checkClass = function(event) {
   if ($('#class-choice').is(":checked")) {
-    
-    console.log( $('#classMenu option[value="druid"]'));
-    // var randomClass = Math.floor(Math.random() * charClasses.length);
-    $('#classMenu option[value=randomClass]');
+    var randomClassNum = Math.floor(Math.random() * charClasses.length);
+    var randomClass = charClasses[randomClassNum];
+    console.log(randomClass);
+    // $('#classMenu option[value=randomClass]');
     // $('#classMenu').val(randomClass).change();
-    // return randomClass;
+    return randomClass;
   }
   else {
   }
@@ -144,34 +144,42 @@ var checkClass = function(event) {
 $('#class-choice').on("click", checkClass);
 
 var checkRace = function(event) {
-  if ($('#race-choice') === true) {
-    var randomRace = Math.floor(Math.random() * charRaces.length);
-    $('#raceMenu').val(randomRace).change();
+  if ($('#race-choice').is(":checked")) {
+    var randomRaceNum = Math.floor(Math.random() * charRaces.length);
+    var randomRace = charRaces[randomRaceNum];
+    console.log(randomRace);
+    // $('#raceMenu').val(randomRace).change();
     return randomRace;
   }
   else {
   }
 };
 
+$('#race-choice').on("click", checkRace);
+
 var checkAlign = function(event) {
-  if ($('#align-choice') === true) {
-    var randomAlign = Math.floor(Math.random() * charAligns.length);
-    $('#alignMenu').val(randomAlign).change();
+  if ($('#align-choice').is(":checked")) {
+    var randomAlignNum = Math.floor(Math.random() * charAligns.length);
+    var randomAlign = charAligns[randomAlignNum];
+    console.log(randomAlign);
+    // $('#alignMenu').val(randomAlign).change();
     return randomAlign;
   }
   else {
   }
 };
 
+$('#align-choice').on("click", checkAlign);
+
 var saveChars = $(function() {
   $('#classMenu').change(function() {
-    localStorage.setItem(CharacterAttributes.class, this.value);
+    localStorage.setItem(CharacterAttributes.class, randomClass.value);
   });
   $('#raceMenu').change(function() {
-    localStorage.setItem(CharacterAttributes.race, this.value);
+    localStorage.setItem(CharacterAttributes.race, randomRace.value);
   });
   $('#alignMenu').change(function() {
-    localStorage.setItem(CharacterAttributes.alignment, this.value);
+    localStorage.setItem(CharacterAttributes.alignment, randomAlign.value);
   });
   $('#nameUsed').change(function() {
     localStorage.setItem(CharacterAttributes.name, JSON.stringify($('#nameUsed').value));
