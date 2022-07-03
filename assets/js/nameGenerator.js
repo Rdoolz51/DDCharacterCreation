@@ -14,6 +14,7 @@ function nameGen(gender) {
     } else {
         randomName = eitherFirstName[0][rEither] + ' ' + lastName[rLast];
     }
+
     return randomName;
 }
 
