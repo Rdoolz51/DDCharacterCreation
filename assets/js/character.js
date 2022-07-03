@@ -356,6 +356,9 @@ var checkName = function(event) {
     }
     else if ($('#male').is(":checked")) {
       var gender = "Male";
+    }
+    else if ($('#either').is(":checked")) {
+      var gender = "Either";
     };
     console.log(gender);
   };
