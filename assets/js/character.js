@@ -8,10 +8,12 @@ $(document).ready(function(){
 
 var baseApiUrl = "https://www.dnd5eapi.co/api/";
 
+// define arrays of classes, races, and alignments
 var charClasses = ["barbarian", "bard", "cleric", "druid", "fighter", "monk", "paladin", "ranger", "rogue", "sorcerer", "warlock", "wizard"];
 var charRaces = ["dragonborn", "dwarf", "elf", "gnome", "half-elf", "half-orc", "halfling", "human", "tiefling"];
 var charAligns = ["chaotic-neutral", "chaotic-evil", "chaotic-good", "lawful-neutral", "lawful-evil", "lawful-good", "neutral", "neutral-evil", "neutral-good"];
 
+// define character attributes array
 var CharacterAttributes = {
   name: "",
   class: "",
@@ -32,26 +34,352 @@ var CharacterAttributes = {
   spells: []
 }
 
-var classUrl = 'classes';
-var raceUrl = 'races';
-var alignUrl = 'alignments';
+// list name options
+var maleFirstName = [
+  'Zokad',
+  'Eirsod',
+  'Kidorth',
+  'Jenu',
+  'Esi',
+  'Thrand',
+  'Alder',
+  'Galmar',
+  'Vermund',
+  'Sigfred',
+  'Aelfric',
+  'Balder',
+  'Arnvidar',
+  'Ragnar',
+  'Frodo',
+  'Bilbo',
+  'Aeragar',
+  'Lindir',
+  'Nethion',
+  'Alagion',
+  'Nendo',
+  'Teldion',
+  'Pastion',
+  'Buior',
+  'Parthion',
+  'Penyo',
+  'Glan',
+  'Forben',
+  'Galion',
+  'Maur',
+  'Sereg',
+  'Angaran',
+  'Calarben',
+  'Gilornor',
+  'Muinor',
+  'Ingem',
+  'Gondor',
+  'Falasdir',
+  'Ashraf',
+  'Wadood',
+  'Nizaar',
+  'Al-Rahman',
+  'Ivor',
+  'Taino',
+  'Gulben',
+  'Mormeri',
+  'Gaerlin',
+  'Anchogol',
+  'Fernor',
+  'Nullo',
+  'Ulundir',
+  'Dagion',
+  'Calarphen',
+  'Sauron',
+  'Gandalf',
+  'Mordor',
+  'Vanwo',
+  'Gorogon',
+  'Thochon',
+  'Fuithor',
+  'Esgalwathion',
+  'Balhalph',
+  'Amlugaer',
+  'Uanor',
+  'Nahtaro',
+  'Rivophen',
+  'Alphaear',
+  'Dúvain',
+  'Vaniþaura',
+  'Agarwaenor',
+  'Daedhrog',
+  'Sanarion',
+  'Tyawindion',
+  'Maito',
+  'Siciltan',
+  'Finwa',
+  'Lilótion',
+  'Ceutarion',
+  'Rúþea',
+  'Wandil',
+  'Nullo',
+  'Airehíse',
+  'Quildo',
+  'Etto',
+  'Lission',
+  'Ilfirin',
+  'Feaquildo',
+  'Nípion',
+  'Cottion',
+  'Varyaro',
+  'Arcaro',
+  'Malpenar',
+  'Oritonde',
+  'Arenar',
+  'Dan-Za',
+  'Milos',
+  'Tedril',
+  'Bovkin',
+  'Irarvy',
+  'Gadaves',
+];
 
-var randomClass;
-var randomRace;
-var randomAlign;
+var femaleFirstName = [
+  'Luinie',
+  'Oialiel',
+  'Linte',
+  'Malwafinde',
+  'Hwarine',
+  'Hendunárie',
+  'Arosse',
+  'Nimpiel',
+  'Linde',
+  'Ohtare',
+  'Quildalótie',
+  'Alwiel',
+  'Urde',
+  'Quilda',
+  'Wáre',
+  'Sámondur',
+  'Cunyar',
+  'Mírime',
+  'Vasaryariel',
+  'Írnith',
+  'Túnith',
+  'Fainthel',
+  'Elnith',
+  'Annuinith',
+  'Celairthel',
+  'Esgarthel',
+  'Ingemdis',
+  'Daehel',
+  'Ninde',
+  'Rothruindis',
+  'Fandis',
+  'Fainith',
+  'Nimhel',
+  'Laiviel',
+  'Taer',
+  'Bainthaurel',
+  'Quantiel',
+  'Vanisaura',
+  'Círil',
+  'Achathriw',
+  'Glúdhel',
+  'Maeldis',
+  'Hissaeldis',
+  'Þenniel',
+  'Esgalthel',
+  'Paran',
+  'Malunith',
+  'Círbes',
+  'Fainien',
+  'Fingaer',
+  'Túgiel',
+  'Írthel',
+  'Baralinien',
+  'Dae',
+  'Gloreth',
+  'Emdiril',
+  'Muindis',
+  'Fainith',
+  'Geleth',
+  'Belegurwen',
+  'Rivaleth',
+  'Eriar',
+  'Remlasdis',
+  'Aeniel',
+  'Tarene',
+  'Seanaami',
+  'Tunenrene',
+  'Hyaril',
+  'Ialien',
+  'Rýnel (70)',
+  'Nídhel',
+  'Grathel',
+  'Rýnel',
+  'Lithel',
+  'Roitariel',
+  'Hallothel',
+  'Eryn',
+  'Ialien',
+  'Ivo',
+  'Thestra',
+  'Linseh',
+  'Dymre',
+  'Ghelni',
+  'Stima',
+  'Thriphlane',
+  'Shesimi',
+  'Paevadi',
+  'Niemri',
+  'Gafla',
+  'Dhasi',
+  'Alnivi',
+  'Sivi',
+  'Pevi',
+  'Eaos',
+  'Chiesis',
+  'Sotteus',
+  'Warenar',
+  'Kratrix',
+  'Qaaris',
+  'Elone',
+];
 
-// check user's gender selection
+var lastName = [
+  'Acoff-Sereno',
+  'Coffey-Macklin',
+  'Mintz',
+  'Mullinax',
+  'Malenko',
+  'Molinari',
+  'Truthbelly',
+  'Steele',
+  'Zaba',
+  'Arslani',
+  'Amana',
+  'Barlowe',
+  'Caddel',
+  'Villarreal',
+  'Pinebreath',
+  'Truthblight',
+  'Amberdrifter',
+  'Dirgeore',
+  'Fistless',
+  'Farrowbender',
+  'Alpenreaver',
+  'Fusebringer',
+  'Gloryhair',
+  'Hawkcleaver',
+  'Duriou',
+  'Radieu',
+  'Chaballi',
+  'Astagnon',
+  'Roquenie',
+  'Cardaiseul',
+  'Neremières',
+  'Alileilles',
+  'Albion',
+  'Albimbert',
+  'Astaseul',
+  'Bizeveron',
+  'Boneflare',
+  'Brightdoom',
+  'Cragore',
+  'Clanwillow',
+  'Crestbreeze',
+  'Crowstrike',
+  'Distantwind',
+  'Echethier',
+  'Elffire',
+  'Elfwind',
+  'Gaimbert',
+  'Grasshammer',
+  'Hazerider',
+  'Hardarm',
+  'Jouvempes',
+  'Keenstone',
+  'Laughingsnout',
+  'Lauregnory',
+  'Lonerider',
+  'Montalli',
+  'Marblemaw',
+  'Macherac',
+  'Nightwind',
+  'Nicklewhisk',
+  'Nobledane',
+  'Orbarrow',
+  'Paleforce',
+  'Proudchaser',
+  'Pellerelli',
+  'Runebraid',
+  'Ronchessac',
+  'Regalshade',
+  'Rochegne',
+  'Sharpdoom',
+  'Slateflayer',
+  'Snowscar',
+  'Suteuil',
+  'Tarrencloud',
+  'Thundermourn',
+  'Tusksnarl',
+  'Vassezac',
+  'Warbelly',
+  'Wisekeep',
+  'Whispercrest',
+  'Warbreaker',
+  'Atréides',
+  'Kholin',
+  'Dondarrion',
+  'Celebrimbor',
+  'Weatherwax',
+  'Mandragoran',
+  'Ninefingers',
+  'Anomander',
+  'var-Emreis 90',
+  'Mallson',
+  'Gothlson',
+  'Bonesless',
+  'Hakkon',
+  'Godwin',
+  'Siegfreid',
+  'Prudeinitis',
+  'Frejya',
+  'Fenrir',
+  'Heimdell',
+];
 
+var eitherFirstName = [maleFirstName.concat(femaleFirstName)];
+var gender = 'Either';
 
 // check if user wants to randomize their name
 var checkName = function(event) {
   if ($('#name-choice').is(":checked")) {
-    // randomize their name
-    nameGen();
-    // CharacterAttributes.name = randomName;
-    // $('#nameUsed').value(randomName).change();
-    // return randomName;
+    // check user's gender selection
+    if ($('#female').is(":checked")) {
+      var gender = "Female";
+    }
+    else if ($('#male').is(":checked")) {
+      var gender = "Male";
+    };
+    console.log(gender);
   };
+    // randomize their name based on gender
+    var nameGen = function (gender) {
+      var randomName = '';
+      var rMFirst = Math.floor(Math.random() * maleFirstName.length);
+      var rFFirst = Math.floor(Math.random() * femaleFirstName.length);
+      var rLast = Math.floor(Math.random() * lastName.length);
+      var rEither = Math.floor(Math.random() * eitherFirstName[0].length);
+    
+      if (gender == 'Male') {
+          randomName = maleFirstName[rMFirst] + ' ' + lastName[rLast];
+      } else if (gender == 'Female') {
+          randomName = femaleFirstName[rFFirst] + ' ' + lastName[rLast];
+      } else if (gender == 'Either') {
+          randomName = eitherFirstName[0][rEither] + ' ' + lastName[rLast];
+      };
+      return randomName;
+    };
+    nameGen();
+    // assign to list of character attributes
+    CharacterAttributes.name = nameGen(gender);
+    console.log(CharacterAttributes.name);
 };
 $('#name-choice').on("click", checkName);
 
@@ -61,10 +389,9 @@ var checkClass = function(event) {
     // randomize their class
     var randomClassNum = Math.floor(Math.random() * charClasses.length);
     var randomClass = charClasses[randomClassNum];
+    // assign to list of character attributes
     CharacterAttributes.class = randomClass;
     console.log(CharacterAttributes.class);
-    // $('#classMenu option[value=randomClass]');
-    // $('#classMenu').val(randomClass).change();
     return CharacterAttributes.class;
   };
 };
@@ -76,9 +403,9 @@ var checkRace = function(event) {
     // randomize their race
     var randomRaceNum = Math.floor(Math.random() * charRaces.length);
     var randomRace = charRaces[randomRaceNum];
+    // assign to list of character attributes
     CharacterAttributes.race = randomRace;
     console.log(CharacterAttributes.race);
-    // $('#raceMenu').val(randomRace).change();
     return CharacterAttributes.race;
   };
 };
@@ -90,9 +417,9 @@ var checkAlign = function(event) {
     // randomize their alignment
     var randomAlignNum = Math.floor(Math.random() * charAligns.length);
     var randomAlign = charAligns[randomAlignNum];
+    // assign to list of character attributes
     CharacterAttributes.alignment = randomAlign;
     console.log(CharacterAttributes.alignment);
-    // $('#alignMenu').val(randomAlign).change();
     return CharacterAttributes.alignment;
   };
 };
@@ -101,9 +428,5 @@ $('#align-choice').on("click", checkAlign);
 // save user's selections to localStorage
 $('#saveChar').on("click", function() {
   localStorage.setItem(CharacterAttributes, JSON.stringify(CharacterAttributes));
-  // localStorage.setItem(CharacterAttributes.race, JSON.stringify("race".value));
-  // localStorage.setItem(CharacterAttributes.alignment, JSON.stringify("alignment".value));
-  // localStorage.setItem(CharacterAttributes.name, JSON.stringify($('#nameUsed').value));
-
   console.log(localStorage);
 });

@@ -11,7 +11,7 @@ function nameGen(gender) {
         randomName = maleFirstName[rMFirst] + ' ' + lastName[rLast];
     } else if (gender == 'Female') {
         randomName = femaleFirstName[rFFirst] + ' ' + lastName[rLast];
-    } else {
+    } else if (gender == 'Either') {
         randomName = eitherFirstName[0][rEither] + ' ' + lastName[rLast];
     }
 
