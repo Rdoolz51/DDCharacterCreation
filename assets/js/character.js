@@ -93,18 +93,13 @@ $('#align-choice').on("click", checkAlign);
 
 // save user's selections to localStorage
 var saveChars = $(function() {
-  // $('#classMenu').change(function() {
-    //localStorage.setItem("class", JSON.stringify(randomClass));
-  // });
-  // $('#raceMenu').change(function() {
-  //  localStorage.setItem("race", JSON.stringify(randomRace));
-  // });
-  // $('#alignMenu').change(function() {
-   // localStorage.setItem("alignment", JSON.stringify(randomAlign));
-  // });
-  // $('#nameUsed').change(function() {
-    // localStorage.setItem("name", JSON.stringify($('#nameUsed').value));
-  // });
+  
+
+  // localStorage.setItem(characterAttributes.class, JSON.stringify("class".value));
+  // localStorage.setItem(characterAttributes.race, JSON.stringify("race".value));
+  // localStorage.setItem(characterAttributes.alignment, JSON.stringify("alignment".value));
+  // localStorage.setItem(characterAttributes.name, JSON.stringify($('#nameUsed').value));
+
   console.log(localStorage);
 });
 $('#saveChar').on("click", saveChars);
