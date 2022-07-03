@@ -94,16 +94,16 @@ $('#align-choice').on("click", checkAlign);
 // save user's selections to localStorage
 var saveChars = $(function() {
   // $('#classMenu').change(function() {
-    localStorage.setItem(CharacterAttributes.class, randomClass.value);
+    //localStorage.setItem("class", JSON.stringify(randomClass));
   // });
   // $('#raceMenu').change(function() {
-    localStorage.setItem(CharacterAttributes.race, randomRace.value);
+  //  localStorage.setItem("race", JSON.stringify(randomRace));
   // });
   // $('#alignMenu').change(function() {
-    localStorage.setItem(CharacterAttributes.alignment, randomAlign.value);
+   // localStorage.setItem("alignment", JSON.stringify(randomAlign));
   // });
   // $('#nameUsed').change(function() {
-    // localStorage.setItem(CharacterAttributes.name, JSON.stringify($('#nameUsed').value));
+    // localStorage.setItem("name", JSON.stringify($('#nameUsed').value));
   // });
   console.log(localStorage);
 });
