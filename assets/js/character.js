@@ -32,90 +32,11 @@ var CharacterAttributes = {
   spells: []
 }
 
-// $(document).ready(function(){
-//   // items we want to fetch
-//   const fetchItems = [{
-//     "endpoint": "/classes",
-//     "id": "#class"
-//   },
-//   {
-//     "endpoint": "/alignments",
-//     "id": "#alignment"
-//   }
-// ];
-//   // For each category to fetch
-//   $.each(fetchItems, function(i, item) {
-//     // Get the data
-//     $.get(baseApiUrl + item.endpoint, function(data) {
-//       // For each row in the data
-//       $.each(data.results, function(j, row) {
-//         // Create a new option in the corresponding <select>
-//         $(item.id).append($("<option>", {
-//           value: row.index,
-//           text: row.name
-//         }));
-//       });
-//     });
-//   });
-// });
-
 var classUrl = 'classes';
 var raceUrl = 'races';
 var alignUrl = 'alignments';
 
-var classesList = function (event) {
-  var requestUrl = baseApiUrl + classUrl;
-  fetch(requestUrl)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      data.results.forEach((result, index) => {
-        renderClasses(result.name, index);
-      });
-    })
-    .catch(function (err) {
-      console.log(err);
-    });
-};
-
-var renderClasses = function (data, index) {
-  var classOption = '<option value=${index}>${result.name}</option>'
-  $("#classMenu").append(classOption);
-}
-
-var racesList = function (event) {
-  var requestUrl = baseApiUrl + raceUrl;
-  fetch(requestUrl)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      data.results.forEach((result, index) => {
-        renderRaces(result.name, index);
-      });
-    })
-    .catch(function (err) {
-      console.log(err);
-    });
-};
-
-var alignList = function (event) {
-  var requestUrl = baseApiUrl + alignUrl;
-  fetch(requestUrl)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      data.results.forEach((result, index) => {
-        renderAlignments(result.name, index);
-      });
-    })
-    .catch(function (err) {
-      console.log(err);
-    });
-};
-
+// check if user wants to randomize their name
 var checkName = function(event) {
   if ($('#name-choice').is(":checked")) {
     nameGen();
@@ -125,9 +46,9 @@ var checkName = function(event) {
   else {
   }
 };
+$('#name-choice').on("click", checkName);
 
-
-
+// check if user wants to randomize their class
 var checkClass = function(event) {
   if ($('#class-choice').is(":checked")) {
     var randomClassNum = Math.floor(Math.random() * charClasses.length);
@@ -140,9 +61,9 @@ var checkClass = function(event) {
   else {
   }
 };
-
 $('#class-choice').on("click", checkClass);
 
+// check if user wants to randomize their race
 var checkRace = function(event) {
   if ($('#race-choice').is(":checked")) {
     var randomRaceNum = Math.floor(Math.random() * charRaces.length);
@@ -154,9 +75,9 @@ var checkRace = function(event) {
   else {
   }
 };
-
 $('#race-choice').on("click", checkRace);
 
+// check if user wants to randomize their alignment
 var checkAlign = function(event) {
   if ($('#align-choice').is(":checked")) {
     var randomAlignNum = Math.floor(Math.random() * charAligns.length);
@@ -168,26 +89,22 @@ var checkAlign = function(event) {
   else {
   }
 };
-
 $('#align-choice').on("click", checkAlign);
 
+// save user's selections to localStorage
 var saveChars = $(function() {
-  $('#classMenu').change(function() {
+  // $('#classMenu').change(function() {
     localStorage.setItem(CharacterAttributes.class, randomClass.value);
-  });
-  $('#raceMenu').change(function() {
+  // });
+  // $('#raceMenu').change(function() {
     localStorage.setItem(CharacterAttributes.race, randomRace.value);
-  });
-  $('#alignMenu').change(function() {
+  // });
+  // $('#alignMenu').change(function() {
     localStorage.setItem(CharacterAttributes.alignment, randomAlign.value);
-  });
-  $('#nameUsed').change(function() {
-    localStorage.setItem(CharacterAttributes.name, JSON.stringify($('#nameUsed').value));
-  });
-  $('#ageUsed').change(function() {
-    localStorage.setItem(CharacterAttributes.age, JSON.stringify($('#ageUsed').value));
-  });
-  //console.log(localStorage);
+  // });
+  // $('#nameUsed').change(function() {
+    // localStorage.setItem(CharacterAttributes.name, JSON.stringify($('#nameUsed').value));
+  // });
+  console.log(localStorage);
 });
-
 $('#saveChar').on("click", saveChars);
