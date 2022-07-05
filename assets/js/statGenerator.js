@@ -1,3 +1,23 @@
+var CharacterAttributes = {
+  name: "",
+  class: "",
+  race: "",
+  alignment: "",
+  sex: "",
+  age: "",
+  height: "",
+  weight: "",
+  proficiencies: "",
+  strength: "",
+  dexterity: "",
+  constitution: "",
+  intelligence: "",
+  wisdom: "",
+  charisma: "",
+  equipment: [],
+  spells: [],
+};
+
 var strength;
 var dexterity;
 var constitution;
@@ -59,11 +79,13 @@ $("#submitChar").on("click", function () {
   var finalSubmit = `<h4>Your stats have been submitted to your character!</h4>`;
   $(".returnBtn").prepend(finalSubmit);
   $("#returnBtn").show();
-  localStorage.setItem("strength", JSON.stringify(strength));
-  localStorage.setItem("wisdom", JSON.stringify(wisdom));
-  localStorage.setItem("intelligence", JSON.stringify(intelligence));
-  localStorage.setItem("charisma", JSON.stringify(charisma));
-  localStorage.setItem("dexterity", JSON.stringify(dexterity));
+  CharacterAttributes.strength = strength;
+  CharacterAttributes.dexterity = dexterity;
+  CharacterAttributes.constitution = constitution;
+  CharacterAttributes.intelligence = intelligence;
+  CharacterAttributes.charisma = charisma;
+  CharacterAttributes.wisdom = wisdom;
+  localStorage.setItem("character", JSON.stringify(CharacterAttributes));
 });
 // return to home button
 $("#returnBtn").on("click", function () {
