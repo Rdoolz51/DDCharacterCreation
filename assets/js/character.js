@@ -20,9 +20,7 @@ var CharacterAttributes = {
   race: "",
   alignment: "",
   sex: "",
-  age: "",
-  height: "",
-  weight: "",
+  size: "",
   proficiencies: "",
   strength: "",
   dexterity: "",
@@ -353,12 +351,15 @@ var checkName = function(event) {
     // check user's gender selection
     if ($('#female').is(":checked")) {
       var gender = "Female";
+      CharacterAttributes.sex = "Female";
     }
     else if ($('#male').is(":checked")) {
       var gender = "Male";
+      CharacterAttributes.sex = "Male";
     }
     else if ($('#either').is(":checked")) {
       var gender = "Either";
+      CharacterAttributes.sex = "Either";
     };
     console.log(gender);
 
