@@ -19,12 +19,13 @@ var CharacterAttributes = {
 var apiKey = "AIzaSyD_iuxaxY56u4gH6ja49Z5q2ZuAcofE7rM";
 var baseApiUrl = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&part=snippet&type=video&q=handbook%20helper%205e%20${CharacterAttributes.charClass}&maxResults=1`;
 var videoKey;
+
+// finds video from Critical Role to help user with new class
 var ClassVideo = function () {
   $.ajax({
     method: "GET",
     url: baseApiUrl,
     success: function (data) {
-      //   console.log(data.items[0].id.videoId);
       videoKey = data.items[0].id.videoId;
       var videoplayer = `<iframe
 width="560"
@@ -39,9 +40,15 @@ allowfullscreen
     },
   });
 };
+// loads from local storage
 var load = function () {
   var charFromPrev = localStorage.getItem("character");
   CharacterAttributes = JSON.parse(charFromPrev);
 };
+// returns user to home page on click
+$("#returnHome").on("click", function () {
+  location.href = "./index.html";
+});
+
 load();
 ClassVideo();
