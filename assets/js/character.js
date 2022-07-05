@@ -345,7 +345,6 @@ var lastName = [
 ];
 
 var eitherFirstName = [maleFirstName.concat(femaleFirstName)];
-var gender = 'Either';
 
 // check if user wants to randomize their name
 var checkName = function(event) {
@@ -389,7 +388,7 @@ var checkName = function(event) {
     CharacterAttributes.name = nameGen(gender);
     console.log(CharacterAttributes.name);
 
-    // display randomized name
+    // display randomized name on the page
     $('#nameRand').text(CharacterAttributes.name);
   }
   // if user does not want to randomize name
@@ -397,7 +396,6 @@ var checkName = function(event) {
     // show text input to type their own name
     $('#nameUsed').removeClass("hide");
     $('#nameRand').addClass("hide");
-    // ADD FUNCTION TO SAVE THEIR INPUT AS CHARACTERATTRIBUTES.NAME
   };
 };
 $('#name-choice').on("click", checkName);
@@ -488,7 +486,34 @@ var checkAlign = function(event) {
 };
 $('#align-choice').on("click", checkAlign);
 
-// save user's selections to localStorage
+// if user chose their own input, save it to the attributes array
+var saveInput = function(event) {
+  event.preventDefault();
+  if ($('#name-choice').is(":checked")) {
+  }
+  else {
+    CharacterAttributes.name = JSON.stringify($('#nameUsed').val);
+  };
+  // if ($('#class-choice').is(":checked")) {
+  // }
+  // else {
+  //   CharacterAttributes.class = JSON.stringify($('#classMenu').val);
+  // };
+  // if ($('#race-choice').is(":checked")) {
+  // }
+  // else {
+  //   CharacterAttributes.race = JSON.stringify($('#raceMenu').val);
+  // };
+  // if ($('#align-choice').is(":checked")) {
+  // }
+  // else {
+  //   CharacterAttributes.alignment = JSON.stringify($('#alignMenu').val);
+  // };
+  console.log(CharacterAttributes);
+};
+$('#lockIn').on("click", saveInput);
+
+// add user's selections to their Character Attributes in localStorage
 $('#saveChar').on("click", function() {
   localStorage.setItem(CharacterAttributes, JSON.stringify(CharacterAttributes));
   console.log(localStorage);
