@@ -15,7 +15,6 @@ var CharacterAttributes = {
   equipment: [],
   spells: [],
 };
-var player = localStorage.getItem("character");
 
 var possibleSpells = [];
 var submitSpells = $("#submit-spells");
