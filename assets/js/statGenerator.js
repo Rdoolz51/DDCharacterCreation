@@ -7,7 +7,7 @@ var CharacterAttributes = {
   age: "",
   height: "",
   weight: "",
-  proficiencies: "",
+  proficiencies: [],
   strength: "",
   dexterity: "",
   constitution: "",
