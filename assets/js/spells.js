@@ -222,7 +222,7 @@ $("#submitChar").on("click", function () {
 
   localStorage.setItem("spells", JSON.stringify(selectedSpells));
 });
-// return to index html
+// return to index
 $("#returnHome").on("click", function () {
   location.href = "./index.html";
 });
