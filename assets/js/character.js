@@ -492,23 +492,23 @@ var saveInput = function(event) {
   if ($('#name-choice').is(":checked")) {
   }
   else {
-    CharacterAttributes.name = JSON.stringify($('#nameUsed').val);
+    CharacterAttributes.name = JSON.stringify($('#nameUsed').val());
   };
-  // if ($('#class-choice').is(":checked")) {
-  // }
-  // else {
-  //   CharacterAttributes.class = JSON.stringify($('#classMenu').val);
-  // };
-  // if ($('#race-choice').is(":checked")) {
-  // }
-  // else {
-  //   CharacterAttributes.race = JSON.stringify($('#raceMenu').val);
-  // };
-  // if ($('#align-choice').is(":checked")) {
-  // }
-  // else {
-  //   CharacterAttributes.alignment = JSON.stringify($('#alignMenu').val);
-  // };
+  if ($('#class-choice').is(":checked")) {
+  }
+  else {
+    CharacterAttributes.class = JSON.stringify($('#classMenu').val());
+  };
+  if ($('#race-choice').is(":checked")) {
+  }
+  else {
+    CharacterAttributes.race = JSON.stringify($('#raceMenu').val());
+  };
+  if ($('#align-choice').is(":checked")) {
+  }
+  else {
+    CharacterAttributes.alignment = JSON.stringify($('#alignMenu').val());
+  };
   console.log(CharacterAttributes);
 };
 $('#lockIn').on("click", saveInput);
