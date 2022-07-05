@@ -511,4 +511,7 @@ $('#lockIn').on("click", saveInput);
 // add user's selections to their Character Attributes in localStorage
 $('#saveChar').on("click", function() {
   localStorage.setItem("Character", JSON.stringify(CharacterAttributes));
+
+  // move on to the next section
+  location.href="stats.html";
 });
