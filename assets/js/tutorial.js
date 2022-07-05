@@ -1,13 +1,12 @@
 var CharacterAttributes = {
   name: "",
-  class: "",
+  charClass: "",
   race: "",
   alignment: "",
   sex: "",
   age: "",
-  height: "",
-  weight: "",
-  proficiencies: [],
+  size: "",
+  proficiencies: [""],
   strength: "",
   dexterity: "",
   constitution: "",
@@ -19,7 +18,7 @@ var CharacterAttributes = {
 };
 
 var apiKey = "AIzaSyD_iuxaxY56u4gH6ja49Z5q2ZuAcofE7rM";
-var baseApiUrl = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&part=snippet&type=video&q=handbook%20helper%205e%20${CharacterAttributes.class}&maxResults=1`;
+var baseApiUrl = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&part=snippet&type=video&q=handbook%20helper%205e%20${CharacterAttributes.charClass}&maxResults=1`;
 var videoKey;
 var ClassVideo = function () {
   $.ajax({
