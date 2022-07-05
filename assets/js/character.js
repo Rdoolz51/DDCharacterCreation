@@ -361,7 +361,6 @@ var checkName = function(event) {
       var gender = "Either";
       CharacterAttributes.sex = "Either";
     };
-    console.log(gender);
 
     // hide text input allowing them to add a name
     $('#nameUsed').addClass("hide");
@@ -387,7 +386,6 @@ var checkName = function(event) {
     nameGen();
     // assign to list of character attributes
     CharacterAttributes.name = nameGen(gender);
-    console.log(CharacterAttributes.name);
 
     // display randomized name on the page
     $('#nameRand').text(CharacterAttributes.name);
@@ -413,7 +411,6 @@ var checkClass = function(event) {
     var randomClass = charClasses[randomClassNum];
     // assign to list of character attributes
     CharacterAttributes.class = randomClass;
-    console.log(CharacterAttributes.class);
 
     // display randomized class
     $('#classRand').text(CharacterAttributes.class);
@@ -441,7 +438,6 @@ var checkRace = function(event) {
     var randomRace = charRaces[randomRaceNum];
     // assign to list of character attributes
     CharacterAttributes.race = randomRace;
-    console.log(CharacterAttributes.race);
 
     // display randomized race
     $('#raceRand').text(CharacterAttributes.race);
@@ -468,7 +464,6 @@ var checkAlign = function(event) {
     var randomAlign = charAligns[randomAlignNum];
     // assign to list of character attributes
     CharacterAttributes.alignment = randomAlign;
-    console.log(CharacterAttributes.alignment);
 
     // display randomized alignment
     $('#alignRand').text(CharacterAttributes.alignment);
@@ -510,12 +505,10 @@ var saveInput = function(event) {
   else {
     CharacterAttributes.alignment = JSON.stringify($('#alignMenu').val());
   };
-  console.log(CharacterAttributes);
 };
 $('#lockIn').on("click", saveInput);
 
 // add user's selections to their Character Attributes in localStorage
 $('#saveChar').on("click", function() {
-  localStorage.setItem(CharacterAttributes, JSON.stringify(CharacterAttributes));
-  console.log(localStorage);
+  localStorage.setItem("Character", JSON.stringify(CharacterAttributes));
 });
