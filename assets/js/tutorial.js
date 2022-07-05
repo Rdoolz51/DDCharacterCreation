@@ -7,7 +7,7 @@ var CharacterAttributes = {
   age: "",
   height: "",
   weight: "",
-  proficiencies: "",
+  proficiencies: [],
   strength: "",
   dexterity: "",
   constitution: "",
@@ -18,8 +18,6 @@ var CharacterAttributes = {
   spells: [],
 };
 
-var charFromPrev = localStorage.getItem("character");
-CharacterAttributes = JSON.parse(charFromPrev);
 var apiKey = "AIzaSyD_iuxaxY56u4gH6ja49Z5q2ZuAcofE7rM";
 var baseApiUrl = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&part=snippet&type=video&q=handbook%20helper%205e%20${CharacterAttributes.class}&maxResults=1`;
 var videoKey;
@@ -43,5 +41,9 @@ allowfullscreen
     },
   });
 };
-
+var load = function () {
+  var charFromPrev = localStorage.getItem("character");
+  CharacterAttributes = JSON.parse(charFromPrev);
+};
+load();
 ClassVideo();
