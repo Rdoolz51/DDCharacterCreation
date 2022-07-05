@@ -222,6 +222,12 @@ $("#returnHome").on("click", function () {
   location.href = "./index.html";
 });
 
+// sends user to tutorial video
+$("#tut").on("click", function () {
+  location.href = "./tutorial.html";
+});
+
+// pulls information from local storage
 var load = function () {
   var player = localStorage.getItem("character");
   CharacterAttributes = JSON.parse(player);
