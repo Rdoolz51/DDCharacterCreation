@@ -424,7 +424,6 @@ var checkClass = function(event) {
     // show menu to select class
     $('#classMenu').removeClass("hide");
     $('#classRand').addClass("hide");
-    // ADD FUNCTION TO SAVE THEIR INPUT AS CHARACTERATTRIBUTES.CLASS
   };
 };
 $('#class-choice').on("click", checkClass);
@@ -453,7 +452,6 @@ var checkRace = function(event) {
     // show menu to select race
     $('#raceMenu').removeClass("hide");
     $('#raceRand').addClass("hide");
-    // ADD FUNCTION TO SAVE THEIR INPUT AS CHARACTERATTRIBUTES.RACE
   };
 };
 $('#race-choice').on("click", checkRace);
@@ -481,29 +479,31 @@ var checkAlign = function(event) {
     // show menu to select alignment
     $('#alignMenu').removeClass("hide");
     $('#alignRand').addClass("hide");
-    // ADD FUNCTION TO SAVE THEIR INPUT AS CHARACTERATTRIBUTES.ALIGNMENT
   };
 };
 $('#align-choice').on("click", checkAlign);
 
 // if user chose their own input, save it to the attributes array
 var saveInput = function(event) {
-  event.preventDefault();
+  // same typed name value
   if ($('#name-choice').is(":checked")) {
   }
   else {
     CharacterAttributes.name = JSON.stringify($('#nameUsed').val());
   };
+  // save selected class
   if ($('#class-choice').is(":checked")) {
   }
   else {
     CharacterAttributes.class = JSON.stringify($('#classMenu').val());
   };
+  // save selected race
   if ($('#race-choice').is(":checked")) {
   }
   else {
     CharacterAttributes.race = JSON.stringify($('#raceMenu').val());
   };
+  // save selected alignment
   if ($('#align-choice').is(":checked")) {
   }
   else {
