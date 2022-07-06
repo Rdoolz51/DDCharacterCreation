@@ -205,7 +205,7 @@ $('#submitChar').on('click', function () {
     $('.hidden-on-start1').hide();
     $('.hidden-on-start2').hide();
     CharacterAttributes.spells.push(selectedSpells);
-    localStorage.setItem('spells', JSON.stringify(CharacterAttributes));
+    localStorage.setItem('character', JSON.stringify(CharacterAttributes));
 });
 // return to index button
 $('#returnHome').on('click', function () {
