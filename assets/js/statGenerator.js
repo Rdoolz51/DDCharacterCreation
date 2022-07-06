@@ -40,6 +40,7 @@ var CharacterAttributes = {
  // wisEl = $("<p>");
 // chaEl = $("<p>");
 
+
 //dice roller. takes in how many sides on the side, then how many dice youd like to roll.
 function d(num, numDice = 1) {
     var roll = 0;
@@ -74,7 +75,6 @@ function randomizeStats() {
         roll5,
         roll6
     ];
-
     
     //rolls can never be negative so we can just do a simple subtraction
     rolls.sort(function (a, b) {
