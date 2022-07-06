@@ -4,10 +4,8 @@ var CharacterAttributes = {
   race: "",
   alignment: "",
   sex: "",
-  age: "",
-  height: "",
-  weight: "",
-  proficiencies: "",
+  size: "",
+  proficiencies: [],
   strength: "",
   dexterity: "",
   constitution: "",
@@ -17,7 +15,7 @@ var CharacterAttributes = {
   equipment: [],
   spells: [],
 };
-var playerClass = JSON.parse(localStorage.getItem("playerClass"));
+
 var possibleSpells = [];
 var submitSpells = $("#submit-spells");
 var selectedSpells = [];
@@ -25,7 +23,7 @@ var baseApiUrl = "https://www.dnd5eapi.co/api/";
 
 // GOING TO HAVE TO CHANGE ONCE WE GET CLASSES SET UP FROM OTHER PAGES!!!!!!!!!!!!!
 
-var classUrl = `classes/druid/levels/1/spells`;
+var classUrl = `classes/${CharacterAttributes.class}/levels/1/spells`;
 
 $(document).ready(function () {
   $(".modal").modal();
@@ -155,8 +153,6 @@ $("#restart").on("click", function () {
   selectedSpells = [];
   location.reload();
 });
-cantripRestriction();
-classSpells();
 
 // selects random cantrips according to their allowance
 
@@ -213,16 +209,29 @@ var RandomSpellsDisplay = function () {
 // Button to submit spell choices to character sheet(local storage)
 $("#submitChar").on("click", function () {
   $(".endContainer").show();
-  console.log("clicked");
   var endMessage = `<h3>Your chosen spells have been submitted to your character sheet!</h3>`;
   $("#closingMessage").prepend(endMessage);
   $(".hidden-on-start").hide();
   $(".hidden-on-start1").hide();
   $(".hidden-on-start2").hide();
-
-  localStorage.setItem("spells", JSON.stringify(selectedSpells));
+  CharacterAttributes.spells.push(selectedSpells);
+  localStorage.setItem("spells", JSON.stringify(CharacterAttributes));
 });
 // return to index
 $("#returnHome").on("click", function () {
   location.href = "./index.html";
 });
+
+// sends user to tutorial video
+$("#tut").on("click", function () {
+  location.href = "./tutorial.html";
+});
+
+// pulls information from local storage
+var load = function () {
+  var player = localStorage.getItem("character");
+  CharacterAttributes = JSON.parse(player);
+};
+load();
+cantripRestriction();
+classSpells();
