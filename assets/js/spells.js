@@ -217,7 +217,7 @@ $("#submitChar").on("click", function () {
   CharacterAttributes.spells.push(selectedSpells);
   localStorage.setItem("spells", JSON.stringify(CharacterAttributes));
 });
-// return to index html
+// return to index
 $("#returnHome").on("click", function () {
   location.href = "./index.html";
 });
