@@ -1,9 +1,13 @@
 main {
     height:100%;
 }
+.main {
+    height: 100%;
+}
 .hidden-on-start {
     display:none;
 }
 #returnBtn {
     display:none;
+
 }

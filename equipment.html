@@ -1,56 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />
+        <link rel="stylesheet" href="./assets/css/equipmentStyle.css" />
+        <link rel="stylesheet" href="./assets/css/style.css" />
+        <title>D&D Equipment</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
-    <link rel="stylesheet" href="./assets/css/equipmentStyle.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <title>D&D Template</title>
-</head>
-
-<body class="grey darken-3">
-    <header id="header">
-        <nav>
-            <div class="nav-wrapper red darken-4">
-                <a href="#!" class="brand-logo center" id="D&D">D&D Character Sheet Generator</a>
-                <ul class="right">
-                    <li><a class="waves-effect waves-light btn modal-trigger grey darken-4" data-target="modal1" id="ins" href="#">Instructions</a>
-                    </li>
-                </ul>
+    <body class="grey darken-3">
+        <header id="header">
+            <nav>
+                <div class="nav-wrapper red darken-4">
+                    <a href="#!" class="brand-logo center" id="D&D">D&D Character Sheet Generator</a>
+                    <ul class="right">
+                        <li>
+                            <a
+                                class="waves-effect waves-light btn modal-trigger grey darken-4"
+                                data-target="modal1"
+                                id="ins"
+                                href="#">
+                                Instructions
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main class="row">
+            <!-- Breadcrumb  -->
+            <nav>
+                <div class="nav-wrapper grey darken-4">
+                    <div class="col s12">
+                        <a href="./character.html" class="breadcrumb">Character Creation</a>
+                        <a href="./stats.html" class="breadcrumb">Stat Generator</a>
+                        <a href="./equipment.html" class="breadcrumb">Equipment</a>
+                        <a href="./spells.html" class="breadcrumb">Spells</a>
+                        <a href="./index.html" class="breadcrumb">Final Character</a>
+                    </div>
+                </div>
+            </nav>
+            <!-- Modal Structure -->
+            <!-- Add instructions on how to pick to random or user input -->
+            <div id="modal1" class="modal modal-fixed-footer">
+                <div class="modal-content">
+                    <h4>Instructions</h4>
+                    <p>
+                        On this page, you will select equipment for your character. The options shown to you will depend
+                        on your classes starter equipment and starter equipment options.
+                    </p>
+                    <p>
+                        You may choose these items individually or, if you'd rather, flip the switch to randomize and
+                        we'll make the hard choices for you!
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">OK</a>
+                </div>
             </div>
-        </nav>
-    </header>
-    <main class="row">
-        <!-- Modal Structure -->
-        <div id="modal1" class="modal">
-            <div class="modal-content">
-                <h4>Instructions</h4>
-                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere vitae nisi possimus quis magnam sit voluptatum corrupti voluptate, corporis rerum consequuntur quaerat expedita maxime commodi praesentium error repellat, ducimus quidem.</p>
-                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere vitae nisi possimus quis magnam sit voluptatum corrupti voluptate, corporis rerum consequuntur quaerat expedita maxime commodi praesentium error repellat, ducimus quidem.</p>
-                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere vitae nisi possimus quis magnam sit voluptatum corrupti voluptate, corporis rerum consequuntur quaerat expedita maxime commodi praesentium error repellat, ducimus quidem.</p>
+        </main>
+        <footer class="page-footer red darken-4">
+            <div class="footer-copyright red darken-4">
+                <div class="container red darken-4 center">
+                    <span class="">© 2022 Copyright by The Dashing Ducks</span>
+                </div>
             </div>
-            <div class="modal-footer">
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat">OK</a>
-            </div>
-        </div>
-
-    </main>
-    <footer class="page-footer red darken-4">
-        <div class="footer-copyright red darken-4">
-            <div class="container red darken-4 center">
-                <span class="">© 2022 Copyright by The Dashing Ducks</span>
-            </div>
-        </div>
-    </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="./assets/js/equipment.js"></script>
-    <script src="./assets/js/script.js"></script>
-</body>
-
+        </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="./assets/js/equipment.js"></script>
+    </body>
 </html>
