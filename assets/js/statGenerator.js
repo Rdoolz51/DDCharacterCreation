@@ -4,7 +4,6 @@ var CharacterAttributes = {
     race: '',
     alignment: '',
     sex: '',
-    size: '',
     proficiencies: [],
     strength: '',
     dexterity: '',
@@ -16,8 +15,9 @@ var CharacterAttributes = {
     spells: [],
     hitpoints: '',
 };
+var charAtt = localStorage.getItem('character');
 
-var player = JSON.parse(localStorage.getItem('character'));
+CharacterAttributes = JSON.parse(charAtt);
 
 var strength = 0;
 var dexterity = 0;
@@ -85,8 +85,8 @@ function randomizeStats() {
         rolls[j] = k;
     }
 
-    let race = player.race;
-    let playerClass = player.class;
+    let race = CharacterAttributes.race;
+    let playerClass = CharacterAttributes.class;
 
     //determines whether fighter is dex or str
     var fighterID = Math.floor(Math.random(1, 2) * 2 + 1);
@@ -318,8 +318,6 @@ function randomizeStats() {
     if (playerClass == 'wizard') {
         hitpoints = 6 + conMod;
     }
-
-    console.log(hitpoints + 'hp');
 
     //appends each stat to its own div on a page (Must create the divs first)
     $('#str').append('strength = ' + strength);

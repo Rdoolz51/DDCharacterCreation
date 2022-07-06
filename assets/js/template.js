@@ -4,7 +4,6 @@ var CharacterAttributes = {
     race: '',
     alignment: '',
     sex: '',
-    size: '',
     proficiencies: [],
     strength: '',
     dexterity: '',
