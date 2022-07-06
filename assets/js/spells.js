@@ -15,14 +15,15 @@ var CharacterAttributes = {
     spells: [],
     hitpoints: '',
 };
+var player = localStorage.getItem('character');
+CharacterAttributes = JSON.parse(player);
+var charClass = CharacterAttributes.class;
 var possibleSpells = [];
 var submitSpells = $('#submit-spells');
 var selectedSpells = [];
 var baseApiUrl = 'https://www.dnd5eapi.co/api/';
 
-// GOING TO HAVE TO CHANGE ONCE WE GET CLASSES SET UP FROM OTHER PAGES!!!!!!!!!!!!!
-
-var classUrl = `classes/${CharacterAttributes.class}/levels/1/spells`;
+var classUrl = `classes/${charClass}/levels/1/spells`;
 
 $(document).ready(function () {
     $('.modal').modal();
@@ -218,10 +219,7 @@ $('#tut').on('click', function () {
 });
 
 // pulls information from local storage
-var load = function () {
-    var player = localStorage.getItem('character');
-    CharacterAttributes = JSON.parse(player);
-};
+var load = function () {};
 load();
 cantripRestriction();
 classSpells();
