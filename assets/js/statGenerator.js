@@ -1,7 +1,7 @@
 var CharacterAttributes = {
-    name: 'dinkleberg',
-    class: 'warlock',
-    race: 'dwarf',
+    name: '',
+    class: '',
+    race: '',
     alignment: '',
     sex: '',
     size: '',

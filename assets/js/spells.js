@@ -14,8 +14,8 @@ var CharacterAttributes = {
     charisma: '',
     equipment: [],
     spells: [],
+    hitpoints: '',
 };
-
 var possibleSpells = [];
 var submitSpells = $('#submit-spells');
 var selectedSpells = [];
