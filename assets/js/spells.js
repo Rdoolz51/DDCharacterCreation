@@ -1,6 +1,6 @@
 var CharacterAttributes = {
   name: "",
-  class: "",
+  class: "monk",
   race: "",
   alignment: "",
   sex: "",
@@ -21,33 +21,54 @@ var submitSpells = $("#submit-spells");
 var selectedSpells = [];
 var baseApiUrl = "https://www.dnd5eapi.co/api/";
 
-// GOING TO HAVE TO CHANGE ONCE WE GET CLASSES SET UP FROM OTHER PAGES!!!!!!!!!!!!!
-
-var classUrl = `classes/${CharacterAttributes.class}/levels/1/spells`;
+var load = function () {
+  var player = localStorage.getItem("character");
+  CharacterAttributes = JSON.parse(player);
+};
+// load();
+var classUrl = `classes/${CharacterAttributes.class}/levels/0/spells`;
 
 $(document).ready(function () {
   $(".modal").modal();
 });
 
+// Checks to see if the class has any spells available
+var classCheck = function () {
+  var charClass = CharacterAttributes.class;
+  if (
+    charClass == "barbarian" ||
+    charClass == "monk" ||
+    charClass == "paladin" ||
+    charClass == "fighter" ||
+    charClass == "ranger" ||
+    charClass == "rogue"
+  ) {
+    var noSpellDisp = `<h3 class="no-spell">Your character is a ${charClass} and they do not know any cantrips at level 1. </h3> `;
+    $(".if-no-spells").hide();
+    $(".endContainer").show();
+    $("#endContainer").prepend(noSpellDisp);
+  }
+};
+$(document).ready(classCheck);
+
 // Event listener on the first submit button shown.
 // Hides said submit button and switch.
 // creates new submit button at bottom of page
-
 $("#submit-choice").on("click", function () {
   console.log("clicked");
-  $("#submit-choice").remove();
+  $("#submit-choice").hide();
   $("#submit-spells").show();
   $(".hidden-on-start1").show();
   if ($("#demo").prop("checked")) {
     console.log("on");
     randomSpell();
-    $("#switch").remove();
+    $("#switch").hide();
   } else {
     console.log("off");
     $("#instruct").text(
       "Check boxes under each spell description to include choice"
     );
-    $("#switch").remove();
+    $("#switch").hide();
     var spellRestriction = `<h5 class="choiceNum">You can choose ${cantripsKnown} spells.</h5>`;
     $("#spellsContainer").append(spellRestriction);
   }
@@ -215,7 +236,7 @@ $("#submitChar").on("click", function () {
   $(".hidden-on-start1").hide();
   $(".hidden-on-start2").hide();
   CharacterAttributes.spells.push(selectedSpells);
-  localStorage.setItem("spells", JSON.stringify(CharacterAttributes));
+  localStorage.setItem("character", JSON.stringify(CharacterAttributes));
 });
 // return to index button
 $("#returnHome").on("click", function () {
@@ -228,10 +249,6 @@ $("#tut").on("click", function () {
 });
 
 // pulls information from local storage
-var load = function () {
-  var player = localStorage.getItem("character");
-  CharacterAttributes = JSON.parse(player);
-};
-load();
+
 cantripRestriction();
 classSpells();
