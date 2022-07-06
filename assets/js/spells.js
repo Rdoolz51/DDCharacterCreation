@@ -1,6 +1,6 @@
 var CharacterAttributes = {
   name: "",
-  class: "monk",
+  class: "",
   race: "",
   alignment: "",
   sex: "",
@@ -14,6 +14,7 @@ var CharacterAttributes = {
   charisma: "",
   equipment: [],
   spells: [],
+  healthpoints: "",
 };
 
 var possibleSpells = [];
