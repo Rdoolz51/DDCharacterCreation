@@ -218,8 +218,5 @@ $('#tut').on('click', function () {
     location.href = './tutorial.html';
 });
 
-// pulls information from local storage
-var load = function () {};
-load();
 cantripRestriction();
 classSpells();
