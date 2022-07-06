@@ -17,8 +17,6 @@ var CharacterAttributes = {
     hitpoints: '',
 };
 
-//save playerClass to localstorage as "playerClass"
-
 $(document).ready(function () {
     $('.modal').modal();
 });
@@ -56,25 +54,6 @@ var charAligns = [
     'neutral-evil',
     'neutral-good',
 ];
-
-// define character attributes array
-var CharacterAttributes = {
-    name: '',
-    class: '',
-    race: '',
-    alignment: '',
-    sex: '',
-    size: '',
-    proficiencies: '',
-    strength: '',
-    dexterity: '',
-    constitution: '',
-    intelligence: '',
-    wisdom: '',
-    charisma: '',
-    equipment: [],
-    spells: [],
-};
 
 // list name options
 var maleFirstName = [
