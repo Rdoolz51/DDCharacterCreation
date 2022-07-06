@@ -13,7 +13,7 @@
 </head>
 
 <!-- header and nav/breadcrumb section -->
-<body class="grey darken-3">
+<body class="grey darken-3 col">
     <header id="header">
       <nav>
         <div class="nav-wrapper red darken-4">
@@ -48,7 +48,7 @@
         <div class="modal-content">
           <h4>How to use this section</h4>
           <p>In this section, you'll build your base character!</p>
-          <p>Begin by selecting a gender. Next, select "My Choice" or "Random" for each trait. If you choose "Random", a trait will be picked for you and displayed in the Choose Your Own section. Feel free to change these if you'd like! Once you have the set of traits you desire, hit SUBMIT to save your choices and move on.</p>
+          <p>Begin by selecting a gender. Next, select "My Choice" or "Random" for each trait. If you choose "Random", a trait will be picked for you and displayed in the Choose Your Own section. Feel free to change these if you'd like! Once you have the set of traits you desire, click SAVE CHOICES to lock them in, then NEXT to move on.</p>
           <P>Choose wisely, for these selections may determine the fate of your campaign...</P>
         </div>
         <div class="modal-footer">
@@ -61,7 +61,7 @@
             <p>Make your choices wisely! Your selections here will guide your character on their journey.</p>
         </div>
         <!-- gender selection -->
-        <div class="section col s2">
+        <div class="section col s12 l2">
             <h5>Gender</h5>
             <p>Please select one:</p>
             <p>
@@ -85,7 +85,7 @@
           
           </div>
           <!-- switches to select randomized or not -->
-        <div class="col s3">
+        <div class="col s12 l3">
             <h5>Choice or Random?</h5>
           <div class="switch">
             <p>Name</p>
@@ -125,18 +125,21 @@
           </div>
            </div>
   
-  
         <!-- input drop down menus -->
-        <div class="section col s5">
+        <div class="section col s12 l5">
           <h5>Choose Your Own</h5>
           <p>If you know what you'd like, enter your choices here:</p>
-          <div class="input-field col s6">
-            <div class="hide" id="nameRand"></div>
+          <div class="input-field col s6" id="nameUsedDisp">
+            <h6>Name</h6>
             <input placeholder="Type name" id="nameUsed" type="text" class="validate">
-            <label for="nameUsed">Name</label>
           </div>
-          <div class="input-field col s6">
-            <div class="hide" id="classRand"></div>
+          <div class="col s6 hide" id="nameRandDisp">
+            <h6>Name</h6>
+            <div id="nameRand"></div>
+            <div class="divider grey"></div>
+          </div>
+          <div class="input-field col s6" id="classMenuDisp">
+            <h6>Class</h6>
             <select id="classMenu" class="text-dark">
                 <option value="barbarian">Barbarian</option>
                 <option value="bard">Bard</option>
@@ -151,11 +154,15 @@
                 <option value="warlock">Warlock</option>
                 <option value="wizard">Wizard</option>
             </select>
-            <label for="classMenu">Class</label>
           </div>
-          <div class="input-field col s6">
-            <div class="hide" id="raceRand"></div>
-            <select id="raceMenu" name="race">
+          <div class="col s6 hide" id="classRandDisp">
+            <h6>Class</h6>
+            <div id="classRand"></div>
+            <div class="divider grey"></div>
+         </div>
+          <div class="input-field col s6" id="raceMenuDisp">
+            <h6>Race</h6>
+            <select id="raceMenu" class="text-dark">
                 <option value="dragonborn">Dragonborn</option>
                 <option value="dwarf">Dwarf</option>
                 <option value="elf">Elf</option>
@@ -166,11 +173,15 @@
                 <option value="human">Human</option>
                 <option value="tiefling">Tiefling</option>
             </select>
-            <label for="race">Race</label>
           </div>
-          <div class="input-field col s6">
-            <div class="hide" id="alignRand"></div>
-            <select id="alignMenu" name="alignment">
+          <div class="col s6 hide" id="raceRandDisp">
+            <h6>Race</h6>
+            <div id="raceRand"></div>
+            <div class="divider grey"></div>
+          </div>
+          <div class="input-field col s6" id="alignMenuDisp">
+            <h6>Alignment</h6>
+            <select id="alignMenu" class="text-dark">
                 <option value="chaotic-neutral">chaotic-neutral</option>
                 <option value="chaotic-evil">chaotic-evil</option>
                 <option value="chaotic-good">chaotic-good</option>
@@ -181,14 +192,15 @@
                 <option value="neutral-evil">neutral-evil</option>
                 <option value="neutral-good">neutral-good</option>
             </select>
-            <label for="alignment">Alignment</label>
+          </div>
+          <div class="col s6 hide" id="alignRandDisp">
+            <h6>Alignment</h6>
+            <div id="alignRand"></div>
+            <div class="divider grey"></div>
           </div>
           <br>
           <div class="divider grey" ></div>
           <br>
-          <button class="btn waves-effect waves-light red darken-4" type="submit" name="action" id="saveChar">Submit</button>
-       
-=======
         <!-- Breadcrumb  -->
         <nav>
             <div class="nav-wrapper grey darken-4">
@@ -200,6 +212,27 @@
                 <a href="./index.html" class="breadcrumb">Final Character</a>
       
               </div>
+=======
+          <br>
+          <button class="btn waves-effect waves-light red darken-4" type="submit" name="saving" id="lockIn" onclick="M.toast({html: 'Added to Character Sheet'})">Save Choices</button>
+          <br>
+          <br>
+          <button class="btn waves-effect waves-light red darken-4" type="submit" name="action" id="saveChar">Next</button>
+        </div>
+      </div>
+      <br>
+      <br>
+  <!--       _
+       .__(.)< (MEOW)
+        \___)   
+ ~~~~~~~~~~~~~~~~~~-->
+    </main>
+
+    <!-- footer section -->
+    <footer class="page-footer red darken-4 hide-on-med-and-down">
+        <div class="footer-copyright red darken-4">
+            <div class="container red darken-4 center">
+                <span class="">© 2022 Copyright by The Dashing Ducks</span>
             </div>
           </nav>
         <!-- Modal Structure -->
