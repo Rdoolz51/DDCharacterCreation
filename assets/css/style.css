@@ -5,8 +5,6 @@ body {
 main {
     height: 100vh;
 }
-.main {
-}
 .card-panel {
     box-shadow: none;
 }
@@ -148,9 +146,6 @@ nav {
 
 footer {
     font-size: xx-large;
-    position: absolute;
-    bottom: -1000px;
-    width: 100%;
 }
 
 #ccCard:hover,

@@ -28,7 +28,6 @@ var classUrl = `classes/${charClass}/levels/1/spells`;
 $(document).ready(function () {
     $('.modal').modal();
 });
-
 // Event listener on the first submit button shown.
 // Hides said submit button and switch.
 // creates new submit button at bottom of page
