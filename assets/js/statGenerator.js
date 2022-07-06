@@ -80,7 +80,6 @@ function randomizeStats() {
     rolls.sort(function (a, b) {
         return a - b;
     });
-    console.log(rolls);
     
     let prioRoll = rolls[rolls.length - 1];
     let nextPrioRoll = rolls[rolls.length - 2];
@@ -88,7 +87,6 @@ function randomizeStats() {
     //removes last 2 numbers from array and stores them in priorityRolls
     let priorityRolls = rolls.splice(-2);
     
-    console.log(rolls);
     //need to sort the remaining rolls to assign remaining 4 stats
     for (i = rolls.length - 1; i > 0; i--) {
         j = Math.floor(Math.random() * i)
@@ -97,7 +95,6 @@ function randomizeStats() {
         rolls[j] = k
     }
     
-    //  let player = localStorage.getItem("character");
     let race = player.race;
     let playerClass = player.class
     
@@ -142,7 +139,6 @@ function randomizeStats() {
     }
     if (playerClass == 'fighter') {
         //(Str OR Dex) + con
-        //make a fighterID that is a random num between 1 & 2. if 1: str = prio, dex = nextPrio if 2: dex = prio str = nextPrio
         if (fighterID == '1') {
             strength = priorityRolls[1] //highest roll
             dexterity = rolls[3]
