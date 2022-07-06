@@ -113,3 +113,54 @@ function selectEquipment(from) {
             choose);
     }
 }
+getClassEquipmentApi('fighter');
+
+$(document).ready(function () {
+    $('.modal').modal();
+});
+function getClassEquipmentApi(playerClass) {
+    var apiURL = 'https://www.dnd5eapi.co/api/classes/' + playerClass + '/';
+    fetch(apiURL)
+        .then(function (response) {
+            if (response.ok) {
+                return response.json();
+            } else {
+                return Promise.reject(response);
+            }
+        })
+        .then(function (data) {
+
+            const promises = [];
+
+            for (let i = 0; i < data.starting_equipment.length; i++) {
+                promises.push(Promise.resolve({
+                    name: data.starting_equipment[i].equipment.name,
+                    quantity: data.starting_equipment[i].quantity
+                }));
+            }
+
+            for (let i = 0; i < data.starting_equipment_options.length; i++) {
+                // console.log(data.starting_equipment_options[i]);
+                for (let j = 0; j < data.starting_equipment_options[i].choose; j++) {
+                    promises.push(selectEquipment(data.starting_equipment_options[i].from));
+                }
+            }
+            Promise.all(promises)
+            .then(values => {
+                // set equipment and render UI
+                CharacterAttributes.equipment = values.flat();
+                // $('#loader').addClass('hide')
+                // $('#content').removeClass('hide')
+                    // pEl.append(CharacterAttributes.equipment)
+                    // liEl.appendChild(pEl)
+                    // equipUl.appendChild(liEl)
+                    // equipBox.appendChild(equipUl)
+                localStorage.setItem("character", CharacterAttributes)
+                console.log(CharacterAttributes.equipment)
+                console.log(playerClass);
+            });
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    }
