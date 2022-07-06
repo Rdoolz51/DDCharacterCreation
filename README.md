@@ -37,6 +37,8 @@ Creates a character which includes:
   * Disintegrate
   * Summuning a pool of lava beneath that annoying friend
   
+## And Many More!
+  
 ## How did we create it?
   
 #### We used a multitude of technologies, including: 
