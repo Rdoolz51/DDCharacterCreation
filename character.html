@@ -129,13 +129,17 @@
         <div class="section col s12 l5">
           <h5>Choose Your Own</h5>
           <p>If you know what you'd like, enter your choices here:</p>
-          <div class="input-field col s6">
-            <div class="hide" id="nameRand"></div>
+          <div class="input-field col s6" id="nameUsedDisp">
+            <h6>Name</h6>
             <input placeholder="Type name" id="nameUsed" type="text" class="validate">
-            <label for="nameUsed">Name</label>
           </div>
-          <div class="input-field col s6">
-            <div class="hide" id="classRand"></div>
+          <div class="col s6 hide" id="nameRandDisp">
+            <h6>Name</h6>
+            <div id="nameRand"></div>
+            <div class="divider grey"></div>
+          </div>
+          <div class="input-field col s6" id="classMenuDisp">
+            <h6>Class</h6>
             <select id="classMenu" class="text-dark">
                 <option value="barbarian">Barbarian</option>
                 <option value="bard">Bard</option>
@@ -150,10 +154,14 @@
                 <option value="warlock">Warlock</option>
                 <option value="wizard">Wizard</option>
             </select>
-            <label for="classMenu">Class</label>
           </div>
-          <div class="input-field col s6">
-            <div class="hide" id="raceRand"></div>
+          <div class="col s6 hide" id="classRandDisp">
+            <h6>Class</h6>
+            <div id="classRand"></div>
+            <div class="divider grey"></div>
+         </div>
+          <div class="input-field col s6" id="raceMenuDisp">
+            <h6>Race</h6>
             <select id="raceMenu" class="text-dark">
                 <option value="dragonborn">Dragonborn</option>
                 <option value="dwarf">Dwarf</option>
@@ -165,11 +173,15 @@
                 <option value="human">Human</option>
                 <option value="tiefling">Tiefling</option>
             </select>
-            <label for="raceMenu">Race</label>
           </div>
-          <div class="input-field col s6">
-            <div class="hide" id="alignRand"></div>
-            <select id="alignMenu" name="alignment" class="text-dark">
+          <div class="col s6 hide" id="raceRandDisp">
+            <h6>Race</h6>
+            <div id="raceRand"></div>
+            <div class="divider grey"></div>
+          </div>
+          <div class="input-field col s6" id="alignMenuDisp">
+            <h6>Alignment</h6>
+            <select id="alignMenu" class="text-dark">
                 <option value="chaotic-neutral">chaotic-neutral</option>
                 <option value="chaotic-evil">chaotic-evil</option>
                 <option value="chaotic-good">chaotic-good</option>
@@ -180,7 +192,11 @@
                 <option value="neutral-evil">neutral-evil</option>
                 <option value="neutral-good">neutral-good</option>
             </select>
-            <label for="alignMenu">Alignment</label>
+          </div>
+          <div class="col s6 hide" id="alignRandDisp">
+            <h6>Alignment</h6>
+            <div id="alignRand"></div>
+            <div class="divider grey"></div>
           </div>
           <br>
           <div class="divider grey" ></div>

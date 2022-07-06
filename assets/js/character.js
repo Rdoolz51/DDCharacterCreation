@@ -363,8 +363,8 @@ var checkName = function(event) {
     };
 
     // hide text input allowing them to add a name
-    $('#nameUsed').addClass("hide");
-    $('#nameRand').removeClass("hide");
+    $('#nameUsedDisp').addClass("hide");
+    $('#nameRandDisp').removeClass("hide");
 
     // randomize their name based on gender
     var nameGen = function (gender) {
@@ -393,8 +393,8 @@ var checkName = function(event) {
   // if user does not want to randomize name
   else {
     // show text input to type their own name
-    $('#nameUsed').removeClass("hide");
-    $('#nameRand').addClass("hide");
+    $('#nameUsedDisp').removeClass("hide");
+    $('#nameRandDisp').addClass("hide");
   };
 };
 $('#name-choice').on("click", checkName);
@@ -404,8 +404,8 @@ var checkClass = function(event) {
   // if they do want to randomize class
   if ($('#class-choice').is(":checked")) {
     // hide menu allowing them to select class
-    $('#classMenu').addClass("hide");
-    $('#classRand').removeClass("hide");
+    $('#classMenuDisp').addClass("hide");
+    $('#classRandDisp').removeClass("hide");
     // randomize their class
     var randomClassNum = Math.floor(Math.random() * charClasses.length);
     var randomClass = charClasses[randomClassNum];
@@ -420,8 +420,8 @@ var checkClass = function(event) {
   // if user does not want to randomize class
   else {
     // show menu to select class
-    $('#classMenu').removeClass("hide");
-    $('#classRand').addClass("hide");
+    $('#classMenuDisp').removeClass("hide");
+    $('#classRandDisp').addClass("hide");
   };
 };
 $('#class-choice').on("click", checkClass);
@@ -431,8 +431,8 @@ var checkRace = function(event) {
   // if they do want to randomize race
   if ($('#race-choice').is(":checked")) {
     // hide menu allowing them to select race
-    $('#raceMenu').addClass("hide");
-    $('#raceRand').removeClass("hide");
+    $('#raceMenuDisp').addClass("hide");
+    $('#raceRandDisp').removeClass("hide");
     // randomize their race
     var randomRaceNum = Math.floor(Math.random() * charRaces.length);
     var randomRace = charRaces[randomRaceNum];
@@ -447,8 +447,8 @@ var checkRace = function(event) {
   // if user does not want to randomize race
   else {
     // show menu to select race
-    $('#raceMenu').removeClass("hide");
-    $('#raceRand').addClass("hide");
+    $('#raceMenuDisp').removeClass("hide");
+    $('#raceRandDisp').addClass("hide");
   };
 };
 $('#race-choice').on("click", checkRace);
@@ -457,8 +457,8 @@ $('#race-choice').on("click", checkRace);
 var checkAlign = function(event) {
   if ($('#align-choice').is(":checked")) {
     // hide menu allowing them to select alignment
-    $('#alignMenu').addClass("hide");
-    $('#alignRand').removeClass("hide");
+    $('#alignMenuDisp').addClass("hide");
+    $('#alignRandDisp').removeClass("hide");
     // randomize their alignment
     var randomAlignNum = Math.floor(Math.random() * charAligns.length);
     var randomAlign = charAligns[randomAlignNum];
@@ -473,8 +473,8 @@ var checkAlign = function(event) {
   // if user does not want to randomize alignment
   else {
     // show menu to select alignment
-    $('#alignMenu').removeClass("hide");
-    $('#alignRand').addClass("hide");
+    $('#alignMenuDisp').removeClass("hide");
+    $('#alignRandDisp').addClass("hide");
   };
 };
 $('#align-choice').on("click", checkAlign);
@@ -510,7 +510,7 @@ $('#lockIn').on("click", saveInput);
 
 // add user's selections to their Character Attributes in localStorage
 $('#saveChar').on("click", function() {
-  localStorage.setItem("Character", JSON.stringify(CharacterAttributes));
+  localStorage.setItem("character", JSON.stringify(CharacterAttributes));
 
   // move on to the next section
   location.href="stats.html";
