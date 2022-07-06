@@ -353,3 +353,7 @@ $('#returnBtn').on('click', function () {
 $(document).ready(function () {
     $('.modal').modal();
 });
+// next button
+$('#next').on('click', function () {
+    location.href = './equipment.html';
+});
