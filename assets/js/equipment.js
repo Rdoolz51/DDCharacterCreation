@@ -16,8 +16,11 @@ var CharacterAttributes = {
     hitpoints: '',
     speed: '',
 };
-var charAtt = localStorage.getItem('character');
-CharacterAttributes = JSON.parse(charAtt);
+var load = function () {
+    var player = localStorage.getItem('character');
+    CharacterAttributes = JSON.parse(player);
+};
+load();
 var equipmentArr = [];
 
 var playerClass = CharacterAttributes.class;

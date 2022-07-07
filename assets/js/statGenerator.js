@@ -18,8 +18,11 @@ var CharacterAttributes = {
 };
 
 //loads character info from localStorage
-var charAtt = localStorage.getItem('character');
-CharacterAttributes = JSON.parse(charAtt);
+var load = function () {
+    var player = localStorage.getItem('character');
+    CharacterAttributes = JSON.parse(player);
+};
+load();
 
 var strength = 0;
 var dexterity = 0;
