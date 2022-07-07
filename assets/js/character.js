@@ -533,6 +533,7 @@ var saveInput = function (event) {
     } else {
         CharacterAttributes.alignment = $('#alignMenu').val();
     }
+    $('#saveChar').removeClass('hide');
 };
 $('#lockIn').on('click', saveInput);
 
@@ -541,7 +542,6 @@ $('#saveChar').on('click', function () {
     PageAttributes.characterPage = 'complete';
     localStorage.setItem('character', JSON.stringify(CharacterAttributes));
     localStorage.setItem('pageState', JSON.stringify(PageAttributes));
-
     // move on to the next section
     location.href = 'stats.html';
 });

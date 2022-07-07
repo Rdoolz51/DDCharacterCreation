@@ -222,6 +222,9 @@ footer {
 .endContainer {
     display: none;
 }
+#spellsBody {
+    background-repeat: no-repeat;
+}
 /* From Stats  */
 #returnBtn {
     display: none;
