@@ -66,13 +66,7 @@ ul img {
 .main-card {
     height: 82vh;
     margin-top: 2.15rem;
-    margin-left: 1.5rem;
-    display: flex;
-    justify-content: center;
-    background-image: url(/assets/images/charsheet.png);
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
+    margin-left: 3rem;
     z-index: 5;
 }
 
@@ -234,6 +228,12 @@ footer {
 #returnBtn {
     display: none;
 }
+.nav-wrapper a {
+    user-select: none;
+}
+.highlight {
+    text-decoration: underline;
+}
 
 @media only screen and (max-width: 701px) {
     .s12 {
@@ -278,12 +278,6 @@ footer {
     }
 }
 
-.nav-wrapper a {
-    user-select: none;
-}
-.highlight {
-    text-decoration: underline;
-}
 
 @media screen and (max-width: 800px) {
     #vcs,
