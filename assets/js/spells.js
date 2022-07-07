@@ -104,7 +104,7 @@ var classSpells = function (event) {
 
 // displays spells using data from classSpells
 var renderClasses = function (data, index) {
-    var spellsCrd = `<div class="row"><h5 class="col 12" id="spellCar${index}">${data}</h5><label><input type="checkbox" class=" spell-box red darken-4s"  data-spell="${data}" name="box${index}" id="box${index}" /><span>Check to use this spell</span></label></div>`;
+    var spellsCrd = `<div class="row col s4" style="border-left: 5px solid white;"><h5 class="col s12" id="spellCar${index}">${data}</h5><label><input type="checkbox" class=" spell-box red darken-4s"  data-spell="${data}" name="box${index}" id="box${index}" /><span class="white-text">Check to use this spell</span></label></div>`;
     $('#spellsContainer').append(spellsCrd);
 };
 
@@ -127,8 +127,8 @@ var spellsDes = function (data, index) {
 
 // displays spell description using data from spellDes
 var renderSpellDescription = function (data, index) {
-    var spellsDescription = `<p id="spellDesc"><blockquote>${data}</blockquote></p>`;
-    $('#spellCar' + index).append(spellsDescription);
+    var spellsDescription = `<div class="tooltip"><span class ="tooltipText">${data}</span></div>`;
+    // $('#spellCar' + index).append(spellsDescription);
 };
 
 // Fetches amount of cantrips the class chosen has available
@@ -264,6 +264,11 @@ $('#submitChar2').on('click', function () {
 
 // sends user to tutorial video
 $('#tut').on('click', function () {
+    PageAttributes.spellPage = 'complete';
+    localStorage.setItem('pageState', JSON.stringify(PageAttributes));
+    location.href = './tutorial.html';
+});
+$('#tut2').on('click', function () {
     PageAttributes.spellPage = 'complete';
     localStorage.setItem('pageState', JSON.stringify(PageAttributes));
     location.href = './tutorial.html';

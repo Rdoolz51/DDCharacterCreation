@@ -126,6 +126,7 @@ function spellCreate() {
         $('#spellCard').css('background-position', 'left');
         $('#spellCard').css('color', 'green');
         $('#spellCard').css('border', '10px solid green');
+        $('#charSheet').removeClass('hide');
         $('#spellCard').on('click', function () {
             $('#spellCardAnchor').attr('href', '#');
         });
@@ -136,11 +137,6 @@ function spellCreate() {
         }
     }
 }
-
-function charSheet() {
-    $('.main-card').css('background-image', 'url(/assets/images/charsheet.png)');
-}
-
 $('#resetCharacter').on('click', function () {
     PageAttributes.characterPage = '';
     PageAttributes.statsPage = '';

@@ -377,10 +377,10 @@ function randomizeStats() {
 //submits stats to local storage
 $('#submitChar').on('click', function () {
     $('#next').show();
-    $('.hide-post').hide();
+    // $('.hide-post').hide();
 
-    var finalSubmit = `<h4>Your stats have been submitted to your character!</h4>`;
-    $('.returnBtn').prepend(finalSubmit);
+    // var finalSubmit = `<h4>Your stats have been submitted to your character!</h4>`;
+    // $('.returnBtn').prepend(finalSubmit);
     // $('#returnBtn').show();
     CharacterAttributes.strength = strength;
     CharacterAttributes.dexterity = dexterity;
@@ -395,11 +395,6 @@ $('#submitChar').on('click', function () {
     localStorage.setItem('character', JSON.stringify(CharacterAttributes));
     localStorage.setItem('pageState', JSON.stringify(PageAttributes));
 });
-
-// return to home button(out of use until we get pdf working)
-// $('#returnBtn').on('click', function () {
-//     location.href = '/index.html';
-// });
 
 // gets modal ready for use
 $(document).ready(function () {
