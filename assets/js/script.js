@@ -55,7 +55,7 @@ $(document).ready(function () {
 // $('#vcs').on('click', charSheet);
 
 $('#burger').on('click', hamburgerMenu);
-
+//transforms hamburger menu the hard way :)
 function hamburgerMenu() {
     if ($('.c-pan').hasClass('zero')) {
         $('.c-pan').css('transform', 'translateX(-1000px)');
@@ -65,6 +65,7 @@ function hamburgerMenu() {
         $('.c-pan').addClass('zero');
     }
 }
+//each of the following functions hides its respective card on the index.html page until the previous page(s) has been marked completed
 function charCreate() {
     if (PageAttributes.characterPage === 'complete') {
         $('#ccCard').css('background-image', 'url(/assets/images/player2done.jpg)');
@@ -142,10 +143,7 @@ function spellCreate() {
     }
 }
 
-function charSheet() {
-    $('.main-card').css('background-image', 'url(/assets/images/charsheet.png)');
-}
-
+//reset button on index. Empties strings/arrays in localStorage so that the user can make a new character if they want
 $('#resetCharacter').on('click', function () {
     console.log('clicked');
     PageAttributes.characterPage = '';
