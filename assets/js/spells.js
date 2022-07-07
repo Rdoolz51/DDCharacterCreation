@@ -255,7 +255,8 @@ var RandomSpellsDisplay = function () {
 
 $('#submitChar').on('click', function () {
     $('.endContainer').show();
-    var endMessage = `<h3>Your chosen spells have been submitted to your character sheet!</h3>`;
+    $('#tut2').show();
+    // var endMessage = `<h3>Your chosen spells have been submitted to your character sheet!</h3>`;
     $('#closingMessage').prepend(endMessage);
     $('.hidden-on-start').hide();
     $('.hidden-on-start1').hide();
@@ -265,7 +266,7 @@ $('#submitChar').on('click', function () {
 });
 $('#submitChar2').on('click', function () {
     $('.endContainer').show();
-    var endMessage = `<h3>Your chosen spells have been submitted to your character sheet!</h3>`;
+    // var endMessage = `<h3>Your chosen spells have been submitted to your character sheet!</h3>`;
     $('#closingMessage').prepend(endMessage);
     $('.hidden-on-start').hide();
     $('.hidden-on-start1').hide();
