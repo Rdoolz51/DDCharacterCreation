@@ -25,10 +25,9 @@ var load = function () {
 };
 load();
 
-
 //create variables for each part of Character Attributes
 var playerName = CharacterAttributes.name;
-var playerClass = CharacterAttributes.charClass;
+var playerClass = CharacterAttributes.class;
 var playerRace = CharacterAttributes.race;
 var playerAlignment = CharacterAttributes.alignment;
 var playerSex = CharacterAttributes.sex;
@@ -77,7 +76,6 @@ $('#returnHome').on('click', function () {
     location.href = './index.html';
 });
 
-
 //Displays stats under video for user to see and read.
 var displayStats = function () {
     var dispName = `<p class="stats"> Your character's Name is ${playerName}</p>`;
@@ -94,8 +92,8 @@ var displayStats = function () {
     var dispChar = `<p class="stats"> Your character's Charisma is ${playerCharisma}</p>`;
     var dispEquip = `<p class="stats"> Your character's Equipment is ${playerEquipment}</p>`;
     var dispSpells = `<p class="stats"> Your character's Spells are ${playerSpells}</p>`;
-    var dispHp = `<p class="stats"> Your character's Spells are ${playerHp}</p>`;
-    var dispSpeed = `<p class="stats"> Your character's Spells are ${playerSpeed}</p>`;
+    var dispHp = `<p class="stats"> Your character's hitpoints are ${playerHp}</p>`;
+    var dispSpeed = `<p class="stats"> Your character's speed is ${playerSpeed}</p>`;
     $('#character-stats').append(dispName);
     $('#character-stats').append(dispClass);
     $('#character-stats').append(dispRace);
@@ -113,7 +111,6 @@ var displayStats = function () {
     $('#character-stats').append(dispHp);
     $('#character-stats').append(dispSpeed);
 };
-
 
 ClassVideo();
 displayStats();
