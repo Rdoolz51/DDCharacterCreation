@@ -96,7 +96,8 @@ var displayStats = function () {
     if (playerSpells.length === 0) {
         var dispSpells = `<p class="stats"> Your character doesn't know any spells</p>`;
     } else {
-        var dispSpells = `<p class="stats"> Your character's Spells are ${playerSpells}</p>`;
+        var playerSpls = playerSpells.join(' , ');
+        var dispSpells = `<p class="stats"> Your character's Spells are ${playerSpls}</p>`;
     }
     var dispHp = `<p class="stats"> Your character's hitpoints are ${playerHp}</p>`;
     var dispSpeed = `<p class="stats"> Your character's speed is ${playerSpeed}</p>`;

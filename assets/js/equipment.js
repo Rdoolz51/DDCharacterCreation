@@ -190,6 +190,7 @@ function save() {
 $('#submitChar').on('click', function () {
     save();
     $('#spells').show();
+    $('#chosenHeader').text('Your Equipment has been added!');
     $('#submitChar').hide();
 });
 $('#spells').on('click', function () {

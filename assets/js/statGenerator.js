@@ -367,6 +367,7 @@ function randomizeStats() {
 }
 //submits stats to local storage
 $('#submitChar').on('click', function () {
+    $('#next').show();
     $('.hide-post').hide();
 
     var finalSubmit = `<h4>Your stats have been submitted to your character!</h4>`;
