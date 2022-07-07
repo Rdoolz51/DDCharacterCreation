@@ -359,8 +359,9 @@ function randomizeStats() {
             }
         })
         .then(function (data) {
+            proficiencies = [];
             data.results.forEach((result) => {
-                proficiencies = proficiencies.concat(result.name);
+                proficiencies.push(result.name);
             });
         });
     //appends each stat to its own div on a page (Must create the divs first)
