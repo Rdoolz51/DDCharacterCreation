@@ -23,7 +23,6 @@ var load = function () {
     CharacterAttributes = JSON.parse(player);
 };
 load();
-
 var strength = 0;
 var dexterity = 0;
 var constitution = 0;
@@ -33,12 +32,15 @@ var charisma = 0;
 var hitpoints = 0;
 var speed = 0;
 var proficiencies = [];
+var mulliganCounter = 0;
 //creates a button and appends it to whatever div you fill in.
 buttonEl = `<a class="waves-effect waves-light red darken-4 btn" id="statBtn"><i class="material-icons left">keyboard_arrow_right</i>Generate Stats</a>`;
 $('#statContainer').append(buttonEl);
 $('#statBtn').on('click', function () {
     randomizeStats();
-    $('#statBtn').hide();
+    if (mulliganCounter >= 2) {
+        $('#statBtn').hide();
+    }
 });
 // strEl = $('<p>');
 // dexEl = $('<p>');
@@ -343,7 +345,7 @@ function randomizeStats() {
             speed = data.speed;
         });
 
-    //gets proficiencies and makes a choice for random proficiencies
+    //gets proficiencies for each race
 
     fetch('https://www.dnd5eapi.co/api/classes/' + playerClass + '/proficiencies')
         .then(function (response) {
@@ -364,6 +366,8 @@ function randomizeStats() {
     $('#int').append('intelligence =  ' + intelligence);
     $('#wis').append('wisdom = ' + wisdom);
     $('#cha').append('charisma = ' + charisma);
+    //adds 1 to mulligan counter to suggest that the user has already used up their 1 reroll
+    mulliganCounter++;
 }
 //submits stats to local storage
 $('#submitChar').on('click', function () {
