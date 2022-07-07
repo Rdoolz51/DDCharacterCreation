@@ -15,7 +15,7 @@ var CharacterAttributes = {
     spells: [],
     hitpoints: '',
     speed: '',
-};
+
 
 var load = function () {
     var player = localStorage.getItem('character');
@@ -26,6 +26,7 @@ var charClass = CharacterAttributes.class;
 var possibleSpells = [];
 var submitSpells = $('#submit-spells');
 var selectedSpells = [];
+
 
 var classUrl = `classes/${charClass}/levels/0/spells`;
 var baseApiUrl = 'https://www.dnd5eapi.co/api/';
@@ -55,6 +56,7 @@ $(document).ready(classCheck);
 // Event listener on the first submit button shown.
 // Hides said submit button and switch.
 // creates new submit button at bottom of page
+
 $('#submit-choice').on('click', function () {
     console.log('clicked');
     $('#submit-choice').hide();
@@ -63,6 +65,7 @@ $('#submit-choice').on('click', function () {
     if ($('#demo').prop('checked')) {
         console.log('on');
         randomSpell();
+
         $('#switch').hide();
     } else {
         console.log('off');
@@ -144,7 +147,6 @@ $('#submit-spells').on('click', function () {
         var checkedSpell = $(this).data('spell');
         console.log(checkedSpell);
         selectedSpells.push(checkedSpell);
-        console.log(selectedSpells);
     });
     if (selectedSpells.length <= cantripsKnown) {
         console.log('lower than cantrips');
@@ -175,6 +177,7 @@ $('#restart').on('click', function () {
 $('#restart2').on('click', function () {
     selectedSpells = [];
     location.reload();
+
 });
 
 // selects random cantrips according to their allowance
@@ -218,6 +221,7 @@ var shuffle = function (array) {
 };
 // displays randomly chosen spells
 var RandomSpellsDisplay = function () {
+
     var randomHead = `<div id="rndSpell"><h3>The randomly chosen spells are: </h3></div>`;
     $('#randomSpellsContainer').prepend(randomHead);
     for (let i = 0; i < selectedSpells.length; i++) {
@@ -234,6 +238,7 @@ $('#submitChar').on('click', function () {
     $('.hidden-on-start').hide();
     $('.hidden-on-start1').hide();
     $('.hidden-on-start2').hide();
+
     save();
 });
 $('#submitChar2').on('click', function () {
@@ -259,6 +264,7 @@ var save = function () {
     load();
     CharacterAttributes.spells = selectedSpells;
     localStorage.setItem('character', JSON.stringify(CharacterAttributes));
+
 };
 cantripRestriction();
 classSpells();
