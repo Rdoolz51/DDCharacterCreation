@@ -53,7 +53,7 @@ var playerHp = CharacterAttributes.hitpoints;
 var playerSpeed = CharacterAttributes.speed;
 // var playerSpells = JSON.stringify(pSpells);
 
-var apiKey = 'AIzaSyD_iuxaxY56u4gH6ja49Z5q2ZuAcofE7rM';
+var apiKey = 'AIzaSyBZsuBMiz1R9DYR75Hr6VbSs74eJFb2FHk';
 var baseApiUrl = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&part=snippet&type=video&q=handbook%20helper%205e%20${playerClass}&maxResults=1`;
 
 var videoKey;

@@ -154,6 +154,8 @@ $('#resetCharacter').on('click', function () {
     localStorage.setItem('character', JSON.stringify(CharacterAttributes));
     location.reload();
 });
+
+// either displays stats or new player message
 function displayStats() {
     if (PageAttributes.spellPage != 'complete') {
         var NewUser = `<h5>You have not created a character yet! To begin your journey please click the character picture!</h5>`;
@@ -172,11 +174,9 @@ function displayStats() {
         var playerWisdom = CharacterAttributes.wisdom;
         var playerCharisma = CharacterAttributes.charisma;
         var playerEquipment = CharacterAttributes.equipment;
-        // var playerEquipment = JSON.stringify(pEquipment);
         var playerSpells = CharacterAttributes.spells;
         var playerHp = CharacterAttributes.hitpoints;
         var playerSpeed = CharacterAttributes.speed;
-        // var playerSpells = JSON.stringify(pSpells);
         var dispName = `<p class="stats"> Your character's Name is <span class="highlight">${playerName}</span></p>`;
         var dispClass = `<p class="stats"> Your character's Class is <span class="highlight"> ${playerClass}</span></p>`;
         var dispRace = `<p class="stats"> Your character's Race is <span class="highlight"> ${playerRace}</span></p>`;
