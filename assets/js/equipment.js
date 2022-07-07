@@ -16,9 +16,9 @@ var CharacterAttributes = {
     hitpoints: '',
     speed: '',
 };
+var charAtt = localStorage.getItem('character');
+CharacterAttributes = JSON.parse(charAtt);
 var equipmentArr = [];
-// var charAtt = localStorage.getItem('character');
-// CharacterAttributes = JSON.parse(charAtt)
 
 function queryEquipment(equipmentUrl, choose) {
     return fetch(`https://www.dnd5eapi.co${equipmentUrl}`) //from[choice].equipment_option.from.equipment_category.url
@@ -119,7 +119,7 @@ function selectEquipment(from) {
         return queryEquipment(url, choose);
     }
 }
-getClassEquipmentApi('sorcerer');
+getClassEquipmentApi(playerClass);
 
 $(document).ready(function () {
     $('.modal').modal();
