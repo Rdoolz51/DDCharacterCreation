@@ -14,6 +14,7 @@ var CharacterAttributes = {
     equipment: [],
     spells: [],
     hitpoints: '',
+    speed: '',
 };
 
 $(document).ready(function () {
