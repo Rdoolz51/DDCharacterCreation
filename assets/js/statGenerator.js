@@ -46,6 +46,7 @@ buttonEl = `<a class="waves-effect waves-light red darken-4 btn" id="statBtn"><i
 $('#statContainer').append(buttonEl);
 $('#statBtn').on('click', function () {
     randomizeStats();
+    //allows player to reroll stats 1 time
     if (mulliganCounter >= 2) {
         $('#statBtn').hide();
     }
@@ -78,7 +79,7 @@ function randomizeStats() {
     roll6 = d(6, 3);
 
     let rolls = [roll1, roll2, roll3, roll4, roll5, roll6];
-
+    //sorts rolls array. if a-b = a negative number, a stays ahead of b. if its a positive number, then a goes behind
     //rolls can never be negative so we can just do a simple subtraction
     rolls.sort(function (a, b) {
         return a - b;
@@ -109,6 +110,7 @@ function randomizeStats() {
     //determines whether fighter is dex or str
     var fighterID = Math.floor(Math.random(1, 2) * 2 + 1);
 
+    //presets each classes favored attributes. (It would suck to end up with a barbarian with 18 int and 6 strength  )
     if (playerClass == 'barbarian') {
         //str + con
         strength = priorityRolls[1]; //highest roll
@@ -377,11 +379,6 @@ function randomizeStats() {
 //submits stats to local storage
 $('#submitChar').on('click', function () {
     $('#next').show();
-    // $('.hide-post').hide();
-
-    // var finalSubmit = `<h4>Your stats have been submitted to your character!</h4>`;
-    // $('.returnBtn').prepend(finalSubmit);
-    // $('#returnBtn').show();
     CharacterAttributes.strength = strength;
     CharacterAttributes.dexterity = dexterity;
     CharacterAttributes.constitution = constitution;
