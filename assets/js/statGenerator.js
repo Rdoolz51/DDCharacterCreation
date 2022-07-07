@@ -14,9 +14,10 @@ var CharacterAttributes = {
     equipment: [],
     spells: [],
     hitpoints: '',
+    speed: '',
 };
-var charAtt = localStorage.getItem('character');
 
+var charAtt = localStorage.getItem('character');
 CharacterAttributes = JSON.parse(charAtt);
 
 var strength = 0;
@@ -26,17 +27,18 @@ var intelligence = 0;
 var wisdom = 0;
 var charisma = 0;
 var hitpoints = 0;
+var speed = 0;
 //creates a button and appends it to whatever div you fill in.
 buttonEl = `<a class="waves-effect waves-light red darken-4 btn" id="statBtn"><i class="material-icons left">keyboard_arrow_right</i>Generate Stats</a>`;
 $('#statContainer').append(buttonEl);
 $('#statBtn').on('click', randomizeStats);
 
-// strEl = $("<p>");
-// dexEl = $("<p>");
-// conEl = $("<p>");
-// intEl = $("<p>");
-// wisEl = $("<p>");
-// chaEl = $("<p>");
+// strEl = $('<p>');
+// dexEl = $('<p>');
+// conEl = $('<p>');
+// intEl = $('<p>');
+// wisEl = $('<p>');
+// chaEl = $('<p>');
 
 //dice roller. takes in how many sides on the side, then how many dice youd like to roll.
 function d(num, numDice = 1) {
@@ -318,6 +320,16 @@ function randomizeStats() {
     if (playerClass == 'wizard') {
         hitpoints = 6 + conMod;
     }
+    //finds the speed of the character based on their race
+    fetch('https://www.dnd5eapi.co/api/races/' + race)
+        .then(function (response) {
+            if (response.ok) {
+                return response.json();
+            }
+        })
+        .then(function (data) {
+            speed = data.speed;
+        });
 
     //appends each stat to its own div on a page (Must create the divs first)
     $('#str').append('strength = ' + strength);
@@ -342,6 +354,7 @@ $('#submitChar').on('click', function () {
     CharacterAttributes.charisma = charisma;
     CharacterAttributes.wisdom = wisdom;
     CharacterAttributes.hitpoints = hitpoints;
+    CharacterAttributes.speed = speed;
     localStorage.setItem('character', JSON.stringify(CharacterAttributes));
 });
 // return to home button
