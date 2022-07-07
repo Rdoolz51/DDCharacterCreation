@@ -42,12 +42,6 @@ $('#statBtn').on('click', function () {
         $('#statBtn').hide();
     }
 });
-// strEl = $('<p>');
-// dexEl = $('<p>');
-// conEl = $('<p>');
-// intEl = $('<p>');
-// wisEl = $('<p>');
-// chaEl = $('<p>');
 
 //dice roller. takes in how many sides on the side, then how many dice youd like to roll.
 function d(num, numDice = 1) {
@@ -221,6 +215,7 @@ function randomizeStats() {
         dexterity = rolls[3];
     }
 
+    //determines which ability scores to increase due to racial bonus
     if (race == 'dwarf') {
         constitution += 2;
     }
@@ -258,6 +253,7 @@ function randomizeStats() {
         intelligence += 1;
         charisma += 2;
     }
+    //determing constitution Modifier(used to determine hp) - info follows chart found in 5e player handbook
     var conMod = 0;
     if (constitution == 1) {
         conMod = -5;
@@ -298,6 +294,7 @@ function randomizeStats() {
     if (constitution >= 24 && constitution <= 25) {
         conMod = 7;
     }
+    //determines player hitpoints based on hit die(found in player handbook) + con modifier
     if (playerClass == 'barbarian') {
         hitpoints = 12 + conMod;
     }
@@ -357,7 +354,6 @@ function randomizeStats() {
             data.results.forEach((result) => {
                 proficiencies = proficiencies.concat(result.name);
             });
-            console.log(proficiencies);
         });
     //appends each stat to its own div on a page (Must create the divs first)
     $('#str').append('strength = ' + strength);
@@ -376,7 +372,7 @@ $('#submitChar').on('click', function () {
 
     var finalSubmit = `<h4>Your stats have been submitted to your character!</h4>`;
     $('.returnBtn').prepend(finalSubmit);
-    $('#returnBtn').show();
+    // $('#returnBtn').show();
     CharacterAttributes.strength = strength;
     CharacterAttributes.dexterity = dexterity;
     CharacterAttributes.constitution = constitution;
@@ -388,10 +384,11 @@ $('#submitChar').on('click', function () {
     CharacterAttributes.proficiencies = proficiencies;
     localStorage.setItem('character', JSON.stringify(CharacterAttributes));
 });
-// return to home button
-$('#returnBtn').on('click', function () {
-    location.href = '/index.html';
-});
+
+// return to home button(out of use until we get pdf working)
+// $('#returnBtn').on('click', function () {
+//     location.href = '/index.html';
+// });
 
 // gets modal ready for use
 $(document).ready(function () {

@@ -9,18 +9,19 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-        <link rel="stylesheet" href="./assets/css/characterStyle.css" />
+        <!-- <link rel="stylesheet" href="./assets/css/characterStyle.css" /> -->
         <link rel="stylesheet" href="./assets/css/style.css" />
         <title>D&D Template</title>
     </head>
 
     <!-- header and nav/breadcrumb section -->
-    <body class="grey darken-3 col">
+    <body class="white-text blue" id="characterBody">
+        <div class="gradient"></div>
         <header id="header">
             <nav>
-                <div class="nav-wrapper red darken-4">
+                <div class="nav-wrapper">
                     <a href="./index.html" class="brand-logo center" id="D&D">D&D Character Sheet Helper</a>
-                    <ul class="left">
+                    <ul class="right">
                         <li>
                             <a
                                 class="waves-effect waves-light btn grey darken-4 modal-trigger"
@@ -28,13 +29,6 @@
                                 id="ins"
                                 href="#">
                                 Instructions
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="right">
-                        <li>
-                            <a class="waves-effect waves-light btn grey darken-4" id="vcs" href="./index.html">
-                                Return Home
                             </a>
                         </li>
                     </ul>
@@ -50,7 +44,7 @@
                 </div>
             </nav>
             <!-- instructions modal section -->
-            <div id="modal1" class="modal modal-fixed-footer">
+            <div id="modal1" class="modal modal-fixed-footer black-text">
                 <div class="modal-content">
                     <h4>How to use this section</h4>
                     <p>In this section, you'll build your base character!</p>
@@ -77,20 +71,20 @@
                     <p>Please select one:</p>
                     <p>
                         <label>
-                            <input type="radio" name="gender-select" class="red darken-4s" id="female" />
-                            <span>Female</span>
+                            <input type="radio" name="gender-select" class="darken-4s" id="female" />
+                            <span class="white-text">Female</span>
                         </label>
                     </p>
                     <p>
                         <label>
                             <input type="radio" name="gender-select" class="red darken-4s" id="male" />
-                            <span>Male</span>
+                            <span class="white-text">Male</span>
                         </label>
                     </p>
                     <p>
                         <label>
                             <input type="radio" name="gender-select" class="red darken-4s" id="other" />
-                            <span>Other</span>
+                            <span class="white-text">Other</span>
                         </label>
                     </p>
                 </div>
@@ -99,7 +93,7 @@
                     <h5>Choice or Random?</h5>
                     <div class="switch">
                         <p>Name</p>
-                        <label>
+                        <label class="white-text">
                             My Choice
                             <input type="checkbox" id="name-choice" />
                             <span class="lever red darken-4"></span>
@@ -108,7 +102,7 @@
                     </div>
                     <div class="switch">
                         <p>Class</p>
-                        <label>
+                        <label class="white-text">
                             My Choice
                             <input type="checkbox" id="class-choice" />
                             <span class="lever red darken-4"></span>
@@ -117,7 +111,7 @@
                     </div>
                     <div class="switch">
                         <p>Race</p>
-                        <label>
+                        <label class="white-text">
                             My Choice
                             <input type="checkbox" id="race-choice" />
                             <span class="lever red darken-4"></span>
@@ -126,7 +120,7 @@
                     </div>
                     <div class="switch">
                         <p>Alignment</p>
-                        <label>
+                        <label class="white-text">
                             My Choice
                             <input type="checkbox" id="align-choice" />
                             <span class="lever red darken-4"></span>
@@ -172,7 +166,8 @@
                     </div>
                     <div class="input-field col s6" id="raceMenuDisp">
                         <h6>Race</h6>
-                        <select id="raceMenu" class="text-dark">
+                        <select id="raceMenu" class="">
+                            <option value="default" selected>Pick A Race</option>
                             <option value="dragonborn">Dragonborn</option>
                             <option value="dwarf">Dwarf</option>
                             <option value="elf">Elf</option>
@@ -238,9 +233,9 @@
         <br />
 
         <!-- footer section -->
-        <footer class="page-footer red darken-4 hide-on-med-and-down">
-            <div class="footer-copyright red darken-4">
-                <div class="container red darken-4 center">
+        <footer class="page-footer hide-on-med-and-down">
+            <div class="footer-copyright">
+                <div class="container center">
                     <span class="">© 2022 Copyright by The Dashing Ducks</span>
                 </div>
             </div>
@@ -251,5 +246,4 @@
         <script src="./assets/js/character.js"></script>
         <script src="./assets/js/script.js"></script>
     </body>
-    =
 </html>

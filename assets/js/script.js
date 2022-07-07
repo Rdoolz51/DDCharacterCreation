@@ -22,17 +22,20 @@ var statCardEl = $('#statCard');
 var equipCardEl = $('#equipCard');
 var spellCardEl = $('#spellCard');
 var charSheetEl = $('#vcs');
+charCreate();
+statCreate();
+equipCreate();
+spellCreate();
 
 $(document).ready(function () {
     $('.modal').modal();
 });
 
-$('#ccCard').on('click', charCreate);
-$('#statCard').on('click', statCreate);
-$('#equipCard').on('click', equipCreate);
-$('#spellCard').on('click', spellCreate);
-$('#vcs').on('click', charSheet);
-$('#ins').on('click', instructions);
+// $('#ccCard').on('click', charCreate);
+// $('#statCard').on('click', statCreate);
+// $('#equipCard').on('click', equipCreate);
+// $('#spellCard').on('click', spellCreate);
+// $('#vcs').on('click', charSheet);
 
 $('#burger').on('click', hamburgerMenu);
 
@@ -46,36 +49,41 @@ function hamburgerMenu() {
         $('.side').css('display', 'block');
     }
 }
-
 function charCreate() {
-    $('#ccCard').css('background-image', 'url(/assets/images/player2done.jpg)');
-    $('#ccCard').css('background-size', 'cover');
-    $('#ccCard').css('color', 'green');
-    $('#ccCard').css('border', '10px solid green');
+    if ($('#charBody').hasClass('complete')) {
+        $('#ccCard').css('background-image', 'url(/assets/images/player2done.jpg)');
+        $('#ccCard').css('background-size', 'cover');
+        $('#ccCard').css('color', 'green');
+        $('#ccCard').css('border', '10px solid green');
+    }
 }
 function statCreate() {
-    $('#statCard').css('background-image', 'url(/assets/images/stats2Done.jpg)');
-    $('#statCard').css('background-size', 'cover');
-    $('#statCard').css('color', 'green');
-    $('#statCard').css('border', '10px solid green');
+    if ($('#statsBody').hasClass('complete')) {
+        $('#statCard').css('background-image', 'url(/assets/images/stats2Done.jpg)');
+        $('#statCard').css('background-size', 'cover');
+        $('#statCard').css('color', 'green');
+        $('#statCard').css('border', '10px solid green');
+    }
 }
 function equipCreate() {
-    $('#equipCard').css('background-image', 'url(/assets/images/equip2done.jpg)');
-    $('#equipCard').css('background-size', 'cover');
-    $('#equipCard').css('background-position', '0px -45px');
-    $('#equipCard').css('color', 'green');
-    $('#equipCard').css('border', '10px solid green');
+    if ($('#equipmentBody').hasClass('complete')) {
+        $('#equipCard').css('background-image', 'url(/assets/images/equip2done.jpg)');
+        $('#equipCard').css('background-size', 'cover');
+        $('#equipCard').css('background-position', '0px -45px');
+        $('#equipCard').css('color', 'green');
+        $('#equipCard').css('border', '10px solid green');
+    }
 }
 function spellCreate() {
-    $('#spellCard').css('background-image', 'url(/assets/images/spells2done.jpg)');
-    $('#spellCard').css('background-size', 'cover');
-    $('#spellCard').css('background-position', 'left');
-    $('#spellCard').css('color', 'green');
-    $('#spellCard').css('border', '10px solid green');
+    if ($('#spellsBody').hasClass('complete')) {
+        $('#spellCard').css('background-image', 'url(/assets/images/spells2done.jpg)');
+        $('#spellCard').css('background-size', 'cover');
+        $('#spellCard').css('background-position', 'left');
+        $('#spellCard').css('color', 'green');
+        $('#spellCard').css('border', '10px solid green');
+    }
 }
 
 function charSheet() {
     $('.main-card').css('background-image', 'url(/assets/images/charsheet.png)');
 }
-
-function instructions() {}

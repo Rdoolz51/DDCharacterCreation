@@ -9,20 +9,21 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-        <link rel="stylesheet" href="./assets/css/statsStyle.css" />
+        <!-- <link rel="stylesheet" href="./assets/css/statsStyle.css" /> -->
         <link rel="stylesheet" href="./assets/css/style.css" />
         <title>D&D Stats</title>
     </head>
 
-    <body class="grey darken-3">
+    <body id="statsBody">
+        <div class="gradient"></div>
         <header id="header">
             <nav>
-                <div class="nav-wrapper red darken-4">
-                    <a href="#!" class="brand-logo center" id="D&D">D&D Character Sheet Generator</a>
+                <div class="nav-wrapper">
+                    <a href="./index.html" class="brand-logo center" id="D&D">D&D Character Sheet Helper</a>
                     <ul class="right">
                         <li>
                             <a
-                                class="waves-effect waves-light btn modal-trigger grey darken-4"
+                                class="waves-effect waves-light btn grey darken-4 modal-trigger"
                                 data-target="modal1"
                                 id="ins"
                                 href="#">
@@ -48,27 +49,29 @@
                 <div class="modal-content">
                     <h4>Instructions</h4>
                     <p>This creates random stats for your character!</p>
+
                     <p>
-                        Click the Generate Stats button to generate you character's stats; once you get a set you like
-                        you can submit them to your character and move on to the next step!
+                        Once your stats are randomly rolled, they will be attributed favorably based on your character's
+                        class.
                     </p>
+                    <p><strong>You are allowed 1 reroll. Don't get too greedy!</strong></p>
                 </div>
                 <div class="modal-footer">
                     <a href="#!" class="modal-close waves-effect waves-green btn-flat">OK</a>
                 </div>
             </div>
 
-            <div class="container" id="statDiv">
+            <div class="container white-text" id="statDiv">
                 <br />
                 <br />
                 <h3 class="col s12 hide-post" id="statHeader">Stats</h3>
                 <div class="row hide-post" id="statContainer">
-                    <h5 class="stats" id="str"></h5>
-                    <h5 class="stats" id="dex"></h5>
-                    <h5 class="stats" id="wis"></h5>
-                    <h5 class="stats" id="con"></h5>
-                    <h5 class="stats" id="cha"></h5>
-                    <h5 class="stats" id="int"></h5>
+                    <h5 class="stats white-text" id="str"></h5>
+                    <h5 class="stats white-text" id="dex"></h5>
+                    <h5 class="stats white-text" id="wis"></h5>
+                    <h5 class="stats white-text" id="con"></h5>
+                    <h5 class="stats white-text" id="cha"></h5>
+                    <h5 class="stats white-text" id="int"></h5>
                 </div>
                 <br />
                 <div class="submit-to-char hidden-on-start hide-post" id="submit-to-char">
@@ -105,9 +108,9 @@
             <br />
             <br />
         </main>
-        <footer class="page-footer red darken-4">
-            <div class="footer-copyright red darken-4">
-                <div class="container red darken-4 center">
+        <footer class="page-footer hide-on-med-and-down">
+            <div class="footer-copyright">
+                <div class="container center">
                     <span class="">© 2022 Copyright by The Dashing Ducks</span>
                 </div>
             </div>

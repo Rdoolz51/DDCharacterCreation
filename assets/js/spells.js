@@ -181,6 +181,7 @@ $('#restart2').on('click', function () {
 // selects random cantrips according to their allowance
 
 var randomSpell = function () {
+    $('.footer').removeClass('hide');
     $('.spell-box').each(function () {
         var potSpell = $(this).data('spell');
         // console.log(potSpell);
@@ -248,10 +249,10 @@ $('#submitChar2').on('click', function () {
     save();
 });
 
-// return to index button
-$('#returnHome').on('click', function () {
-    location.href = './index.html';
-});
+// return to index button(out of use until we get pdf working)
+// $('#returnHome').on('click', function () {
+//     location.href = './index.html';
+// });
 
 // sends user to tutorial video
 $('#tut').on('click', function () {

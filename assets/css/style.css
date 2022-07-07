@@ -1,16 +1,26 @@
 body {
     position: relative;
+    background-image: linear-gradient(
+        to top left,
+        rgb(73, 65, 65),
+        rgb(173, 85, 85),
+        rgb(173, 85, 85),
+        rgb(60, 49, 49)
+    );
 }
 
 main {
+    height: 100vh;
+}
+.main {
     height: 100%;
-
 }
 .card-panel {
     box-shadow: none;
 }
 
-.nav-wrapper {
+.nav-wrapper,
+#header {
     box-shadow: 2px 2px 2px 2px black;
     background-color: rgb(37, 34, 34);
 }
@@ -19,21 +29,8 @@ main {
     height: 100%;
     width: auto;
 }
-.gradient {
-    background-image: linear-gradient(
-        to top left,
-        rgb(73, 65, 65),
-        rgb(173, 85, 85),
-        rgb(173, 85, 85),
-        rgb(60, 49, 49)
-    );
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-}
 .row {
-    margin-bottom: 0px;
+    margin-bottom: 5.5rem;
 }
 
 .c-pan {
@@ -188,10 +185,18 @@ footer {
 .switch {
     overflow: visible;
 }
+/* From Character */
+#lockIn {
+    margin: 10px auto;
+}
 /* From Tutorial */
 .stats {
-    color:rgb(192, 192, 192);
+    color: white;
 }
+#returnHome {
+    margin-bottom: 0.2rem;
+}
+
 /* From Spells */
 .hidden-on-start {
     display: none;
@@ -206,12 +211,11 @@ footer {
     display: none;
 }
 .endContainer {
-    display:none;
+    display: none;
 }
 /* From Stats  */
 #returnBtn {
-    display:none;
-
+    display: none;
 }
 
 @media only screen and (max-width: 701px) {
@@ -272,16 +276,12 @@ footer {
         width: 5rem;
         font-size: xx-small;
     }
-
-    .btn {
-        padding: 0 0.1rem 0 0.1rem;
-    }
 }
 /* From Character */
 @media screen and (max-width: 580px) {
-    #vcs, #ins {
+    #vcs,
+    #ins {
         width: 8rem;
         font-size: xx-small;
     }
-
 }

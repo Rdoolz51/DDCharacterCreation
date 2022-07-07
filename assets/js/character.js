@@ -16,6 +16,7 @@ var CharacterAttributes = {
     hitpoints: '',
     speed: '',
 };
+localStorage.setItem('character', CharacterAttributes);
 
 $(document).ready(function () {
     $('.modal').modal();

@@ -10,19 +10,20 @@
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         <link rel="stylesheet" href="./assets/css/style.css" />
-        <link rel="stylesheet" href="./assets/css/spellsStyle.css" />
+        <!-- <link rel="stylesheet" href="./assets/css/spellsStyle.css" /> -->
         <title>D&D Spells</title>
     </head>
 
-    <body class="grey darken-3">
+    <body class="complete" id="spellsBody">
+        <div class="gradient"></div>
         <header id="header">
             <nav>
-                <div class="nav-wrapper red darken-4">
-                    <a href="#!" class="brand-logo center" id="D&D">D&D Character Sheet Generator</a>
+                <div class="nav-wrapper">
+                    <a href="./index.html" class="brand-logo center" id="D&D">D&D Character Sheet Helper</a>
                     <ul class="right">
                         <li>
                             <a
-                                class="waves-effect waves-light btn modal-trigger grey darken-4"
+                                class="waves-effect waves-light btn grey darken-4 modal-trigger"
                                 data-target="modal1"
                                 id="ins"
                                 href="#">
@@ -33,7 +34,7 @@
                 </div>
             </nav>
         </header>
-        <main class="row">
+        <main class="row white-text">
             <!-- Breadcrumb  -->
             <nav>
                 <div class="nav-wrapper grey darken-4">
@@ -121,14 +122,14 @@
                     <div class="switch" id="switch">
                         <p></p>
                         <label>
-                            You Input
+                            My Choice
                             <input type="checkbox" id="demo" />
                             <span class="lever red darken-4"></span>
                             Random
                         </label>
                     </div>
                     <br />
-                    <div class="divider grey"></div>
+                    <div class="divider white"></div>
                     <br />
                     <button
                         class="btn waves-effect waves-red red darken-4"
@@ -176,9 +177,9 @@
             </div>
         </main>
         <br />
-        <footer class="page-footer red darken-4">
-            <div class="footer-copyright red darken-4">
-                <div class="container red darken-4 center">
+        <footer class="page-footer hide-on-med-and-down hide">
+            <div class="footer-copyright">
+                <div class="container center">
                     <span class="">© 2022 Copyright by The Dashing Ducks</span>
                 </div>
             </div>
@@ -186,7 +187,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <script src="./assets/js/spells.js"></script>
         <script src="./assets/js/script.js"></script>
+        <script src="./assets/js/spells.js"></script>
     </body>
 </html>

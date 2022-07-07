@@ -4,9 +4,10 @@ body {
 
 /* main {
     height: 100vh;
-
 } */
-
+/* .main {
+    height:100%;
+} */
 .card-panel {
     box-shadow: none;
 }
@@ -14,9 +15,7 @@ body {
 .side {
     height: 100%;
     width: auto;
-
 }
-
 
 .row {
     margin-bottom: 0px;
@@ -25,8 +24,7 @@ body {
 .c-pan {
     transform: translateX(0);
     transition: transform 0.3s ease-in-out;
-    margin-right: .4rem;
-
+    margin-right: 0.4rem;
 }
 
 ul img {
@@ -61,11 +59,10 @@ nav {
     transition: transform 0.2s ease-in;
 }
 
-#vcs:hover, #ins:hover {
+#vcs:hover,
+#ins:hover {
     transform: scale(1.05);
 }
-
-
 
 .card-Title {
     font-weight: bolder;
@@ -85,7 +82,6 @@ nav {
     height: 19vh;
     overflow: hidden;
     margin-right: 10rem;
-    
 }
 
 #statCard {
@@ -96,7 +92,6 @@ nav {
     height: 19vh;
     overflow: hidden;
     margin-right: 10rem;
-    
 }
 
 #equipCard {
@@ -129,7 +124,7 @@ footer {
 #statCard:hover,
 #equipCard:hover,
 #spellCard:hover {
-    box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, .6);
+    box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.6);
     border: 3px solid black;
     cursor: pointer;
 }
@@ -142,13 +137,12 @@ footer {
     border: 5px solid red;
     cursor: pointer;
     user-select: none;
-    opacity: .7;
-
+    opacity: 0.7;
 }
 
-[type="checkbox"]:checked+span:not(.lever):before {
-    border-right: 2px solid #B71C1C;
-    border-bottom: 2px solid #B71C1C;
+[type='checkbox']:checked + span:not(.lever):before {
+    border-right: 2px solid #b71c1c;
+    border-bottom: 2px solid #b71c1c;
 }
 
 @media only screen and (max-width: 701px) {
@@ -165,7 +159,6 @@ footer {
     }
     .main-card {
         margin: 0;
-
     }
 
     .section {
@@ -193,17 +186,17 @@ footer {
 }
 
 @media screen and (max-width: 800px) {
-    #vcs,#ins {
+    #vcs,
+    #ins {
         width: 10rem;
         font-size: smaller;
     }
-
 }
 
 @media screen and (max-width: 580px) {
-    #vcs, #ins {
+    #vcs,
+    #ins {
         width: 8rem;
         font-size: xx-small;
     }
-
 }
