@@ -78,9 +78,10 @@
                     type="submit"
                     name="action"
                     id="submitChar"
-                    data-position="right">
+                    data-position="right"
+                    onclick="M.toast({html: 'Added to Character Sheet'})"></a>
                     Submit to Character
-                    <i class="material-icons right">spa</i>
+                    <i class="material-icons right">file_download</i>
                 </a>
                 <br />
                 <br />
@@ -90,25 +91,16 @@
                     name="action"
                     id="restart"
                     data-position="right">
-                    Restart
-                    <i class="material-icons right">spa</i>
+                    Choose Again
+                    <i class="material-icons right">keyboard_arrow_left</i>
                 </a>
             </div>
             <div id="endContainer" class="container endContainer">
                 <div id="closingMessage">
-                    <a
-                        class="btn red darken-4 endContainer"
-                        type="submit"
-                        name="action"
-                        id="returnHome"
-                        data-position="right">
-                        Return home
-                        <i class="material-icons right">spa</i>
-                    </a>
                     <br />
-                    <a class="btn red darken-4 endContainer" type="submit" name="action" id="tut" data-position="right">
+                    <a class="btn red darken-4 endContainer" type="submit" name="action" id="tut" data-position="right" onclick="M.toast({html: 'Added to Character Sheet'})">
                         Continue to Class tutorial
-                        <i class="material-icons right">spa</i>
+                        <i class="material-icons right">keyboard_arrow_right</i>
                     </a>
                 </div>
             </div>
@@ -137,7 +129,7 @@
                         name="action"
                         id="submit-choice">
                         Submit
-                        <i class="material-icons right">spa</i>
+                        <i class="material-icons right">file_download</i>
                     </button>
                     <div id="spellsContainer" class="hidden-on-start1"></div>
                     <div id="randomSpellsContainer" class="hidden-on-start2">
@@ -147,9 +139,10 @@
                                 type="submit"
                                 name="action"
                                 id="submitChar2"
-                                data-position="right">
+                                data-position="right"
+                                onclick="M.toast({html: 'Added to Character Sheet'})">
                                 Submit to Character
-                                <i class="material-icons right">spa</i>
+                                <i class="material-icons right">file_download</i>
                             </a>
                             <br />
                             <br />
@@ -159,8 +152,8 @@
                                 name="action"
                                 id="restart2"
                                 data-position="right">
-                                Restart
-                                <i class="material-icons right">spa</i>
+                                Choose Again
+                                <i class="material-icons right">keyboard_arrow_left</i>
                             </a>
                         </div>
                     </div>
@@ -168,8 +161,8 @@
                     <br />
                     <br />
                     <a class="btn red darken-4" type="submit" name="action" id="submit-spells" data-position="right">
-                        Submit Choices
-                        <i class="material-icons right">spa</i>
+                        Submit to Character
+                        <i class="material-icons right">file_download</i>
                     </a>
                     <h5 class="submit-warning" id="submit-warning"></h5>
                     <br />
