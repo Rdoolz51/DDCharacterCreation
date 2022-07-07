@@ -15,7 +15,7 @@ var CharacterAttributes = {
     spells: [],
     hitpoints: '',
     speed: '',
-
+};
 
 var load = function () {
     var player = localStorage.getItem('character');
@@ -26,7 +26,6 @@ var charClass = CharacterAttributes.class;
 var possibleSpells = [];
 var submitSpells = $('#submit-spells');
 var selectedSpells = [];
-
 
 var classUrl = `classes/${charClass}/levels/0/spells`;
 var baseApiUrl = 'https://www.dnd5eapi.co/api/';
@@ -177,7 +176,6 @@ $('#restart').on('click', function () {
 $('#restart2').on('click', function () {
     selectedSpells = [];
     location.reload();
-
 });
 
 // selects random cantrips according to their allowance
@@ -221,7 +219,6 @@ var shuffle = function (array) {
 };
 // displays randomly chosen spells
 var RandomSpellsDisplay = function () {
-
     var randomHead = `<div id="rndSpell"><h3>The randomly chosen spells are: </h3></div>`;
     $('#randomSpellsContainer').prepend(randomHead);
     for (let i = 0; i < selectedSpells.length; i++) {
@@ -264,7 +261,6 @@ var save = function () {
     load();
     CharacterAttributes.spells = selectedSpells;
     localStorage.setItem('character', JSON.stringify(CharacterAttributes));
-
 };
 cantripRestriction();
 classSpells();
