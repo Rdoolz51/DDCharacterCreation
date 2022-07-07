@@ -365,7 +365,7 @@ var lastName = [
     'Heimdell',
 ];
 
-var eitherFirstName = [maleFirstName.concat(femaleFirstName)];
+var otherFirstName = [maleFirstName.concat(femaleFirstName)];
 
 // check if user wants to randomize their name
 var checkName = function (event) {
@@ -378,9 +378,9 @@ var checkName = function (event) {
         } else if ($('#male').is(':checked')) {
             var gender = 'Male';
             CharacterAttributes.sex = 'Male';
-        } else if ($('#either').is(':checked')) {
-            var gender = 'Either';
-            CharacterAttributes.sex = 'Either';
+        } else if ($('#other').is(':checked')) {
+            var gender = 'Other';
+            CharacterAttributes.sex = 'Other';
         }
 
         // hide text input allowing them to add a name
@@ -393,14 +393,14 @@ var checkName = function (event) {
             var rMFirst = Math.floor(Math.random() * maleFirstName.length);
             var rFFirst = Math.floor(Math.random() * femaleFirstName.length);
             var rLast = Math.floor(Math.random() * lastName.length);
-            var rEither = Math.floor(Math.random() * eitherFirstName[0].length);
+            var rOther = Math.floor(Math.random() * otherFirstName[0].length);
 
             if (gender == 'Male') {
                 randomName = maleFirstName[rMFirst] + ' ' + lastName[rLast];
             } else if (gender == 'Female') {
                 randomName = femaleFirstName[rFFirst] + ' ' + lastName[rLast];
-            } else if (gender == 'Either') {
-                randomName = eitherFirstName[0][rEither] + ' ' + lastName[rLast];
+            } else if (gender == 'Other') {
+                randomName = otherFirstName[0][rOther] + ' ' + lastName[rLast];
             }
             return randomName;
         };
