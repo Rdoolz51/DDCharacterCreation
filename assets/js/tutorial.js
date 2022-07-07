@@ -14,6 +14,7 @@ var CharacterAttributes = {
     equipment: [],
     spells: [],
     hitpoints: '',
+    speed: '',
 };
 
 var apiKey = 'AIzaSyD_iuxaxY56u4gH6ja49Z5q2ZuAcofE7rM';

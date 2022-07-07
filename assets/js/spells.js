@@ -14,6 +14,7 @@ var CharacterAttributes = {
     equipment: [],
     spells: [],
     hitpoints: '',
+    speed: '',
 };
 var player = localStorage.getItem('character');
 CharacterAttributes = JSON.parse(player);
