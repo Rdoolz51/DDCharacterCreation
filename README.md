@@ -19,6 +19,7 @@ Creates a character which includes:
     -   Elven
     -   Orcish
     -   Dwarvish
+    
 -   Stats
     -   Strength
     -   Dexterity
@@ -26,6 +27,7 @@ Creates a character which includes:
     -   Intelligence
     -   Wisdom
     -   Charisma
+    
 -   Equipment
     -   Melee Weapons
     -   Ranged Weapons
@@ -33,6 +35,7 @@ Creates a character which includes:
     -   Armor
     -   Talismans
     -   And other starting equipment
+    
 -   Spells
     -   Simulacrum
     -   Arcane Eye
@@ -42,9 +45,9 @@ Creates a character which includes:
 
 <h2> And Many More! </h2>
 
-<h2> How did we create it? <h/2>
+<h2> How did we create it? </h2>
 
-<h2> We used a multitude of technologies, including: </h2>
+We used a multitude of technologies, including:
 
 -   HTML
 -   CSS
