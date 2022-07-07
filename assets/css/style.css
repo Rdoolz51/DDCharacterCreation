@@ -188,9 +188,30 @@ footer {
 .switch {
     overflow: visible;
 }
-
+/* From Tutorial */
 .stats {
     color:rgb(192, 192, 192);
+}
+/* From Spells */
+.hidden-on-start {
+    display: none;
+}
+#submit-spells {
+    display: none;
+}
+.hidden-on-start1 {
+    display: none;
+}
+.hidden-on-start2 {
+    display: none;
+}
+.endContainer {
+    display:none;
+}
+/* From Stats  */
+#returnBtn {
+    display:none;
+
 }
 
 @media only screen and (max-width: 701px) {
@@ -255,4 +276,12 @@ footer {
     .btn {
         padding: 0 0.1rem 0 0.1rem;
     }
+}
+/* From Character */
+@media screen and (max-width: 580px) {
+    #vcs, #ins {
+        width: 8rem;
+        font-size: xx-small;
+    }
+
 }

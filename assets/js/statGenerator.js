@@ -36,8 +36,10 @@ var proficiencies = [];
 //creates a button and appends it to whatever div you fill in.
 buttonEl = `<a class="waves-effect waves-light red darken-4 btn" id="statBtn"><i class="material-icons left">keyboard_arrow_right</i>Generate Stats</a>`;
 $('#statContainer').append(buttonEl);
-$('#statBtn').on('click', randomizeStats);
-
+$('#statBtn').on('click', function () {
+    randomizeStats();
+    $('#statBtn').hide();
+});
 // strEl = $('<p>');
 // dexEl = $('<p>');
 // conEl = $('<p>');
