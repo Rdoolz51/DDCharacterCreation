@@ -74,6 +74,10 @@
             all of the available spells to choose from or you will be shown the
             randomly chosen spells!
           </p>
+          <p>
+            If your class does not have any cantrips to choose from you will not
+            be able to pick any spells!
+          </p>
         </div>
         <div class="modal-footer">
           <a href="#!" class="modal-close waves-effect waves-green btn-flat"
@@ -81,7 +85,7 @@
           >
         </div>
       </div>
-      <div class="container hidden-on-start" id="post-choices">
+      <div class="container hidden-on-start if-no-spells" id="post-choices">
         <div class="row spells-chosen" id="spells-chosen"></div>
         <a
           class="btn red darken-4 hidden-on-start"
@@ -106,7 +110,7 @@
           <i class="material-icons right">spa</i>
         </a>
       </div>
-      <div id="endContainer " class="container endContainer">
+      <div id="endContainer" class="container endContainer">
         <div id="closingMessage">
           <a
             class="btn red darken-4 endContainer"
@@ -131,7 +135,7 @@
           </a>
         </div>
       </div>
-      <div class="container" id="pre-choices">
+      <div class="container if-no-spells" id="pre-choices">
         <div class="section">
           <h3 class="startup">Spells</h3>
           <p class="instruct startup" id="instruct">
