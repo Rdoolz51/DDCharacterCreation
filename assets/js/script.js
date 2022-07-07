@@ -48,12 +48,6 @@ $(document).ready(function () {
     $('.modal').modal();
 });
 
-// $('#ccCard').on('click', charCreate);
-// $('#statCard').on('click', statCreate);
-// $('#equipCard').on('click', equipCreate);
-// $('#spellCard').on('click', spellCreate);
-// $('#vcs').on('click', charSheet);
-
 $('#burger').on('click', hamburgerMenu);
 //transforms hamburger menu the hard way :)
 function hamburgerMenu() {
