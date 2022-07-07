@@ -199,7 +199,14 @@ var randomSpell = function () {
     for (let i = 0; i < cantripsKnown; i++) {
         shuffle(possibleSpells);
         var selRanSpells = possibleSpells[Math.floor(Math.random() * possibleSpells.length)];
-        selectedSpells.push(selRanSpells);
+        if (selRanSpells[0] === selRanSpells[1]) {
+            shuffle(possibleSpells);
+            selRanSpells[1] = possibleSpells[Math.floor(Math.random() * possibleSpells.length)];
+            selectedSpells.push(selRanSpells[1]);
+        } else {
+            selectedSpells.push(selRanSpells);
+        }
+        // selectedSpells.push(selRanSpells);
     }
     $('.hidden-on-start1').hide();
     $('.startup').hide();
@@ -211,6 +218,9 @@ var randomSpell = function () {
 function dupPrevention() {
     var used = selectedSpells.find(selRanSpells);
     if (used) {
+        selectedSpells = [];
+    } else {
+        selectedSpells.push(selRanSpells);
     }
 }
 
