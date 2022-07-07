@@ -14,6 +14,7 @@ var CharacterAttributes = {
     equipment: [],
     spells: [],
     hitpoints: '',
+    speed: ''
 };
 
 var charAtt = localStorage.getItem('character');
@@ -113,7 +114,7 @@ function selectEquipment(from) {
             choose);
     }
 }
-getClassEquipmentApi('fighter');
+getClassEquipmentApi('sorcerer');
 
 $(document).ready(function () {
     $('.modal').modal();
@@ -151,10 +152,7 @@ function getClassEquipmentApi(playerClass) {
                 CharacterAttributes.equipment = values.flat();
                 // $('#loader').addClass('hide')
                 // $('#content').removeClass('hide')
-                    // pEl.append(CharacterAttributes.equipment)
-                    // liEl.appendChild(pEl)
-                    // equipUl.appendChild(liEl)
-                    // equipBox.appendChild(equipUl)
+                
                 localStorage.setItem("character", CharacterAttributes)
                 console.log(CharacterAttributes.equipment)
                 console.log(playerClass);
