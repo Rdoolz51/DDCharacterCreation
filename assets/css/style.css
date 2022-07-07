@@ -109,7 +109,7 @@ nav {
 }
 
 #ccCard {
-    background-image: url(/assets/images/player2.jpeg);
+    background-image: url(/DDCharacterCreation/assets/images/player2.jpeg);
     background-size: cover;
     background-position: center;
     color: red;
@@ -120,7 +120,7 @@ nav {
 }
 
 #statCard {
-    background-image: url(/assets/images/stats2.jpeg);
+    background-image: url(/DDCharacterCreation/assets/images/stats2.jpeg);
     background-position: center;
     background-size: cover;
     color: red;
@@ -130,7 +130,7 @@ nav {
 }
 
 #equipCard {
-    background-image: url(/assets/images/equip2.jpeg);
+    background-image: url(/DDCharacterCreation/assets/images/equip2.jpeg);
     background-size: cover;
     background-position: 0 -45px;
     color: red;
@@ -140,7 +140,7 @@ nav {
 }
 
 #spellCard {
-    background-image: url(/assets/images/spells2.jpeg);
+    background-image: url(/DDCharacterCreation/assets/images/spells2.jpeg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
