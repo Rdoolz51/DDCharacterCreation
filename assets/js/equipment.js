@@ -23,7 +23,7 @@ var load = function () {
 load();
 var equipArr = [];
 var playerClass = CharacterAttributes.class;
-
+$('#spells').hide();
 function queryEquipment(equipmentUrl, choose) {
     return fetch(`https://www.dnd5eapi.co${equipmentUrl}`) //from[choice].equipment_option.from.equipment_category.url
         .then(function (response) {
@@ -163,6 +163,8 @@ function getClassEquipmentApi(playerClass) {
                 // CharacterAttributes.equipment = values.flat();
                 values.flat().forEach((result) => {
                     equipmentArr.push(result.quantity + ' ' + result.name);
+                    var displayEquip = `<p class="item">${result.quantity} ${result.name}</p>`;
+                    $('#equipmentBox').append(displayEquip);
                 });
 
                 // $('#loader').addClass('hide')
@@ -185,4 +187,11 @@ function save() {
     localStorage.setItem('character', JSON.stringify(CharacterAttributes));
     console.log(JSON.stringify(CharacterAttributes));
 }
-$('#submitChar').on('click', save);
+$('#submitChar').on('click', function () {
+    save();
+    $('#spells').show();
+    $('#submitChar').hide();
+});
+$('#spells').on('click', function () {
+    location.href = './spells.html';
+});

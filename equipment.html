@@ -8,8 +8,9 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />
-        <link rel="stylesheet" href="./assets/css/equipmentStyle.css" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         <link rel="stylesheet" href="./assets/css/style.css" />
+        <link rel="stylesheet" href="./assets/css/equipmentStyle.css" />
         <title>D&D Equipment</title>
     </head>
 
@@ -61,18 +62,35 @@
                     <a href="#!" class="modal-close waves-effect waves-green btn-flat">OK</a>
                 </div>
             </div>
+
+            <div class="container white-text">
+                <div class="row">
+                    <h3 id="Heading">Equipment</h3>
+                    <div class="divider"></div>
+                    <h5 class="sectionHeading">Your Randomly Chosen equipment is:</h5>
+                    <div class="section" id="equipmentBox"></div>
+                    <a
+                        class="btn red darken-4 hidden-on-start"
+                        type="submit"
+                        name="action"
+                        id="submitChar"
+                        data-position="right">
+                        Submit to Character
+                        <i class="material-icons right">spa</i>
+                    </a>
+                    <br />
+                    <a
+                        class="btn red darken-4 endContainer"
+                        type="submit"
+                        name="action"
+                        id="spells"
+                        data-position="right">
+                        Continue to Spells
+                        <i class="material-icons right">spa</i>
+                    </a>
+                </div>
+            </div>
         </main>
-        <div class="container white-text" id="equipmentBox">
-            <a
-                class="btn red darken-4 hidden-on-start"
-                type="submit"
-                name="action"
-                id="submitChar"
-                data-position="right">
-                Submit to Character
-                <i class="material-icons right">spa</i>
-            </a>
-        </div>
         <footer class="page-footer red darken-4">
             <div class="footer-copyright red darken-4">
                 <div class="container red darken-4 center">
