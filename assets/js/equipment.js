@@ -21,8 +21,7 @@ var load = function () {
     CharacterAttributes = JSON.parse(player);
 };
 load();
-var equipmentArr = [];
-
+var equipArr = [];
 var playerClass = CharacterAttributes.class;
 
 function queryEquipment(equipmentUrl, choose) {
@@ -130,6 +129,7 @@ $(document).ready(function () {
     $('.modal').modal();
 });
 function getClassEquipmentApi(playerClass) {
+    var equipmentArr = [];
     var apiURL = 'https://www.dnd5eapi.co/api/classes/' + playerClass + '/';
     fetch(apiURL)
         .then(function (response) {
@@ -157,25 +157,29 @@ function getClassEquipmentApi(playerClass) {
                     promises.push(selectEquipment(data.starting_equipment_options[i].from));
                 }
             }
+
             Promise.all(promises).then((values) => {
                 // set equipment and render UI
                 // CharacterAttributes.equipment = values.flat();
                 values.flat().forEach((result) => {
-                    equipmentArr.push(result.name);
+                    equipmentArr.push(result.name, result.quantity);
                 });
                 // $('#loader').addClass('hide')
                 // $('#content').removeClass('hide')
 
                 console.log(equipmentArr);
                 console.log(playerClass);
-                save();
             });
+            equipmentArr = equipArr;
         })
         .catch(function (error) {
             console.log(error);
         });
 }
+
 function save() {
-    CharacterAttributes.equipment = equipmentArr;
+    load();
+    CharacterAttributes.equipment = equipArr;
     localStorage.setItem('character', JSON.stringify(CharacterAttributes));
 }
+$('#submitChar').on('click', save);
