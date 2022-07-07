@@ -505,22 +505,22 @@ var saveInput = function (event) {
     // same typed name value
     if ($('#name-choice').is(':checked')) {
     } else {
-        CharacterAttributes.name = JSON.stringify($('#nameUsed').val());
+        CharacterAttributes.name = $('#nameUsed').val();
     }
     // save selected class
     if ($('#class-choice').is(':checked')) {
     } else {
-        CharacterAttributes.class = JSON.stringify($('#classMenu').val());
+        CharacterAttributes.class = $('#classMenu').val();
     }
     // save selected race
     if ($('#race-choice').is(':checked')) {
     } else {
-        CharacterAttributes.race = JSON.stringify($('#raceMenu').val());
+        CharacterAttributes.race = $('#raceMenu').val();
     }
     // save selected alignment
     if ($('#align-choice').is(':checked')) {
     } else {
-        CharacterAttributes.alignment = JSON.stringify($('#alignMenu').val());
+        CharacterAttributes.alignment = $('#alignMenu').val();
     }
 };
 $('#lockIn').on('click', saveInput);

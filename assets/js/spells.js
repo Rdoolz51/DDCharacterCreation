@@ -36,7 +36,6 @@ $(document).ready(function () {
 
 // Checks to see if the class has any spells available
 var classCheck = function () {
-    var charClass = CharacterAttributes.class;
     if (
         charClass == 'barbarian' ||
         charClass == 'monk' ||
