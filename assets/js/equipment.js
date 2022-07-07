@@ -20,9 +20,9 @@ var load = function () {
     var player = localStorage.getItem('character');
     CharacterAttributes = JSON.parse(player);
 };
-load();
-var equipmentArr = [];
 
+load();
+const equipmentArr = [];
 var playerClass = CharacterAttributes.class;
 
 function queryEquipment(equipmentUrl, choose) {
@@ -162,20 +162,27 @@ function getClassEquipmentApi(playerClass) {
                 // CharacterAttributes.equipment = values.flat();
                 values.flat().forEach((result) => {
                     equipmentArr.push(result.name);
+                    debugger;
                 });
+
                 // $('#loader').addClass('hide')
                 // $('#content').removeClass('hide')
 
+                CharacterAttributes.equipment = equipmentArr;
+                debugger;
                 console.log(equipmentArr);
                 console.log(playerClass);
-                save();
             });
         })
         .catch(function (error) {
             console.log(error);
         });
 }
+buttonEl = `<a class="waves-effect waves-light red darken-4 btn" id="statBtn"><i class="material-icons left">keyboard_arrow_right</i>Generate Stats</a>`;
+$('#equipmentBox').append(buttonEl);
 function save() {
-    CharacterAttributes.equipment = equipmentArr;
     localStorage.setItem('character', JSON.stringify(CharacterAttributes));
+    console.log(JSON.stringify(CharacterAttributes));
 }
+
+$(buttonEl).on('click', save);
