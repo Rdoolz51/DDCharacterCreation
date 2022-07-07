@@ -7,6 +7,11 @@ body {
         rgb(173, 85, 85),
         rgb(60, 49, 49)
     );
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: auto;
 }
 
 main {
@@ -275,6 +280,9 @@ footer {
 
 .nav-wrapper a {
     user-select: none;
+}
+.highlight {
+    text-decoration: underline;
 }
 
 @media screen and (max-width: 800px) {

@@ -23,6 +23,11 @@ var PageAttributes = {
     spellPage: '',
 };
 
+var checkIfAttStored = JSON.parse(localStorage.getItem('pageState'));
+if (!checkIfAttStored) {
+    localStorage.setItem('pageState', JSON.stringify(PageAttributes));
+}
+
 load();
 
 function load() {
@@ -61,7 +66,7 @@ function hamburgerMenu() {
     }
 }
 function charCreate() {
-    if (PageAttributes.characterPage == 'complete') {
+    if (PageAttributes.characterPage === 'complete') {
         $('#ccCard').css('background-image', 'url(/assets/images/player2done.jpg)');
         $('#ccCard').css('background-size', 'cover');
         $('#ccCard').css('color', 'green');
@@ -142,6 +147,7 @@ function charSheet() {
 }
 
 $('#resetCharacter').on('click', function () {
+    console.log('clicked');
     PageAttributes.characterPage = '';
     PageAttributes.statsPage = '';
     PageAttributes.equipPage = '';

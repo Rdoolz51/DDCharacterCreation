@@ -208,6 +208,12 @@ var randomSpell = function () {
     RandomSpellsDisplay();
 };
 
+function dupPrevention() {
+    var used = selectedSpells.find(selRanSpells);
+    if (used) {
+    }
+}
+
 // Shuffles the array to get random spell names
 
 var shuffle = function (array) {

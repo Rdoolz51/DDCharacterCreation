@@ -192,6 +192,7 @@ footer {
     }
 }
 
+
 @media screen and (max-width: 800px) {
     #vcs,#ins {
         width: 10rem;

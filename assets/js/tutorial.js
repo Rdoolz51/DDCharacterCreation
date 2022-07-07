@@ -86,29 +86,29 @@ $('#returnHome').on('click', function () {
 
 //Displays stats under video for user to see and read.
 var displayStats = function () {
-    var dispName = `<p class="stats"> Your character's Name is ${playerName}</p>`;
-    var dispClass = `<p class="stats"> Your character's Class is ${playerClass}</p>`;
-    var dispRace = `<p class="stats"> Your character's Race is ${playerRace}</p>`;
-    var dispAlign = `<p class="stats"> Your character's alignment is ${playerAlignment}</p>`;
-    var dispSex = `<p class="stats"> Your character's sex is ${playerSex}</p>`;
+    var dispName = `<p class="stats"> Your character's Name is <span class="highlight">${playerName}</span></p>`;
+    var dispClass = `<p class="stats"> Your character's Class is <span class="highlight"> ${playerClass}</span></p>`;
+    var dispRace = `<p class="stats"> Your character's Race is <span class="highlight"> ${playerRace}</span></p>`;
+    var dispAlign = `<p class="stats"> Your character's alignment is <span class="highlight"> ${playerAlignment}</span></p>`;
+    var dispSex = `<p class="stats"> Your character's sex is <span class="highlight"> ${playerSex}</span></p>`;
     var playerProf = playerProficiencies.join(' , ');
-    var dispProf = `<p class="stats"> Your character's proficiencies are ${playerProf}</p>`;
-    var dispStr = `<p class="stats"> Your character's Strength is ${playerStrength}</p>`;
-    var dispDex = `<p class="stats"> Your character's Dexterity is ${playerDexterity}</p>`;
-    var dispCon = `<p class="stats"> Your character's Constitution is ${playerConstitution}</p>`;
-    var dispInt = `<p class="stats"> Your character's Intelligence is ${playerIntelligence}</p>`;
-    var dispWis = `<p class="stats"> Your character's Wisdom is ${playerWisdom}</p>`;
-    var dispChar = `<p class="stats"> Your character's Charisma is ${playerCharisma}</p>`;
+    var dispProf = `<p class="stats"> Your character's proficiencies are <span class="highlight"> ${playerProf}</span></p>`;
+    var dispStr = `<p class="stats"> Your character's Strength is <span class="highlight"> ${playerStrength}</span></p>`;
+    var dispDex = `<p class="stats"> Your character's Dexterity is <span class="highlight"> ${playerDexterity}</span></p>`;
+    var dispCon = `<p class="stats"> Your character's Constitution is <span class="highlight"> ${playerConstitution}</span></p>`;
+    var dispInt = `<p class="stats"> Your character's Intelligence is <span class="highlight"> ${playerIntelligence}</span></p>`;
+    var dispWis = `<p class="stats"> Your character's Wisdom is <span class="highlight"> ${playerWisdom}</span></p>`;
+    var dispChar = `<p class="stats"> Your character's Charisma is <span class="highlight"> ${playerCharisma}</span></p>`;
     var playerEquip = playerEquipment.join(' , ');
-    var dispEquip = `<p class="stats"> Your character's Equipment is ${playerEquip}</p>`;
+    var dispEquip = `<p class="stats"> Your character's Equipment is <span class="highlight"> ${playerEquip}</span></p>`;
     if (playerSpells.length === 0) {
         var dispSpells = `<p class="stats"> Your character doesn't know any spells</p>`;
     } else {
         var playerSpls = playerSpells.join(' , ');
-        var dispSpells = `<p class="stats"> Your character's Spells are ${playerSpls}</p>`;
+        var dispSpells = `<p class="stats"> Your character's Spells are <span class="highlight"> ${playerSpls}</span></p>`;
     }
-    var dispHp = `<p class="stats"> Your character's hitpoints are ${playerHp}</p>`;
-    var dispSpeed = `<p class="stats"> Your character's speed is ${playerSpeed}</p>`;
+    var dispHp = `<p class="stats"> Your character's hitpoints are <span class="highlight"> ${playerHp}</span></p>`;
+    var dispSpeed = `<p class="stats"> Your character's speed is <span class="highlight"> ${playerSpeed}</span></p>`;
     $('#character-stats').append(dispName);
     $('#character-stats').append(dispClass);
     $('#character-stats').append(dispRace);
