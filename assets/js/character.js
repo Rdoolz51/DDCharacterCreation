@@ -22,7 +22,7 @@ var PageAttributes = {
     equipPage: '',
     spellPage: '',
 };
-localStorage.setItem('character', CharacterAttributes);
+localStorage.setItem('character', JSON.stringify(CharacterAttributes));
 loadPage();
 function loadPage() {
     var pState = localStorage.getItem('pageState');

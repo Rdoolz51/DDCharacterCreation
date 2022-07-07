@@ -22,14 +22,13 @@ var PageAttributes = {
     equipPage: '',
     spellPage: '',
 };
+var pState = localStorage.getItem('pageState');
+PageAttributes = JSON.parse(pState);
+var player = localStorage.getItem('character');
+CharacterAttributes = JSON.parse(player);
 
-var load = function () {
-    var player = localStorage.getItem('character');
-    CharacterAttributes = JSON.parse(player);
-    var pState = localStorage.getItem('pageState');
-    PageAttributes = JSON.parse(pState);
-};
-load();
+// function load() {}
+// load();
 var equipArr = [];
 var playerClass = CharacterAttributes.class;
 $('#spells').hide();
@@ -191,7 +190,9 @@ function getClassEquipmentApi(playerClass) {
 }
 
 function save() {
-    load();
+    var player = localStorage.getItem('character');
+    CharacterAttributes = JSON.parse(player);
+
     CharacterAttributes.equipment = equipArr;
     PageAttributes.equipPage = 'complete';
     localStorage.setItem('character', JSON.stringify(CharacterAttributes));

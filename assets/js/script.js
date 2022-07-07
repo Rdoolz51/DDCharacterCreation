@@ -1,3 +1,21 @@
+var CharacterAttributes = {
+    name: '',
+    class: '',
+    race: '',
+    alignment: '',
+    sex: '',
+    proficiencies: [],
+    strength: '',
+    dexterity: '',
+    constitution: '',
+    intelligence: '',
+    wisdom: '',
+    charisma: '',
+    equipment: [],
+    spells: [],
+    hitpoints: '',
+    speed: '',
+};
 var PageAttributes = {
     characterPage: '',
     statsPage: '',
@@ -129,5 +147,6 @@ $('#resetCharacter').on('click', function () {
     PageAttributes.equipPage = '';
     PageAttributes.spellPage = '';
     localStorage.setItem('pageState', JSON.stringify(PageAttributes));
+    localStorage.setItem('character', JSON.stringify(CharacterAttributes));
     location.reload();
 });
