@@ -16,8 +16,18 @@ var CharacterAttributes = {
     hitpoints: '',
     speed: '',
 };
+var PageAttributes = {
+    characterPage: '',
+    statsPage: '',
+    equipPage: '',
+    spellPage: '',
+};
 localStorage.setItem('character', CharacterAttributes);
-
+loadPage();
+function loadPage() {
+    var pState = localStorage.getItem('pageState');
+    PageAttributes = JSON.parse(pState);
+}
 $(document).ready(function () {
     $('.modal').modal();
 });
@@ -528,7 +538,9 @@ $('#lockIn').on('click', saveInput);
 
 // add user's selections to their Character Attributes in localStorage
 $('#saveChar').on('click', function () {
+    PageAttributes.characterPage = 'complete';
     localStorage.setItem('character', JSON.stringify(CharacterAttributes));
+    localStorage.setItem('pageState', JSON.stringify(PageAttributes));
 
     // move on to the next section
     location.href = 'stats.html';

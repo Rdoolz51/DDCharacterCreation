@@ -16,12 +16,20 @@ var CharacterAttributes = {
     hitpoints: '',
     speed: '',
 };
+var PageAttributes = {
+    characterPage: '',
+    statsPage: '',
+    equipPage: '',
+    spellPage: '',
+};
 
 //loads Character Attributes from local storage
 
 var load = function () {
     var charFromPrev = localStorage.getItem('character');
     CharacterAttributes = JSON.parse(charFromPrev);
+    var pState = localStorage.getItem('pageState');
+    PageAttributes = JSON.parse(pState);
 };
 load();
 

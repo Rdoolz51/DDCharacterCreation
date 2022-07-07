@@ -48,7 +48,16 @@ ul img {
     background-color: rgb(37, 34, 34);
     box-shadow: 2px 2px 2px 4px black;
 }
-
+#resetCharacter {
+    margin: 0 2rem 0 0;
+    background-image: linear-gradient(rgb(56, 50, 50), rgb(29, 23, 23));
+    border: 0.2px solid rgba(255, 255, 255, 0.4);
+    margin-left: 1.1rem;
+}
+#resetCharacter:hover {
+    transform: scale(1.05);
+    border: 1px solid white;
+}
 .main-card {
     height: 82vh;
     margin-top: 2.15rem;
@@ -256,6 +265,9 @@ footer {
     #ccCard {
         margin-top: 5rem;
     }
+    #resetCharacter {
+        margin-bottom: 1rem;
+    }
 }
 
 .nav-wrapper a {
@@ -268,13 +280,24 @@ footer {
         width: 10rem;
         font-size: smaller;
     }
+    #resetCharacter {
+        position: absolute;
+        bottom: 0;
+    }
 }
 
 @media screen and (max-width: 600px) {
     #vcs,
     #ins {
+        width: 6rem;
+        font-size: xx-small;
+        margin-bottom: 0.5rem;
+        margin-right: 0;
+    }
+    #resetCharacter {
         width: 5rem;
         font-size: xx-small;
+        margin-bottom: 0.7rem;
     }
 }
 /* From Character */

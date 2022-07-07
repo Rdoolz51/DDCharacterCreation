@@ -16,11 +16,19 @@ var CharacterAttributes = {
     hitpoints: '',
     speed: '',
 };
+var PageAttributes = {
+    characterPage: '',
+    statsPage: '',
+    equipPage: '',
+    spellPage: '',
+};
 
 //loads character info from localStorage
 var load = function () {
     var player = localStorage.getItem('character');
     CharacterAttributes = JSON.parse(player);
+    var pState = localStorage.getItem('pageState');
+    PageAttributes = JSON.parse(pState);
 };
 load();
 var strength = 0;
@@ -382,7 +390,9 @@ $('#submitChar').on('click', function () {
     CharacterAttributes.hitpoints = hitpoints;
     CharacterAttributes.speed = speed;
     CharacterAttributes.proficiencies = proficiencies;
+    PageAttributes.statsPage = 'complete';
     localStorage.setItem('character', JSON.stringify(CharacterAttributes));
+    localStorage.setItem('pageState', JSON.stringify(PageAttributes));
 });
 
 // return to home button(out of use until we get pdf working)

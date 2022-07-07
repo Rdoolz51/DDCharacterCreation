@@ -16,9 +16,18 @@ var CharacterAttributes = {
     hitpoints: '',
     speed: '',
 };
+var PageAttributes = {
+    characterPage: '',
+    statsPage: '',
+    equipPage: '',
+    spellPage: '',
+};
+
 var load = function () {
     var player = localStorage.getItem('character');
     CharacterAttributes = JSON.parse(player);
+    var pState = localStorage.getItem('pageState');
+    PageAttributes = JSON.parse(pState);
 };
 load();
 var equipArr = [];
@@ -184,8 +193,9 @@ function getClassEquipmentApi(playerClass) {
 function save() {
     load();
     CharacterAttributes.equipment = equipArr;
+    PageAttributes.equipPage = 'complete';
     localStorage.setItem('character', JSON.stringify(CharacterAttributes));
-    console.log(JSON.stringify(CharacterAttributes));
+    localStorage.setItem('pageState', JSON.stringify(PageAttributes));
 }
 $('#submitChar').on('click', function () {
     save();

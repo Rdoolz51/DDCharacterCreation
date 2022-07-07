@@ -16,10 +16,18 @@ var CharacterAttributes = {
     hitpoints: '',
     speed: '',
 };
+var PageAttributes = {
+    characterPage: '',
+    statsPage: '',
+    equipPage: '',
+    spellPage: '',
+};
 
 var load = function () {
     var player = localStorage.getItem('character');
     CharacterAttributes = JSON.parse(player);
+    var pState = localStorage.getItem('pageState');
+    PageAttributes = JSON.parse(pState);
 };
 load();
 var charClass = CharacterAttributes.class;
@@ -256,12 +264,15 @@ $('#submitChar2').on('click', function () {
 
 // sends user to tutorial video
 $('#tut').on('click', function () {
+    CharacterAttributes.spellPage = 'complete';
     location.href = './tutorial.html';
 });
 var save = function () {
     load();
     CharacterAttributes.spells = selectedSpells;
+    PageAttributes.spellPage = 'complete';
     localStorage.setItem('character', JSON.stringify(CharacterAttributes));
+    localStorage.setItem('pageState', JSON.stringify(PageAttributes));
 };
 cantripRestriction();
 classSpells();
