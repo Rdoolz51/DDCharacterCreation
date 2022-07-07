@@ -144,6 +144,7 @@ $('#submit-spells').on('click', function () {
         var checkedSpell = $(this).data('spell');
         console.log(checkedSpell);
         selectedSpells.push(checkedSpell);
+        console.log(selectedSpells);
     });
     if (selectedSpells.length <= cantripsKnown) {
         console.log('lower than cantrips');
@@ -171,6 +172,10 @@ $('#restart').on('click', function () {
     selectedSpells = [];
     location.reload();
 });
+$('#restart2').on('click', function () {
+    selectedSpells = [];
+    location.reload();
+});
 
 // selects random cantrips according to their allowance
 
@@ -188,6 +193,7 @@ var randomSpell = function () {
     }
     $('.hidden-on-start1').hide();
     $('.startup').hide();
+    $('#submit-spells').hide();
     $('.hidden-on-start2').show();
     RandomSpellsDisplay();
 };
@@ -212,11 +218,11 @@ var shuffle = function (array) {
 };
 // displays randomly chosen spells
 var RandomSpellsDisplay = function () {
-    var randomHead = `<h3>The randomly chosen spells are: </h3>`;
-    $('#randomSpellsContainer').append(randomHead);
+    var randomHead = `<div id="rndSpell"><h3>The randomly chosen spells are: </h3></div>`;
+    $('#randomSpellsContainer').prepend(randomHead);
     for (let i = 0; i < selectedSpells.length; i++) {
         var randomizedSpell = '<h5 class="col s12 offset-s1 endSpells">' + selectedSpells[i] + '</h5>';
-        $('#randomSpellsContainer').append(randomizedSpell);
+        $('#rndSpell').append(randomizedSpell);
     }
 };
 // Button to submit spell choices to character sheet(local storage)
@@ -228,9 +234,18 @@ $('#submitChar').on('click', function () {
     $('.hidden-on-start').hide();
     $('.hidden-on-start1').hide();
     $('.hidden-on-start2').hide();
-    CharacterAttributes.spells.push(selectedSpells);
-    localStorage.setItem('character', JSON.stringify(CharacterAttributes));
+    save();
 });
+$('#submitChar2').on('click', function () {
+    $('.endContainer').show();
+    var endMessage = `<h3>Your chosen spells have been submitted to your character sheet!</h3>`;
+    $('#closingMessage').prepend(endMessage);
+    $('.hidden-on-start').hide();
+    $('.hidden-on-start1').hide();
+    $('.hidden-on-start2').hide();
+    save();
+});
+
 // return to index button
 $('#returnHome').on('click', function () {
     location.href = './index.html';
@@ -240,5 +255,10 @@ $('#returnHome').on('click', function () {
 $('#tut').on('click', function () {
     location.href = './tutorial.html';
 });
+var save = function () {
+    load();
+    CharacterAttributes.spells = selectedSpells;
+    localStorage.setItem('character', JSON.stringify(CharacterAttributes));
+};
 cantripRestriction();
 classSpells();
