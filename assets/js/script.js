@@ -54,8 +54,11 @@ function charCreate() {
     } else {
         $('#ccCardAnchor').attr('href', './character.html');
         $('#statCardAnchor').attr('href', '#');
+        $('#statCard').css('filter', 'grayscale()');
         $('#equipCardAnchor').attr('href', '#');
+        $('#equipCard').css('filter', 'grayscale()');
         $('#spellCardAnchor').attr('href', '#');
+        $('#spellCard').css('filter', 'grayscale()');
         PageAttributes.characterPage = '';
     }
 }
@@ -69,10 +72,14 @@ function statCreate() {
             $('#statCardAnchor').attr('href', '#');
         });
     } else {
-        $('#statCardAnchor').attr('href', './stats.html');
-        $('#equipCardAnchor').attr('href', '#');
-        $('#spellCardAnchor').attr('href', '#');
-        PageAttributes.statsPage = '';
+        if (PageAttributes.characterPage == 'complete') {
+            $('#statCardAnchor').attr('href', './stats.html');
+            $('#equipCardAnchor').attr('href', '#');
+            $('#equipCard').css('filter', 'grayscale()');
+            $('#spellCardAnchor').attr('href', '#');
+            $('#spellCard').css('filter', 'grayscale()');
+            PageAttributes.statsPage = '';
+        }
     }
 }
 function equipCreate() {
@@ -86,9 +93,12 @@ function equipCreate() {
             $('#equipCardAnchor').attr('href', '#');
         });
     } else {
-        $('#equipCardAnchor').attr('href', './equipment.html');
-        $('#spellCardAnchor').attr('href', '#');
-        PageAttributes.equipPage = '';
+        if (PageAttributes.statsPage == 'complete') {
+            $('#equipCardAnchor').attr('href', './equipment.html');
+            $('#spellCardAnchor').attr('href', '#');
+            $('#spellCard').css('filter', 'grayscale()');
+            PageAttributes.equipPage = '';
+        }
     }
 }
 function spellCreate() {
@@ -102,8 +112,10 @@ function spellCreate() {
             $('#spellCardAnchor').attr('href', '#');
         });
     } else {
-        $('#spellCardAnchor').attr('href', './spells.html');
-        PageAttributes.spellPage = '';
+        if (PageAttributes.equipPage == 'complete') {
+            $('#spellCardAnchor').attr('href', './spells.html');
+            PageAttributes.spellPage = '';
+        }
     }
 }
 

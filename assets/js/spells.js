@@ -265,6 +265,7 @@ $('#submitChar2').on('click', function () {
 // sends user to tutorial video
 $('#tut').on('click', function () {
     PageAttributes.spellPage = 'complete';
+    localStorage.setItem('pageState', JSON.stringify(PageAttributes));
     location.href = './tutorial.html';
 });
 var save = function () {
