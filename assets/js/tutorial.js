@@ -1,6 +1,6 @@
 var CharacterAttributes = {
     name: '',
-    charClass: '',
+    class: '',
     race: '',
     alignment: '',
     sex: '',
@@ -16,12 +16,15 @@ var CharacterAttributes = {
     hitpoints: '',
     speed: '',
 };
+
 //loads Character Attributes from local storage
+
 var load = function () {
     var charFromPrev = localStorage.getItem('character');
     CharacterAttributes = JSON.parse(charFromPrev);
 };
 load();
+
 
 //create variables for each part of Character Attributes
 var playerName = CharacterAttributes.name;
@@ -45,6 +48,7 @@ var playerSpeed = CharacterAttributes.speed;
 
 var apiKey = 'AIzaSyD_iuxaxY56u4gH6ja49Z5q2ZuAcofE7rM';
 var baseApiUrl = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&part=snippet&type=video&q=handbook%20helper%205e%20${playerClass}&maxResults=1`;
+
 var videoKey;
 
 // finds video from Critical Role to help user with new class
@@ -72,6 +76,7 @@ allowfullscreen
 $('#returnHome').on('click', function () {
     location.href = './index.html';
 });
+
 
 //Displays stats under video for user to see and read.
 var displayStats = function () {
@@ -108,6 +113,7 @@ var displayStats = function () {
     $('#character-stats').append(dispHp);
     $('#character-stats').append(dispSpeed);
 };
+
 
 ClassVideo();
 displayStats();

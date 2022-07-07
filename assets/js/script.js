@@ -4,10 +4,7 @@ var CharacterAttributes = {
     race: '',
     alignment: '',
     sex: '',
-    age: '',
-    height: '',
-    weight: '',
-    proficiencies: '',
+    proficiencies: [],
     strength: '',
     dexterity: '',
     constitution: '',
@@ -16,6 +13,8 @@ var CharacterAttributes = {
     charisma: '',
     equipment: [],
     spells: [],
+    hitpoints: '',
+    speed: '',
 };
 
 var ccCardEl = $('#ccCard');
