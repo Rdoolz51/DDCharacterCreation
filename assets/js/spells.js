@@ -264,7 +264,7 @@ $('#submitChar2').on('click', function () {
 
 // sends user to tutorial video
 $('#tut').on('click', function () {
-    CharacterAttributes.spellPage = 'complete';
+    PageAttributes.spellPage = 'complete';
     location.href = './tutorial.html';
 });
 var save = function () {

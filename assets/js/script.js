@@ -53,6 +53,9 @@ function charCreate() {
         });
     } else {
         $('#ccCardAnchor').attr('href', './character.html');
+        $('#statCardAnchor').attr('href', '#');
+        $('#equipCardAnchor').attr('href', '#');
+        $('#spellCardAnchor').attr('href', '#');
         PageAttributes.characterPage = '';
     }
 }
@@ -67,6 +70,8 @@ function statCreate() {
         });
     } else {
         $('#statCardAnchor').attr('href', './stats.html');
+        $('#equipCardAnchor').attr('href', '#');
+        $('#spellCardAnchor').attr('href', '#');
         PageAttributes.statsPage = '';
     }
 }
@@ -82,6 +87,7 @@ function equipCreate() {
         });
     } else {
         $('#equipCardAnchor').attr('href', './equipment.html');
+        $('#spellCardAnchor').attr('href', '#');
         PageAttributes.equipPage = '';
     }
 }
