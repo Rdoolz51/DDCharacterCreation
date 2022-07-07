@@ -20,14 +20,8 @@ var load = function () {
     var player = localStorage.getItem('character');
     CharacterAttributes = JSON.parse(player);
 };
-<<<<<<< HEAD
 load();
 var equipArr = [];
-=======
-
-load();
-const equipmentArr = [];
->>>>>>> edfdb7cfe3c5434504375ff3854884ea97d76399
 var playerClass = CharacterAttributes.class;
 
 function queryEquipment(equipmentUrl, choose) {
@@ -168,14 +162,13 @@ function getClassEquipmentApi(playerClass) {
                 // set equipment and render UI
                 // CharacterAttributes.equipment = values.flat();
                 values.flat().forEach((result) => {
-                    equipmentArr.push(result.name, result.quantity);
+                    equipmentArr.push(result.quantity + ' ' + result.name);
                 });
 
                 // $('#loader').addClass('hide')
                 // $('#content').removeClass('hide')
 
                 CharacterAttributes.equipment = equipmentArr;
-                debugger;
                 console.log(equipmentArr);
                 console.log(playerClass);
             });
