@@ -17,6 +17,7 @@ var CharacterAttributes = {
     speed: '',
 };
 
+//loads character info from localStorage
 var charAtt = localStorage.getItem('character');
 CharacterAttributes = JSON.parse(charAtt);
 
@@ -28,6 +29,7 @@ var wisdom = 0;
 var charisma = 0;
 var hitpoints = 0;
 var speed = 0;
+var proficiencies = [];
 //creates a button and appends it to whatever div you fill in.
 buttonEl = `<a class="waves-effect waves-light red darken-4 btn" id="statBtn"><i class="material-icons left">keyboard_arrow_right</i>Generate Stats</a>`;
 $('#statContainer').append(buttonEl);
@@ -89,6 +91,11 @@ function randomizeStats() {
 
     let race = CharacterAttributes.race;
     let playerClass = CharacterAttributes.class;
+
+    //used for testing
+
+    // let race = 'dwarf';
+    // let playerClass = 'paladin';
 
     //determines whether fighter is dex or str
     var fighterID = Math.floor(Math.random(1, 2) * 2 + 1);
@@ -331,6 +338,20 @@ function randomizeStats() {
             speed = data.speed;
         });
 
+    //gets proficiencies and makes a choice for random proficiencies
+
+    fetch('https://www.dnd5eapi.co/api/classes/' + playerClass + '/proficiencies')
+        .then(function (response) {
+            if (response.ok) {
+                return response.json();
+            }
+        })
+        .then(function (data) {
+            data.results.forEach((result) => {
+                proficiencies = proficiencies.concat(result.name);
+            });
+            console.log(proficiencies);
+        });
     //appends each stat to its own div on a page (Must create the divs first)
     $('#str').append('strength = ' + strength);
     $('#dex').append('dexterity =  ' + dexterity);
@@ -339,7 +360,6 @@ function randomizeStats() {
     $('#wis').append('wisdom = ' + wisdom);
     $('#cha').append('charisma = ' + charisma);
 }
-
 //submits stats to local storage
 $('#submitChar').on('click', function () {
     $('.hide-post').hide();
@@ -355,6 +375,7 @@ $('#submitChar').on('click', function () {
     CharacterAttributes.wisdom = wisdom;
     CharacterAttributes.hitpoints = hitpoints;
     CharacterAttributes.speed = speed;
+    CharacterAttributes.proficiencies = proficiencies;
     localStorage.setItem('character', JSON.stringify(CharacterAttributes));
 });
 // return to home button
