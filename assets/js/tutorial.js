@@ -1,21 +1,29 @@
 var CharacterAttributes = {
-    name: 'fartimus',
-    charClass: 'cleric',
-    race: 'gnome',
-    alignment: 'neutral',
-    sex: 'M',
-    proficiencies: ['farting', 'pooping'],
-    strength: '15',
-    dexterity: '9',
-    constitution: '12',
-    intelligence: '18',
-    wisdom: '8',
-    charisma: '6',
-    equipment: ['poop knife', 'plunger'],
-    spells: ['toxic fart', 'deadly BO'],
+    name: '',
+    charClass: '',
+    race: '',
+    alignment: '',
+    sex: '',
+    proficiencies: [],
+    strength: '',
+    dexterity: '',
+    constitution: '',
+    intelligence: '',
+    wisdom: '',
+    charisma: '',
+    equipment: [],
+    spells: [],
     hitpoints: '',
+    speed: '',
 };
+//loads Character Attributes from local storage
+var load = function () {
+    var charFromPrev = localStorage.getItem('character');
+    CharacterAttributes = JSON.parse(charFromPrev);
+};
+load();
 
+//create variables for each part of Character Attributes
 var playerName = CharacterAttributes.name;
 var playerClass = CharacterAttributes.charClass;
 var playerRace = CharacterAttributes.race;
@@ -32,10 +40,11 @@ var playerEquipment = CharacterAttributes.equipment;
 // var playerEquipment = JSON.stringify(pEquipment);
 var playerSpells = CharacterAttributes.spells;
 var playerHp = CharacterAttributes.hitpoints;
+var playerSpeed = CharacterAttributes.speed;
 // var playerSpells = JSON.stringify(pSpells);
 
 var apiKey = 'AIzaSyD_iuxaxY56u4gH6ja49Z5q2ZuAcofE7rM';
-var baseApiUrl = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&part=snippet&type=video&q=handbook%20helper%205e%20${CharacterAttributes.charClass}&maxResults=1`;
+var baseApiUrl = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&part=snippet&type=video&q=handbook%20helper%205e%20${playerClass}&maxResults=1`;
 var videoKey;
 
 // finds video from Critical Role to help user with new class
@@ -58,15 +67,13 @@ allowfullscreen
         },
     });
 };
-// loads from local storage
-var load = function () {
-    var charFromPrev = localStorage.getItem('character');
-    CharacterAttributes = JSON.parse(charFromPrev);
-};
+
 // returns user to home page on click
 $('#returnHome').on('click', function () {
     location.href = './index.html';
 });
+
+//Displays stats under video for user to see and read.
 var displayStats = function () {
     var dispName = `<p class="stats"> Your character's Name is ${playerName}</p>`;
     var dispClass = `<p class="stats"> Your character's Class is ${playerClass}</p>`;
@@ -83,6 +90,7 @@ var displayStats = function () {
     var dispEquip = `<p class="stats"> Your character's Equipment is ${playerEquipment}</p>`;
     var dispSpells = `<p class="stats"> Your character's Spells are ${playerSpells}</p>`;
     var dispHp = `<p class="stats"> Your character's Spells are ${playerHp}</p>`;
+    var dispSpeed = `<p class="stats"> Your character's Spells are ${playerSpeed}</p>`;
     $('#character-stats').append(dispName);
     $('#character-stats').append(dispClass);
     $('#character-stats').append(dispRace);
@@ -98,8 +106,8 @@ var displayStats = function () {
     $('#character-stats').append(dispEquip);
     $('#character-stats').append(dispSpells);
     $('#character-stats').append(dispHp);
+    $('#character-stats').append(dispSpeed);
 };
 
-load();
 ClassVideo();
 displayStats();
