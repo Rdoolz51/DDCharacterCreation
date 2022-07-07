@@ -16,9 +16,9 @@ var CharacterAttributes = {
     hitpoints: '',
     speed: ''
 };
-
-var charAtt = localStorage.getItem('character');
-CharacterAttributes = JSON.parse(charAtt)
+var equipmentArr = [];
+// var charAtt = localStorage.getItem('character');
+// CharacterAttributes = JSON.parse(charAtt)
 
 function queryEquipment(equipmentUrl, choose) {
     return fetch(`https://www.dnd5eapi.co${equipmentUrl}`) //from[choice].equipment_option.from.equipment_category.url
@@ -132,14 +132,14 @@ function getClassEquipmentApi(playerClass) {
         .then(function (data) {
 
             const promises = [];
-
+            
             for (let i = 0; i < data.starting_equipment.length; i++) {
                 promises.push(Promise.resolve({
                     name: data.starting_equipment[i].equipment.name,
                     quantity: data.starting_equipment[i].quantity
                 }));
             }
-
+            
             for (let i = 0; i < data.starting_equipment_options.length; i++) {
                 // console.log(data.starting_equipment_options[i]);
                 for (let j = 0; j < data.starting_equipment_options[i].choose; j++) {
@@ -149,16 +149,23 @@ function getClassEquipmentApi(playerClass) {
             Promise.all(promises)
             .then(values => {
                 // set equipment and render UI
-                CharacterAttributes.equipment = values.flat();
+                // CharacterAttributes.equipment = values.flat();
+                values.flat().forEach((result) => {
+                    equipmentArr.push(result.name)
+                })
                 // $('#loader').addClass('hide')
                 // $('#content').removeClass('hide')
                 
-                localStorage.setItem("character", CharacterAttributes)
-                console.log(CharacterAttributes.equipment)
+                console.log(equipmentArr)
                 console.log(playerClass);
+                save();
             });
         })
         .catch(function (error) {
             console.log(error);
         });
+    }
+    function save() {
+        CharacterAttributes.equipment = equipmentArr    
+        localStorage.setItem("character", JSON.stringify(CharacterAttributes))
     }
