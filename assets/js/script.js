@@ -62,7 +62,7 @@ function hamburgerMenu() {
 //each of the following functions hides its respective card on the index.html page until the previous page(s) has been marked completed
 function charCreate() {
     if (PageAttributes.characterPage === 'complete') {
-        $('#ccCard').css('background-image', 'url(/assets/images/player2done.jpg)');
+        $('#ccCard').css('background-image', 'url(./assets/images/player2done.jpg)');
         $('#ccCard').css('background-size', 'cover');
         $('#ccCard').css('color', 'green');
         $('#ccCard').css('border', '10px solid green');
@@ -82,7 +82,7 @@ function charCreate() {
 }
 function statCreate() {
     if (PageAttributes.statsPage == 'complete') {
-        $('#statCard').css('background-image', 'url(/assets/images/stats2Done.jpg)');
+        $('#statCard').css('background-image', 'url(./assets/images/stats2done.jpg)');
         $('#statCard').css('background-size', 'cover');
         $('#statCard').css('color', 'green');
         $('#statCard').css('border', '10px solid green');
@@ -102,7 +102,7 @@ function statCreate() {
 }
 function equipCreate() {
     if (PageAttributes.equipPage == 'complete') {
-        $('#equipCard').css('background-image', 'url(/assets/images/equip2done.jpg)');
+        $('#equipCard').css('background-image', 'url(./assets/images/equip2done.jpg)');
         $('#equipCard').css('background-size', 'cover');
         $('#equipCard').css('background-position', '0px -45px');
         $('#equipCard').css('color', 'green');
@@ -121,7 +121,7 @@ function equipCreate() {
 }
 function spellCreate() {
     if (PageAttributes.spellPage == 'complete') {
-        $('#spellCard').css('background-image', 'url(/assets/images/spells2done.jpg)');
+        $('#spellCard').css('background-image', 'url(./assets/images/spells2done.jpg)');
         $('#spellCard').css('background-size', 'cover');
         $('#spellCard').css('background-position', 'left');
         $('#spellCard').css('color', 'green');
