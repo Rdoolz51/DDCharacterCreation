@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link rel="stylesheet" href="./assets/css/style.css" />
+        <title>D&D Class Tutorial</title>
+    </head>
+
+    <body class="">
+        <header id="header">
+            <nav>
+                <div class="nav-wrapper">
+                    <a href="./index.html" class="brand-logo center" id="D&D">D&D Character Sheet Helper</a>
+                </div>
+            </nav>
+        </header>
+        <div class="gradient"></div>
+        <main class="row white-text">
+            <!-- Breadcrumb  -->
+            <nav>
+                <div class="nav-wrapper">
+                    <div class="col s12">
+                        <a href="./character.html" class="breadcrumb">Character Creation</a>
+                        <a href="./stats.html" class="breadcrumb">Stat Generator</a>
+                        <a href="./equipment.html" class="breadcrumb">Equipment</a>
+                        <a href="./spells.html" class="breadcrumb">Spells</a>
+                        <a href="./index.html" class="breadcrumb">Class Tutorial</a>
+                    </div>
+                </div>
+            </nav>
+            <br />
+            <div class="container" id="video-container">
+                <h3>Here is a video to help you with your new character's class!</h3>
+                <div id="video"></div>
+            </div>
+            <div class="container character-stats" id="character-stats"></div>
+            <div id="endContainer " class="container endContainer"></div>
+            <div id="closingMessage">
+                <a
+                    class="btn red darken-4 endContainer"
+                    type="submit"
+                    name="action"
+                    id="returnHome"
+                    data-position="right">
+                    Return home
+                    <i class="material-icons right">spa</i>
+                </a>
+            </div>
+            <div class="statSpace"></div>
+        </main>
+        <br />
+        <footer class="page-footer hide-on-med-and-down">
+            <div class="footer-copyright">
+                <div class="container center">
+                    <span class="">© 2022 Copyright by The Dashing Ducks</span>
+                </div>
+            </div>
+        </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="./assets/js/tutorial.js"></script>
+    </body>
+</html>

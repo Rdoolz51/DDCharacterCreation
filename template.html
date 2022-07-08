@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="./assets/css/template.css">
+    <title>D&D Template</title>
+</head>
+
+<body class="grey white-text darken-3">
+    <header id="header">
+        <nav>
+            <div class="nav-wrapper red darken-4">
+                <a href="#!" class="brand-logo center" id="D&D">D&D Character Sheet Helper</a>
+                <ul class="left">
+                    <li><a class="waves-effect waves-light btn grey darken-4 modal-trigger" data-target="modal1"
+                            id="ins" href="#">Instructions</a>
+                    </li>
+                </ul>
+                <ul class="right">
+                    <li><a class="waves-effect waves-light btn grey darken-4" id="vcs" href="./index.html">Return
+                            Home</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="row">
+        <!-- Breadcrumb  -->
+        <nav>
+            <div class="nav-wrapper grey darken-4">
+                <div class="col s12">
+                    <a href="./character.html" class="breadcrumb">Character Creation</a>
+                    <a href="./stats.html" class="breadcrumb">Stat Generator</a>
+                    <a href="./equipment.html" class="breadcrumb">Equipment</a>
+                    <a href="./spells.html" class="breadcrumb">Spells</a>
+                    <a href="./index.html" class="breadcrumb">Final Character</a>
+
+                </div>
+            </div>
+        </nav>
+        <!-- Modal Structure -->
+        <!-- Add instructions on how to pick to random or user input -->
+        <div id="modal1" class="modal modal-fixed-footer">
+            <div class="modal-content">
+                <h4>How to use this section</h4>
+                <p>A bunch of text Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta nemo unde tempora
+                    cumque
+                    tempore consectetur dolorem expedita suscipit veniam nam! Recusandae quas nam perferendis ea ipsa
+                    omnis
+                    possimus quis nulla!
+                    Eligendi, culpa omnis! Consectetur fugiat ullam deserunt provident doloribus et, labore fuga nam
+                    tempora,
+                    cumque hic fugit odio! Tenetur vero aperiam, exercitationem quibusdam autem incidunt laudantium!
+                    Nihil totam
+                    cupiditate necessitatibus!
+                    Voluptatum maxime rerum at a quia assumenda eius harum perferendis sunt? Dolore commodi delectus
+                    voluptatum
+                    incidunt repellendus tenetur, magnam ab. Corrupti quo illo aperiam sint fugiat error, esse impedit
+                    consectetur?
+                    Fugiat asperiores vero blanditiis et quod corporis numquam adipisci nobis ad. Autem sequi cum
+                    debitis dicta
+                    quis pariatur. Eveniet dignissimos ipsam error. Non expedita aut voluptate? Ipsa dignissimos
+                    consequatur
+                    cupiditate!
+                    Illo autem, ab, aspernatur libero rem quo omnis ad adipisci quod dicta aliquam suscipit id odio
+                    sunt, ex
+                    praesentium? Maxime blanditiis rerum reprehenderit eius maiores corrupti quod iusto totam ea!</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+            </div>
+        </div>
+        <div class="container">
+            <div class="section">
+                <h3>Stats/Character Creation/Spells/Equipment - for each page</h5>
+                    <p>Use the switches below to decide what parts are randomized and which are user inputted</p>
+            </div>
+
+            <!-- Switches  -->
+            <div class="col s3">
+                <div class="switch">
+                    <p>Choice 1</p>
+                    <label>
+                        You Input
+                        <input type="checkbox">
+                        <span class="lever red darken-4"></span>
+                        Random
+                    </label>
+                </div>
+                <div class="switch">
+                    <p>Choice 2</p>
+                    <label>
+                        You Input
+                        <input type="checkbox" id="demo">
+                        <span class="lever red darken-4"></span>
+                        Random
+                    </label>
+                </div>
+                <div class="switch">
+                    <p>Choice 3</p>
+                    <label>
+                        You Input
+                        <input type="checkbox">
+                        <span class="lever red darken-4"></span>
+                        Random
+                    </label>
+                </div>
+                <div class="switch">
+                    <p>Choice 4</p>
+                    <label>
+                        You Input
+                        <input type="checkbox">
+                        <span class="lever red darken-4"></span>
+                        Random
+                    </label>
+                </div>
+
+                <!-- Submit Button  -->
+                <br>
+                <div class="divider grey"></div>
+                <br>
+                <button class="btn waves-effect waves-light red darken-4" type="submit" name="action">Submit
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+
+
+            <!-- You will have to change the col size accordingly if you mix and match items -->
+            <div class="section col s3">
+                <h5>Section 1</h5>
+                <p>If user has to type in input data for attribute</p>
+
+                <!-- Text Inputs  -->
+                <div class="input-field col s6">
+                    <input placeholder="Placeholder" id="attribute" type="text" class="validate">
+                    <label for="attribute">attribute</label>
+                </div>
+                <div class="input-field col s6">
+                    <input placeholder="Placeholder" id="attribute" type="text" class="validate">
+                    <label for="attribute">attribute</label>
+                </div>
+                <div class="input-field col s6">
+                    <input placeholder="Placeholder" id="attribute" type="text" class="validate">
+                    <label for="attribute">attribute</label>
+                </div>
+                <div class="input-field col s6">
+                    <input placeholder="Placeholder" id="attribute" type="text" class="validate">
+                    <label for="attribute">attribute</label>
+                </div>
+            </div>
+
+
+            <div class="section col s3">
+                <h5>Section 1</h5>
+                <p>If user has to select data for attribute</p>
+                <!-- Checkbox if user gets to pick to have or not -->
+                <p>
+                    <label>
+                        <input type="checkbox" class="red darken-4s" />
+                        <span>If user has a coice</span>
+                    </label>
+                </p>
+
+                <!-- Checkbox if the user doesn't get to pick (default item/spell) -->
+                <p>
+                    <label>
+                        <input type="checkbox" checked="checked" disabled="disabled" class="red darken-4" />
+                        <span>If user doesn't have a choice</span>
+                    </label>
+                </p>
+            </div>
+        </div>
+
+
+
+
+
+    </main>
+    <footer class="page-footer red darken-4">
+        <div class="footer-copyright red darken-4">
+            <div class="container red darken-4 center">
+                <span class="">© 2022 Copyright by The Dashing Ducks</span>
+            </div>
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/template.js"></script>
+</body>
+
+</html>

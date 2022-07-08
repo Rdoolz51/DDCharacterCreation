@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link rel="stylesheet" href="./assets/css/style.css" />
+        <title>D&D Template</title>
+    </head>
+
+    <!-- header and nav/breadcrumb section -->
+    <body class="white-text blue" id="characterBody">
+        <div class="gradient"></div>
+        <header id="header">
+            <nav>
+                <div class="nav-wrapper">
+                    <a href="./index.html" class="brand-logo center" id="D&D">D&D Character Sheet Helper</a>
+                    <ul class="right">
+                        <li>
+                            <a
+                                class="waves-effect waves-light btn grey darken-4 modal-trigger"
+                                data-target="modal1"
+                                id="ins"
+                                href="#">
+                                Instructions
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main class="row">
+            <nav>
+                <div class="nav-wrapper grey darken-4">
+                    <div class="col s12">
+                        <a href="#!" class="breadcrumb">Character Creation</a>
+                    </div>
+                </div>
+            </nav>
+            <!-- instructions modal section -->
+            <div id="modal1" class="modal modal-fixed-footer black-text">
+                <div class="modal-content">
+                    <h4>How to use this section</h4>
+                    <p>In this section, you'll build your base character!</p>
+                    <p>
+                        Begin by selecting a gender. Next, select "My Choice" or "Random" for each trait. If you choose
+                        "Random", a trait will be picked for you and displayed in the Choose Your Own section. Feel free
+                        to change these if you'd like! Once you have the set of traits you desire, click Submit to
+                        Character to lock them in, then Continue to Stats to move on.
+                    </p>
+                    <p>Choose wisely, for these selections may determine the fate of your campaign...</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                </div>
+            </div>
+            <div class="container">
+                <div class="section">
+                    <h3>Character Creation</h3>
+                    <p>Make your choices wisely! Your selections here will guide your character on their journey.</p>
+                </div>
+                <!-- gender selection -->
+                <div class="section col s12 l2">
+                    <h5>Gender</h5>
+                    <p>Please select one:</p>
+                    <p>
+                        <label>
+                            <input type="radio" name="gender-select" class="darken-4s" id="female" />
+                            <span class="white-text">Female</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input type="radio" name="gender-select" class="red darken-4s" id="male" />
+                            <span class="white-text">Male</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input type="radio" name="gender-select" class="red darken-4s" id="other" />
+                            <span class="white-text">Other</span>
+                        </label>
+                    </p>
+                </div>
+                <!-- switches to select randomized or not -->
+                <div class="col s12 l3">
+                    <h5>Choice or Random?</h5>
+                    <div class="switch">
+                        <p>Name</p>
+                        <label class="white-text">
+                            My Choice
+                            <input type="checkbox" id="name-choice" />
+                            <span class="lever red darken-4"></span>
+                            Random
+                        </label>
+                    </div>
+                    <div class="switch">
+                        <p>Class</p>
+                        <label class="white-text">
+                            My Choice
+                            <input type="checkbox" id="class-choice" />
+                            <span class="lever red darken-4"></span>
+                            Random
+                        </label>
+                    </div>
+                    <div class="switch">
+                        <p>Race</p>
+                        <label class="white-text">
+                            My Choice
+                            <input type="checkbox" id="race-choice" />
+                            <span class="lever red darken-4"></span>
+                            Random
+                        </label>
+                    </div>
+                    <div class="switch">
+                        <p>Alignment</p>
+                        <label class="white-text">
+                            My Choice
+                            <input type="checkbox" id="align-choice" />
+                            <span class="lever red darken-4"></span>
+                            Random
+                        </label>
+                    </div>
+                </div>
+
+                <!-- input drop down menus -->
+                <div class="section col s12 l3">
+                    <h5>Choose Your Own</h5>
+                    <p>If you know what you'd like, enter your choices here:</p>
+                    <div class="input-field col s12" id="nameUsedDisp">
+                        <h6>Name</h6>
+                        <input placeholder="Type name" id="nameUsed" type="text" class="validate" />
+                    </div>
+                    <div class="col s12 hide" id="nameRandDisp">
+                        <h6>Name</h6>
+                        <div id="nameRand"></div>
+                        <div class="divider grey"></div>
+                        <br />
+                    </div>
+                    <div class="input-field col s12" id="classMenuDisp">
+                        <h6>Class</h6>
+                        <select id="classMenu" class="text-dark">
+                            <option value="barbarian">Barbarian</option>
+                            <option value="bard">Bard</option>
+                            <option value="cleric">Cleric</option>
+                            <option value="druid">Druid</option>
+                            <option value="fighter">Fighter</option>
+                            <option value="monk">Monk</option>
+                            <option value="paladin">Paladin</option>
+                            <option value="ranger">Ranger</option>
+                            <option value="rogue">Rogue</option>
+                            <option value="sorcerer">Sorcerer</option>
+                            <option value="warlock">Warlock</option>
+                            <option value="wizard">Wizard</option>
+                        </select>
+                    </div>
+                    <div class="col s12 hide" id="classRandDisp">
+                        <h6>Class</h6>
+                        <div id="classRand"></div>
+                        <div class="divider grey"></div>
+                        <br />
+                    </div>
+                    <div class="input-field col s12" id="raceMenuDisp">
+                        <h6>Race</h6>
+                        <select id="raceMenu" class="">
+                            <option value="default" selected>Pick A Race</option>
+                            <option value="dragonborn">Dragonborn</option>
+                            <option value="dwarf">Dwarf</option>
+                            <option value="elf">Elf</option>
+                            <option value="gnome">Gnome</option>
+                            <option value="half-elf">Half-elf</option>
+                            <option value="half-orc">Half-orc</option>
+                            <option value="halfling">Halfling</option>
+                            <option value="human">Human</option>
+                            <option value="tiefling">Tiefling</option>
+                        </select>
+                    </div>
+                    <div class="col s12 hide" id="raceRandDisp">
+                        <h6>Race</h6>
+                        <div id="raceRand"></div>
+                        <div class="divider grey"></div>
+                        <br />
+                    </div>
+                    <div class="input-field col s12" id="alignMenuDisp">
+                        <h6>Alignment</h6>
+                        <select id="alignMenu" class="text-dark">
+                            <option value="chaotic-neutral">chaotic-neutral</option>
+                            <option value="chaotic-evil">chaotic-evil</option>
+                            <option value="chaotic-good">chaotic-good</option>
+                            <option value="lawful-neutral">lawful-neutral</option>
+                            <option value="lawful-evil">lawful-evil</option>
+                            <option value="lawful-good">lawful-good</option>
+                            <option value="neutral">neutral</option>
+                            <option value="neutral-evil">neutral-evil</option>
+                            <option value="neutral-good">neutral-good</option>
+                        </select>
+                    </div>
+                    <div class="col s12 hide" id="alignRandDisp">
+                        <h6>Alignment</h6>
+                        <div id="alignRand"></div>
+                        <div class="divider grey"></div>
+                        <br />
+                    </div>
+                    <br />
+                    <div class="divider grey"></div>
+                    <br />
+                    <br />
+                </div>
+                <div class="col s12 l4">
+                    <button
+                        class="btn waves-effect waves-light red darken-4"
+                        type="submit"
+                        name="saving"
+                        id="lockIn"
+                        onclick="M.toast({html: 'Added to Character Sheet'})">
+                        Submit to Character
+                        <i class="material-icons">file_download</i>
+                    </button>
+                </div>
+                <i class="material-icons">down</i>
+                <div class="col s12 l4">
+                    <button
+                        class="btn waves-effect waves-light red darken-4 hide"
+                        type="submit"
+                        name="action"
+                        id="saveChar">
+                        Continue to Stats
+                        <i class="material-icons">keyboard_arrow_right</i>
+                    </button>
+                </div>
+            </div>
+            <br />
+            <br />
+            <!--       _
+       .__(.)< (MEOW)
+        \___)   
+ ~~~~~~~~~~~~~~~~~~-->
+        </main>
+        <br />
+        <br />
+
+        <!-- footer section -->
+        <footer class="page-footer hide-on-med-and-down">
+            <div class="footer-copyright">
+                <div class="container center">
+                    <span class="">© 2022 Copyright by The Dashing Ducks</span>
+                </div>
+            </div>
+        </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="./assets/js/character.js"></script>
+        <script src="./assets/js/script.js"></script>
+    </body>
+</html>

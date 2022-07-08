@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link rel="stylesheet" href="./assets/css/style.css" />
+        <title>D&D Stats</title>
+    </head>
+
+    <body id="statsBody">
+        <div class="gradient"></div>
+        <header id="header">
+            <nav>
+                <div class="nav-wrapper">
+                    <a href="./index.html" class="brand-logo center" id="D&D">D&D Character Sheet Helper</a>
+                    <ul class="right">
+                        <li>
+                            <a
+                                class="waves-effect waves-light btn grey darken-4 modal-trigger"
+                                data-target="modal1"
+                                id="ins"
+                                href="#">
+                                Instructions
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main class="row">
+            <!-- Breadcrumb -->
+            <nav>
+                <div class="nav-wrapper grey darken-4">
+                    <div class="col s12">
+                        <a href="./character.html" class="breadcrumb">Character Creation</a>
+                        <a href="./stats.html" class="breadcrumb">Stat Generator</a>
+                    </div>
+                </div>
+            </nav>
+            <!-- Modal Structure -->
+            <div id="modal1" class="modal modal-fixed-footer">
+                <div class="modal-content">
+                    <h4>Instructions</h4>
+                    <p>This creates random stats for your character!</p>
+
+                    <p>
+                        Once your stats are randomly rolled, they will be attributed favorably based on your character's
+                        class.
+                    </p>
+                    <p><strong>You are allowed 1 reroll. Don't get too greedy!</strong></p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">OK</a>
+                </div>
+            </div>
+
+            <div class="container white-text" id="statDiv">
+                <br />
+                <br />
+                <h3 class="col s12 hide-post" id="statHeader">Stats</h3>
+                <div class="row hide-post" id="statContainer">
+                    <h5 class="stats white-text" id="str"></h5>
+                    <h5 class="stats white-text" id="dex"></h5>
+                    <h5 class="stats white-text" id="wis"></h5>
+                    <h5 class="stats white-text" id="con"></h5>
+                    <h5 class="stats white-text" id="cha"></h5>
+                    <h5 class="stats white-text" id="int"></h5>
+                </div>
+                <br />
+                <div class="submit-to-char hidden-on-start hide-post" id="submit-to-char">
+                    <a
+                        class="btn waves-effect waves-light red darken-4"
+                        type="submit"
+                        name="action"
+                        id="submitChar"
+                        data-position="right"
+                        onclick="M.toast({html: 'Added to Character Sheet'})">
+                        Submit to Character
+                        <i class="material-icons right">file_download</i>
+                    </a>
+                </div>
+                <br />
+                <div class="returnBtn">
+                    <a class="waves-effect waves-light red darken-4 btn" id="returnBtn" type="submit" name="action">
+                        <i class="material-icons left">keyboard_arrow_right</i>
+                        Return Home
+                    </a>
+                </div>
+                <br />
+                <div class="nextBtn" id="nextBtn">
+                    <a
+                        class="btn red darken-4 endContainer"
+                        type="submit"
+                        name="action"
+                        id="next"
+                        data-position="right">
+                        Continue to Equipment
+                        <i class="material-icons right">keyboard_arrow_right</i>
+                    </a>
+                </div>
+            </div>
+            <br />
+            <br />
+        </main>
+        <footer class="page-footer hide-on-med-and-down">
+            <div class="footer-copyright">
+                <div class="container center">
+                    <span class="">© 2022 Copyright by The Dashing Ducks</span>
+                </div>
+            </div>
+        </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="./assets/js/script.js"></script>
+        <script src="./assets/js/statGenerator.js"></script>
+    </body>
+</html>

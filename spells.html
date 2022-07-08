@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link rel="stylesheet" href="./assets/css/style.css" />
+        <title>D&D Spells</title>
+    </head>
+
+    <body class="complete" id="spellsBody">
+        <div class="gradient"></div>
+        <header id="header">
+            <nav>
+                <div class="nav-wrapper">
+                    <a href="./index.html" class="brand-logo center" id="D&D">D&D Character Sheet Helper</a>
+                    <ul class="right">
+                        <li>
+                            <a
+                                class="waves-effect waves-light btn grey darken-4 modal-trigger"
+                                data-target="modal1"
+                                id="ins"
+                                href="#">
+                                Instructions
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main class="row white-text">
+            <!-- Breadcrumb  -->
+            <nav>
+                <div class="nav-wrapper grey darken-4">
+                    <div class="col s12">
+                        <a href="./character.html" class="breadcrumb">Character Creation</a>
+                        <a href="./stats.html" class="breadcrumb">Stat Generator</a>
+                        <a href="./equipment.html" class="breadcrumb">Equipment</a>
+                        <a href="./spells.html" class="breadcrumb">Spells</a>
+                    </div>
+                </div>
+            </nav>
+            <!-- Modal Structure -->
+            <!-- Add instructions on how to pick to random or user input -->
+            <div id="modal1" class="modal modal-fixed-footer">
+                <div class="modal-content black-text">
+                    <h4>Instructions</h4>
+                    <p>
+                        Using the data you preiously submitted, this section will either randomly choose your
+                        character's cantrips or you can choose your own!
+                    </p>
+                    <p>
+                        The initial switch lets you choose if you would like to Randomize your cantrips or you can
+                        choose which ones to use.
+                    </p>
+                    <p>
+                        Depending on your response to the switch, you will either be shown all of the available spells
+                        to choose from or you will be shown the randomly chosen spells!
+                    </p>
+                    <p>
+                        If your class does not have any cantrips to choose from you will not be able to pick any spells!
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">OK</a>
+                </div>
+            </div>
+            <div class="container hidden-on-start if-no-spells" id="post-choices">
+                <div class="row spells-chosen" id="spells-chosen"></div>
+                <a
+                    class="btn red darken-4 hidden-on-start"
+                    type="submit"
+                    name="action"
+                    id="submitChar"
+                    data-position="right"
+                    onclick="M.toast({html: 'Added to Character Sheet'})"></a>
+                    Submit to Character
+                    <i class="material-icons right">file_download</i>
+                </a>
+                <br />
+                <br />
+                <a
+                    class="btn red darken-4 hidden-on-start"
+                    type="submit"
+                    name="action"
+                    id="restart"
+                    data-position="right">
+                    Choose Again
+                    <i class="material-icons right">keyboard_arrow_left</i>
+                </a>
+            </div>
+            <div id="endContainer" class="container endContainer">
+                <div id="closingMessage">
+                    <br />
+                    <a class="btn red darken-4 endContainer" type="submit" name="action" id="tut" data-position="right" onclick="M.toast({html: 'Added to Character Sheet'})">
+                        Continue to Class tutorial
+                        <i class="material-icons right">keyboard_arrow_right</i>
+                    </a>
+                </div>
+            </div>
+            <div class="container if-no-spells" id="pre-choices">
+                <div class="section">
+                    <h3 class="startup">Spells</h3>
+                    <p class="instruct startup" id="instruct">
+                        Pick whether you would like to have your cantrips randomly picked or if you would like to pick
+                        them yourself.
+                    </p>
+                    <div class="switch" id="switch">
+                        <p></p>
+                        <label>
+                            My Choice
+                            <input type="checkbox" id="demo" />
+                            <span class="lever red darken-4"></span>
+                            Random
+                        </label>
+                    </div>
+                    <br />
+                    <div class="divider white"></div>
+                    <br />
+                    <button
+                        class="btn waves-effect waves-red red darken-4"
+                        type="submit"
+                        name="action"
+                        id="submit-choice">
+                        Submit
+                        <i class="material-icons right">file_download</i>
+                    </button>
+                    <div id="spellsContainer" class="hidden-on-start1"></div>
+                    <div id="randomSpellsContainer" class="hidden-on-start2">
+                        <div id="randomBtnCont">
+                            <a
+                                class="btn red darken-4 hidden-on-start2"
+                                type="submit"
+                                name="action"
+                                id="submitChar2"
+                                data-position="right"
+                                onclick="M.toast({html: 'Added to Character Sheet'})">
+                                Submit to Character
+                                <i class="material-icons right">file_download</i>
+                            </a>
+                            <br />
+                            <br />
+                            <a
+                                class="btn red darken-4 hidden-on-start2"
+                                type="submit"
+                                name="action"
+                                id="restart2"
+                                data-position="right">
+                                Choose Again
+                                <i class="material-icons right">keyboard_arrow_left</i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <br />
+                    <br />
+                    <a class="btn red darken-4" type="submit" name="action" id="submit-spells" data-position="right">
+                        Submit to Character
+                        <i class="material-icons right">file_download</i>
+                    </a>
+                    <h5 class="submit-warning" id="submit-warning"></h5>
+                    <br />
+                </div>
+            </div>
+        </main>
+        <br />
+        <footer class="page-footer hide-on-med-and-down hide">
+            <div class="footer-copyright">
+                <div class="container center">
+                    <span class="">© 2022 Copyright by The Dashing Ducks</span>
+                </div>
+            </div>
+        </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="./assets/js/script.js"></script>
+        <script src="./assets/js/spells.js"></script>
+    </body>
+</html>
