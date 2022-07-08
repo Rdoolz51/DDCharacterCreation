@@ -151,6 +151,7 @@ $('#resetCharacter').on('click', function () {
 
 // either displays stats or new player message
 function displayStats() {
+    CharacterAttributes = JSON.parse(localStorage.getItem('character', PageAttributes));
     if (PageAttributes.spellPage != 'complete') {
         var NewUser = `<h5>You have not created a character yet! To begin your journey please click the character picture!</h5>`;
         $('#character-stats').append(NewUser);
