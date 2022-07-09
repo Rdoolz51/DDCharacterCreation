@@ -442,7 +442,7 @@ var checkClass = function (event) {
         var randomClassNum = Math.floor(Math.random() * charClasses.length);
         var randomClass = charClasses[randomClassNum];
         // assign to list of character attributes
-        CharacterAttributes.class = randomClass;
+        CharacterAttributes.class = randomClass[0].toUpperCase() + randomClass.slice(1);
 
         // display randomized class
         $('#classRand').text(CharacterAttributes.class);
@@ -469,7 +469,7 @@ var checkRace = function (event) {
         var randomRaceNum = Math.floor(Math.random() * charRaces.length);
         var randomRace = charRaces[randomRaceNum];
         // assign to list of character attributes
-        CharacterAttributes.race = randomRace;
+        CharacterAttributes.race = randomRace[0].toUpperCase() + randomRace.slice(1);
 
         // display randomized race
         $('#raceRand').text(CharacterAttributes.race);
@@ -495,7 +495,7 @@ var checkAlign = function (event) {
         var randomAlignNum = Math.floor(Math.random() * charAligns.length);
         var randomAlign = charAligns[randomAlignNum];
         // assign to list of character attributes
-        CharacterAttributes.alignment = randomAlign;
+        CharacterAttributes.alignment = randomAlign[0].toUpperCase() + randomAlign.slice(1);
 
         // display randomized alignment
         $('#alignRand').text(CharacterAttributes.alignment);

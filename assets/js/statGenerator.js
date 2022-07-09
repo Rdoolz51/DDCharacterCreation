@@ -99,8 +99,8 @@ function randomizeStats() {
         rolls[j] = k;
     }
 
-    let race = CharacterAttributes.race;
-    let playerClass = CharacterAttributes.class;
+    let race = CharacterAttributes.race.toLowerCase();
+    let playerClass = CharacterAttributes.class.toLowerCase();
 
     //used for testing
 

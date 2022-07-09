@@ -30,7 +30,7 @@ var player = localStorage.getItem('character');
 CharacterAttributes = JSON.parse(player);
 
 var equipArr = [];
-var playerClass = CharacterAttributes.class;
+var playerClass = CharacterAttributes.class.toLowerCase();
 $('#spells').hide();
 //searches through equipment categories for martial/simple weapons
 function queryEquipment(equipmentUrl, choose) {

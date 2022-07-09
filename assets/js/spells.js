@@ -30,7 +30,7 @@ var load = function () {
     PageAttributes = JSON.parse(pState);
 };
 load();
-var charClass = CharacterAttributes.class;
+var charClass = CharacterAttributes.class.toLowerCase();
 var possibleSpells = [];
 var submitSpells = $('#submit-spells');
 var selectedSpells = [];
